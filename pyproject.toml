@@ -1,0 +1,67 @@
+[project]
+name = "GoRoutes_BackEnd"
+version = "0.1.0"
+description = "GoRoutes Backend"
+authors = [
+    {name = "jonatasperaza", email = "jonatassilvaperaza@gmail.com"},
+]
+dependencies = [
+    "django>=5.1.7", 
+    "djangorestframework>=3.16.0", 
+    "drf-spectacular>=0.28.0", 
+    "python-dotenv>=1.1.0", 
+    "django-cors-headers>=4.7.0"
+    ]
+requires-python = ">=3.13"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
+
+[[tool.pdm.autoexport]]
+filename = "requirements.txt"
+without-hashes = "true"
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ['migrations', '__init__.py', 'manage.py']
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+ignore = ["PLR6301"]
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+[tool.pdm.scripts]
+dev = "python manage.py runserver"
+runserver = "python manage.py runserver"
+createsuperuser = "python manage.py createsuperuser"
+migrate = "python manage.py migrate"
+makemigrations = "python manage.py makemigrations"
+shell = "python manage.py shell"
+test = "python manage.py test"
+startapp = "python manage.py startapp {args}"
+loaddata = "python manage.py loaddata {args}"
+dumpdata = "python manage.py dumpdata {args}"
+model = "python manage.py graph_models -a -g -o models.png"
+populate = "python manage.py populate"
+req = "pdm export -f requirements --without-hashes -o requirements.txt"
+check = "ruff check"
+pre_format = "ruff check --fix"
+format = "ruff format"
+
+[dependency-groups]
+dev = [
+    "pylint>=3.3.6",
+    "ipython>=9.0.2",
+    "ruff>=0.11.2",
+]
