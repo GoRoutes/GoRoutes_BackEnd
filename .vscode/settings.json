@@ -1,0 +1,12 @@
+{
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/__pypackages__/3.13/lib"
+    ],
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/__pypackages__/3.13/lib"
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    }
+}
