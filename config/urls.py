@@ -15,6 +15,7 @@ from rest_framework.reverse import reverse
 def api_root(request, format=None):
     return Response({
         'authentication': reverse('authentication-root', request=request, format=format),
+        'goroutes': reverse('goroutes-root', request=request, format=format),
         # 'transport': reverse('transport-root', request=request, format=format),
         # 'uploader': reverse('uploader-root', request=request, format=format),
     })
@@ -37,6 +38,7 @@ urlpatterns = [
     # API
     path('api/', api_root, name='api-root'),
     path('api/authentication/', include('core.authentication.urls')),
+    path('api/goroutes/', include('core.goroutes.urls')),
     # path('api/transport/', include('core.transport.urls')),
     # path('api/uploader/', include('core.uploader.urls')),
     path('', lambda request: redirect('api/', permanent=True)),
