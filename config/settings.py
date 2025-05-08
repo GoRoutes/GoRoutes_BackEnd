@@ -13,6 +13,7 @@ DEBUG = os.getenv('DEBUG', 'False')
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'authentication.User'
 
 # Application definition
 
@@ -24,9 +25,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'core.authentication',
     'corsheaders',
     'drf_spectacular',
+    'core.authentication',
 ]
 
 MIDDLEWARE = [
