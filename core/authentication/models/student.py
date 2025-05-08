@@ -11,4 +11,4 @@ class Student(models.Model):
         verbose_name_plural = _("Students")
 
     def __str__(self):
-        return self.email
+        return self.user.email
