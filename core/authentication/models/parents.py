@@ -12,4 +12,4 @@ class Parent(models.Model):
         verbose_name_plural = _("Parents")
 
     def __str__(self):
-        return self.email
+        return self.user.email
