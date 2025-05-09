@@ -12,7 +12,6 @@ class UserSerializer(serializers.ModelSerializer):
         try:    
             password = validated_data.pop('password')
             user = User(**validated_data)
-            user.check_password(password)
             user.set_password(password)
             user.save()
             return user
