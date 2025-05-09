@@ -1,19 +1,22 @@
-from django.urls import include, path
+from django.urls import include, path, reverse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
 from rest_framework.routers import DefaultRouter
+from rest_framework import viewsets, status
+# from rest_framework.routers import DefaultRouter    
+
+#from core.authentication.views.user import UserViewSet
 
 router = DefaultRouter()
-# router.register(r'athletes', AthleteViewSet)
-# router.register(r'personals', PersonalViewSet)
-# router.register(r'users', UserViewSet)
-# router.register(r'drivers', DriverViewSet)
-# router.register(r'students', StudentViewSet)
+
+#router.register(r'users', UserViewSet, basename='user')
 
 
 @api_view(['GET'])
 def authentication_root(request, format=None):
     return Response({
+        #'users': reverse('user-list', request=request, format=format),
         # 'athletes': reverse('athlete-list', request=request, format=format),
         # 'personals': reverse('personal-list', request=request, format=format),
         # 'users': reverse('user-list', request=request, format=format),
