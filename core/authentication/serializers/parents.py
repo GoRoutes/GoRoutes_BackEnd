@@ -6,10 +6,12 @@ from core.authentication.serializers import UserSerializer, StudentSerializer
 
 
 class ParentListSerializer(serializers.ModelSerializer):
+    children = StudentSerializer(many=True)
     user = UserSerializer()
+    
     class Meta:
         model = Parent
-        fields = ['id', 'user']
+        fields = ['id', 'user', 'children']
 
 class ParentSerializer(serializers.ModelSerializer):
     user = UserSerializer()
