@@ -15,13 +15,8 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
     
+    username = None
     
-    
-    def save(self, *args, **kwargs):
-        if self.pk and not self._state.adding and not self.password.startswith('pbkdf2_sha256$'):
-            self.set_password(self.password)
-        super().save(*args, **kwargs)
-
     def __str__(self):
         return self.email
 
