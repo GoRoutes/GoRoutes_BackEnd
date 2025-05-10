@@ -6,17 +6,17 @@ from core.authentication.serializers import UserSerializer, StudentSerializer
 
 
 class ParentListSerializer(serializers.ModelSerializer):
-    children = StudentSerializer(many=True)
+    students = StudentSerializer(many=True)
     user = UserSerializer()
     
     class Meta:
         model = Parent
-        fields = ['id', 'user', 'children']
+        fields = ['id', 'user', 'students']
 
 class ParentSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     students = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=Student.objects.all(), source='children', required=False
+        many=True, queryset=Student.objects.all(), required=False
     )
 
     class Meta:
@@ -30,13 +30,13 @@ class ParentSerializer(serializers.ModelSerializer):
         user_serializer.is_valid(raise_exception=True)
         user = user_serializer.save()
 
-        students_data = validated_data.pop('children', [])
+        students_data = validated_data.pop('students', [])
         parent = Parent.objects.create(user=user, **validated_data)
-        parent.children.set(students_data)
+        parent.students.set(students_data)
         return parent
     
     def update(self, instance, validated_data):
-        students_data = validated_data.pop('children', None)
+        students_data = validated_data.pop('students', None)
         if students_data is not None:
-            instance.children.set(students_data)
+            instance.students.set(students_data)
         return super().update(instance, validated_data)
