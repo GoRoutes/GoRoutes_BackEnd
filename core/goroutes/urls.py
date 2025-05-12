@@ -2,8 +2,12 @@ from django.urls import include, path
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.routers import DefaultRouter
+from rest_framework.reverse import reverse
+
+from core.goroutes.views import VehicleViewSet
 
 router = DefaultRouter()
+router.register(r'vehicles', VehicleViewSet)
 # router.register(r'athletes', AthleteViewSet)
 # router.register(r'personals', PersonalViewSet)
 # router.register(r'users', UserViewSet)
@@ -14,6 +18,7 @@ router = DefaultRouter()
 @api_view(['GET'])
 def goroutes_root(request, format=None):
     return Response({
+        'vehicles': reverse('vehicle-list', request=request, format=format),
         # 'athletes': reverse('athlete-list', request=request, format=format),
         # 'personals': reverse('personal-list', request=request, format=format),
         # 'users': reverse('user-list', request=request, format=format),
