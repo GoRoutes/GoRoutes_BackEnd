@@ -59,6 +59,7 @@ req = "pdm export -f requirements --without-hashes -o requirements.txt"
 check = "ruff check"
 pre_format = "ruff check --fix"
 format = "ruff format"
+migrate_db = "python manage.py migrate_db"
 
 [dependency-groups]
 dev = [
