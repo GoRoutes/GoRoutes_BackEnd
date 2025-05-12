@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_spectacular',
     'core.authentication',
+    'core.goroutes',
 ]
 
 MIDDLEWARE = [
