@@ -1,6 +1,8 @@
 from django.db import models
-from core.authentication.models import User, Student
 from django.utils.translation import gettext_lazy as _
+
+from core.authentication.models import Student, User
+
 
 class Parent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='parent')

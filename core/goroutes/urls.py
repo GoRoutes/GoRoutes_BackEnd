@@ -1,10 +1,10 @@
 from django.urls import include, path
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.routers import DefaultRouter
 from rest_framework.reverse import reverse
+from rest_framework.routers import DefaultRouter
 
-from core.goroutes.views import VehicleViewSet, NotifyViewSet
+from core.goroutes.views import NotifyViewSet, VehicleViewSet
 
 router = DefaultRouter()
 router.register(r'vehicles', VehicleViewSet, basename='vehicles')

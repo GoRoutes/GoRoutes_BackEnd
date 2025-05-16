@@ -1,5 +1,6 @@
 from django.contrib import admin
-from core.goroutes.models import Vehicle, Notify, LogEntry
+
+from core.goroutes.models import LogEntry, Notify, Vehicle
 
 admin.site.register(Vehicle)
 admin.site.register(Notify)

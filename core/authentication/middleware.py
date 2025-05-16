@@ -2,12 +2,14 @@ import threading
 
 _thread_locals = threading.local()
 
+
 def get_current_request():
     """
     Retorna o objeto HttpRequest atualmente em processamento,
     ou None se não houver nenhum.
     """
     return getattr(_thread_locals, 'request', None)
+
 
 def get_current_user():
     """
@@ -16,6 +18,7 @@ def get_current_user():
     """
     request = get_current_request()
     return getattr(request, 'user', None) if request else None
+
 
 class ThreadLocalMiddleware:
     """

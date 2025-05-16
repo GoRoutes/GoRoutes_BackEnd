@@ -6,5 +6,4 @@ class GoroutesConfig(AppConfig):
     name = 'core.goroutes'
 
     def ready(self):
-        import core.goroutes.signals.vehicle
-    
+        pass

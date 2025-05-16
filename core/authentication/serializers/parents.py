@@ -1,17 +1,17 @@
 from rest_framework import serializers
 
 from core.authentication.models import Parent, Student
-from core.authentication.serializers import UserSerializer, StudentSerializer
-
+from core.authentication.serializers import StudentSerializer, UserSerializer
 
 
 class ParentListSerializer(serializers.ModelSerializer):
     students = StudentSerializer(many=True)
     user = UserSerializer()
-    
+
     class Meta:
         model = Parent
         fields = ['id', 'user', 'students']
+
 
 class ParentSerializer(serializers.ModelSerializer):
     user = UserSerializer()
@@ -34,7 +34,7 @@ class ParentSerializer(serializers.ModelSerializer):
         parent = Parent.objects.create(user=user, **validated_data)
         parent.students.set(students_data)
         return parent
-    
+
     def update(self, instance, validated_data):
         students_data = validated_data.pop('students', None)
         if students_data is not None:

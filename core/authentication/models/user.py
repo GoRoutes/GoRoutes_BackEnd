@@ -1,7 +1,9 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from core.authentication.managers import CustomUserManager
+
 
 class User(AbstractUser):
     name = models.CharField(max_length=255, help_text=_("The name of the user"))
@@ -11,15 +13,14 @@ class User(AbstractUser):
     is_staff = models.BooleanField(default=False, help_text=_("Whether the user is staff"))
     # picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True, help_text=_("The profile picture of the user"))
     phone = models.CharField(max_length=255, null=True, blank=True, help_text=_("The phone number of the user"))
-    
-    
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
-    
+
     username = None
-    
+
     objects = CustomUserManager()
-    
+
     def __str__(self):
         return self.email
 

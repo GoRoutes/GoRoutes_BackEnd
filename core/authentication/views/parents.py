@@ -1,6 +1,8 @@
 from rest_framework import viewsets
+
 from core.authentication.models import Parent
-from core.authentication.serializers import ParentSerializer, ParentListSerializer
+from core.authentication.serializers import ParentListSerializer, ParentSerializer
+
 
 class ParentViewSet(viewsets.ModelViewSet):
     queryset = Parent.objects.all()
@@ -10,4 +12,3 @@ class ParentViewSet(viewsets.ModelViewSet):
         if self.action == 'list':
             return ParentListSerializer
         return super().get_serializer_class()
-

@@ -1,5 +1,7 @@
 from rest_framework import serializers
+
 from core.authentication.models import User
+
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -9,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'email', 'phone', 'password']
 
     def create(self, validated_data):
-        try:    
+        try:
             password = validated_data.pop('password')
             user = User(**validated_data)
             user.set_password(password)

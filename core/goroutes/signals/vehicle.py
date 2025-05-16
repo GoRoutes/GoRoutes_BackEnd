@@ -1,9 +1,11 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from core.goroutes.models.vehicle import Vehicle
-from core.goroutes.models.logentry import LogEntry
+
 from core.authentication.middleware import get_current_user
 from core.authentication.models import User
+from core.goroutes.models.logentry import LogEntry
+from core.goroutes.models.vehicle import Vehicle
+
 
 @receiver(post_save, sender=Vehicle)
 def log_vehicle_save(sender, instance, created, **kwargs):
