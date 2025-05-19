@@ -1,3 +1,3 @@
-from .address import AddressSerializer
-from .driver import DriverCreateSerializer, DriverReadSerializer
-from .user import UserSerializer
+from .address import AddressReadSerializer, AddressWriterSerializer
+from .user import UserSerializer, UserWriterSerializer, UserReadSerializer
+from .driver import DriverReadSerializer ,DriverCreateSerializer

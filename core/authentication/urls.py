@@ -19,7 +19,6 @@ def authentication_root(request, format=None):
         'drivers': reverse('driver-list', request=request, format=format),
     })
 
-
 urlpatterns = [
     path('', authentication_root, name='authentication-root'),
     path('', include(router.urls)),

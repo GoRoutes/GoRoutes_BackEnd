@@ -1,14 +1,17 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import ValidationError
 from django.db import transaction
 
 from core.authentication.models import User, Address, Driver
 from core.authentication.serializers import DriverReadSerializer, DriverCreateSerializer
 
 class DriverViewSet(ViewSet):
-
+    """
+    ViewSet para gerenciar motoristas.
+    Permite listar, criar, atualizar e excluir motoristas.
+    """
+    
     def list(self, request):
         drivers = Driver.objects.select_related('user').prefetch_related('adresses').all()
         serializer = DriverReadSerializer(drivers, many=True)
@@ -28,14 +31,10 @@ class DriverViewSet(ViewSet):
         serializer = DriverCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        # Extrair os dados validados
         validated_data = serializer.validated_data
         user_data = validated_data.pop('user')
-        addresses_data = request.data.pop('adresses', [])
+        addresses_data = request.data.pop('addresses', [])
 
-        breakpoint()
-
-        # Criar o usuário
         user = User.objects.create_user(
             username=user_data['username'],
             name=user_data['name'],
@@ -45,7 +44,6 @@ class DriverViewSet(ViewSet):
             data_of_birth=user_data.get('data_of_birth'),
         )
 
-        # Criar o driver
         driver = Driver.objects.create(
             user=user,
             cnh=validated_data['cnh'],
@@ -53,7 +51,6 @@ class DriverViewSet(ViewSet):
             is_active=validated_data.get('is_active', True)
         )
 
-        # Criar e associar os endereços
         address_objs = []
         for addr in addresses_data:
             address = Address.objects.create(**addr)
