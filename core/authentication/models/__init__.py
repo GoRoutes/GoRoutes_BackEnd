@@ -1,4 +1,3 @@
 from .user import User
-from .student import Student
+from .address import Address
 from .driver import Driver
-from .parents import Parent

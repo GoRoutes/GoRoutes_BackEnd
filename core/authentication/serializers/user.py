@@ -1,31 +1,21 @@
 from rest_framework import serializers
 from core.authentication.models import User
+from core.authentication.models import Driver
+from core.authentication.serializers import DriverReadSerializer  
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    driver_data = serializers.SerializerMethodField()
 
     class Meta:
         model = User
-        fields = ['id', 'name', 'email', 'phone', 'password']
+        fields = "__all__" 
+        extra_fields = ['driver_data']  
 
-    def create(self, validated_data):
-        try:    
-            password = validated_data.pop('password')
-            user = User(**validated_data)
-            user.set_password(password)
-            user.save()
-            return user
-        except Exception as e:
-            raise serializers.ValidationError(str(e))
-
-    def update(self, instance, validated_data):
+    def get_driver_data(self, obj):
         try:
-            password = validated_data.pop('password', None)
-            for attr, value in validated_data.items():
-                setattr(instance, attr, value)
-            if password:
-                instance.set_password(password)
-            instance.save()
-            return instance
-        except Exception as e:
-            raise serializers.ValidationError(str(e))
+            driver = obj.driver
+            data = DriverReadSerializer(driver).data
+            data.pop('user', None)
+            return data
+        except Driver.DoesNotExist:
+            return None

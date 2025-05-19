@@ -23,12 +23,12 @@ class Command(BaseCommand):
 
         for app in apps:
             self.stdout.write(f'Executando makemigrations para {app}...')
-            subprocess.run(['pdm', "manage.py" , 'makemigrations', app], check=True)
+            subprocess.run(['pdm', 'makemigrations', app], check=True)
             
             self.stdout.write(f'Executando migrate para {app}...')
-            subprocess.run(['pdm', "manage.py" ,  'migrate', app], check=True)
+            subprocess.run(['pdm' ,  'migrate', app], check=True)
         
-        subprocess.run(['pdm', "manage.py", 'migrate'], check=True)
+        subprocess.run(['pdm', 'migrate'], check=True)
 
         # Create superuser
         User = get_user_model()

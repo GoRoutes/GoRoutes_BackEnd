@@ -5,18 +5,23 @@ from rest_framework.reverse import reverse
 from rest_framework.routers import DefaultRouter
 from rest_framework import viewsets, status
 
-from core.authentication.views import UserViewSet, DriverViewSet
+from core.authentication.views import UserViewSet, DriverViewSet, ParentViewSet, StudentViewSet 
 
 router = DefaultRouter()
 
 router.register(r'users', UserViewSet, basename='user')
 router.register(r'drivers', DriverViewSet, basename='driver')
+router.register(r'parents', ParentViewSet, basename='parent')
+router.register(r'students', StudentViewSet, basename='student')
+
 
 @api_view(['GET'])
 def authentication_root(request, format=None):
     return Response({
         'users': reverse('user-list', request=request, format=format),
         'drivers': reverse('driver-list', request=request, format=format),
+        'parents': reverse('parent-list', request=request, format=format),
+        'students': reverse('student-list', request=request, format=format),
     })
 
 
