@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from core.authentication.models import User
-from core.authentication.serializers.validations import get_driver_data
+from core.authentication.serializers.handlers import get_driver_data
 
 class UserSerializer(serializers.ModelSerializer):
     driver_data = serializers.SerializerMethodField()

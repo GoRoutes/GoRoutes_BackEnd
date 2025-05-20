@@ -5,7 +5,7 @@ from rest_framework.reverse import reverse
 from rest_framework.routers import DefaultRouter
 from rest_framework import viewsets, status
 
-from core.authentication.views import UserViewSet, DriverViewSet
+from core.authentication.views.infra import UserViewSet, DriverViewSet
 
 router = DefaultRouter()
 
