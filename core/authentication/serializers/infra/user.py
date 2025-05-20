@@ -1,6 +1,12 @@
 from rest_framework import serializers
 from core.authentication.models import User
-from core.authentication.serializers.handlers import get_driver_data
+from core.authentication.serializers.handlers import (
+    get_driver_data, 
+    validate_unique_user_email, 
+    validate_unique_user_name, 
+    validate_unique_username, 
+    validate_max_age
+)
 
 class UserSerializer(serializers.ModelSerializer):
     driver_data = serializers.SerializerMethodField()
@@ -20,6 +26,14 @@ class UserWriterSerializer(serializers.Serializer):
     telephone = serializers.CharField(max_length=20)
     passage_id = serializers.CharField(max_length=255)
     data_of_birth = serializers.DateField(required=False, allow_null=True)
+
+    def validate(self, attrs):
+        validate_unique_user_email(attrs["email"])
+        validate_unique_user_name(attrs["name"])
+        validate_unique_username(attrs["username"])
+        validate_max_age(attrs["data_of_birth"])
+
+        return attrs
 
 class UserReadSerializer(serializers.Serializer):
     id = serializers.IntegerField()

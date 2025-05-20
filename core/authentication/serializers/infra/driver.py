@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from core.authentication.models import Driver
 from core.authentication.serializers.infra import (
     AddressReadSerializer, 
     AddressWriterSerializer, 
