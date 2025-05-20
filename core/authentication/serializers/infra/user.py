@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from core.authentication.models import User
-from core.authentication.models import Driver
+from core.authentication.serializers.validations import get_driver_data
 
 class UserSerializer(serializers.ModelSerializer):
     driver_data = serializers.SerializerMethodField()
@@ -11,14 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
         extra_fields = ['driver_data']  
 
     def get_driver_data(self, obj):
-        try:
-            from .driver import DriverReadSerializer 
-            driver = obj.driver
-            data = DriverReadSerializer(driver).data
-            data.pop('user', None)
-            return data
-        except Driver.DoesNotExist:
-            return None
+        return get_driver_data(self=self, obj=obj)
 
 class UserWriterSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=255)

@@ -7,7 +7,7 @@ from core.authentication.models import User
 from django.conf import settings
 from rest_framework.exceptions import AuthenticationFailed
 
-from core.authentication.serializers import UserSerializer
+from core.authentication.serializers.infra import UserSerializer
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()

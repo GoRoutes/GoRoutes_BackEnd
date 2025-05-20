@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from core.authentication.models import Student
 
-from core.authentication.serializers.user import UserSerializer
+from core.authentication.serializers.infra.user import UserSerializer
 
 
 class StudentSerializer(serializers.ModelSerializer):

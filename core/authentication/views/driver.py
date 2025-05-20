@@ -4,7 +4,7 @@ from rest_framework import status
 from django.db import transaction
 
 from core.authentication.models import User, Address, Driver
-from core.authentication.serializers import DriverReadSerializer, DriverCreateSerializer
+from core.authentication.serializers.infra import DriverReadSerializer, DriverCreateSerializer
 
 class DriverViewSet(ViewSet):
     """
