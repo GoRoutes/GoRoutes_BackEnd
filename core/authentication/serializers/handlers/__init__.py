@@ -1,2 +1,3 @@
 from .driver_handlers import get_driver_data
-from .all_handlers import validate_unique_user_email, validate_unique_user_name, validate_unique_username, validate_max_age
+from .all_handlers import validate_unique_user_email, validate_unique_user_name, validate_unique_username, validate_max_age, validate_states
+from .passenger_handlers import get_passenger_data

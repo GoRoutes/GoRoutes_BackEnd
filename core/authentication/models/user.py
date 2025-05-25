@@ -7,7 +7,6 @@ class User(AbstractUser):
     name = models.CharField(max_length=255, null=False, blank=False)
     email = models.EmailField(unique=True)
     telephone = models.CharField(max_length=20, null=False, blank=False)
-    passage_id = models.CharField(max_length=255, null=False, blank=False)
     data_of_birth = models.DateField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 

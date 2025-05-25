@@ -1,5 +1,4 @@
 from django.db import models
-from core.authentication.models import User
 
 class Address(models.Model):
     cep = models.CharField(max_length=9, null=False, blank=False)
@@ -9,10 +8,11 @@ class Address(models.Model):
     neighborhood = models.CharField(max_length=100, null=False, blank=False)
     city = models.CharField(max_length=100, null=False, blank=False)
     state = models.CharField(max_length=2, null=False, blank=False)
+    is_main = models.BooleanField(default=False)
     
     def __str__(self):
-        return self.cep
-    
+        return f'{self.street}, {self.number}, {self.neighborhood}, {self.city}, {self.state}'
+
     class Meta:
         verbose_name = 'Address'
         verbose_name_plural = 'Addresses'

@@ -1,4 +1,4 @@
-from core.authentication.models import Driver
+from core.authentication.models import Driver, Passenger
 
 def get_driver_data(self, obj):
         try:
@@ -9,3 +9,5 @@ def get_driver_data(self, obj):
             return data
         except Driver.DoesNotExist:
             return None
+
+

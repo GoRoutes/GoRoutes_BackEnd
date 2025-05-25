@@ -76,3 +76,40 @@
     }
   ]
 }
+
+{
+  "cpf": "12345678901",
+  "is_student": true,
+  "user": {
+    "username": "joaodasilva",
+    "name": "João da Silva",
+    "email": "joao@email.com",
+    "telephone": "11999999999",
+    "passage_id": "PID123",
+    "data_of_birth": "2000-01-01"
+  },
+  "addresses": [
+    {
+      "street": "Rua A",
+      "city": "Cidade B",
+      "state": "SP",
+      "neighborhood": "Sla mn",
+      "number": 123,
+      "cep": 123456789,
+      "is_main": false
+    },
+    {
+      "street": "Rua AB",
+      "city": "Cidade Ba",
+      "state": "PR",
+      "neighborhood": "asdSla mn",
+      "number": 123,
+      "cep": 123456789,
+      "is_main": true
+    }
+  ],
+  "student_data": {
+    "grade": "Engenharia de Software",
+    "registration": "RA2024001"
+  }
+}

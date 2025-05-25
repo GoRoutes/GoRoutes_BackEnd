@@ -5,13 +5,14 @@ from rest_framework.reverse import reverse
 from rest_framework.routers import DefaultRouter
 from rest_framework import viewsets, status
 
-from core.authentication.views.infra import UserViewSet, DriverViewSet, PassengerViewSet
+from core.authentication.views.infra import UserViewSet, DriverViewSet, PassengerViewSet, ResponsibleViewSet
 
 router = DefaultRouter()
 
 router.register(r'users', UserViewSet, basename='user')
 router.register(r'drivers', DriverViewSet, basename='driver')
 router.register(r'passengers', PassengerViewSet, basename='passenger')
+router.register(r'responsibles', ResponsibleViewSet, basename='responsible')
 
 @api_view(['GET'])
 def authentication_root(request, format=None):
@@ -19,6 +20,7 @@ def authentication_root(request, format=None):
         'users': reverse('user-list', request=request, format=format),
         'drivers': reverse('driver-list', request=request, format=format),
         'passengers': reverse('passenger-list', request=request, format=format),
+        'responsibles': reverse('responsible-list', request=request, format=format),
     })
 
 urlpatterns = [

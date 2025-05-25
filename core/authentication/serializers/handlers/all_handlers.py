@@ -47,3 +47,19 @@ def validate_max_age(data_of_birth):
             "status": 400
         })
     return data_of_birth
+
+def validate_states(state):
+    valid_states = [
+        "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA",
+        "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN",
+        "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+    ]
+
+    if state:
+        if len(state) != 2 or state.upper() not in valid_states:
+            raise serializers.ValidationError({
+                "error": "O estado deve ter exatamente 2 caracteres e ser um estado brasileiro válido.",
+                "code": "invalid_state",
+                "status": 400
+            })
+    return state

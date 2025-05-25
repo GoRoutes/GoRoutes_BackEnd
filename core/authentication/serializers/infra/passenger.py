@@ -6,10 +6,13 @@ from core.authentication.serializers.infra import (
     UserReadSerializer
 )
 
-
 class StudentDataSerializer(serializers.Serializer):
     grade = serializers.CharField(max_length=50)
     registration = serializers.CharField(max_length=20)
+    responsible = serializers.SerializerMethodField()
+
+    def get_responsible(self, obj):
+        return obj.responsible.id if obj.responsible else None
 
 class PassengerCreateSerializer(serializers.Serializer):
     cpf = serializers.CharField(max_length=14)
@@ -30,9 +33,14 @@ class PassengerCreateSerializer(serializers.Serializer):
 
 class PassengerReadSerializer(serializers.Serializer):
     id = serializers.IntegerField()
+    cpf = serializers.CharField()
     is_student = serializers.BooleanField()
     user = UserReadSerializer()
-    address = AddressReadSerializer(many=True)
+    address = serializers.SerializerMethodField()
     student_data = StudentDataSerializer(required=False)
+
+    def get_address(self, obj):
+        main_addresses = obj.address.filter(is_main=True)
+        return AddressReadSerializer(main_addresses, many=True).data
 
 
