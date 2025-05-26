@@ -53,26 +53,11 @@ def create_passenger(request):
     passenger.address.set(address_objs)
 
     if passenger.is_student and student_data:
-        responsible = None
-        responsible_id = student_data.get('responsible')
-
-        if responsible_id:
-            from core.authentication.models import Responsible
-            try:
-                responsible = Responsible.objects.get(id=responsible_id)
-            except Responsible.DoesNotExist:
-                return Response(
-                    {"detail": f"Responsável com ID {responsible_id} não encontrado."},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-
-        breakpoint()
-
         StudentData.objects.create(
             passenger=passenger,
             grade=student_data['grade'],
             registration=student_data['registration'],
-            responsible=responsible 
+            responsible=student_data.get('responsible')  # Já vem como objeto ou None
         )
 
     output_serializer = PassengerReadSerializer(passenger)

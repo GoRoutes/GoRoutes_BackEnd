@@ -1,3 +1,4 @@
+from core.authentication.models import Responsible
 from rest_framework import serializers
 from core.authentication.serializers.infra import (
     AddressReadSerializer, 
@@ -9,10 +10,7 @@ from core.authentication.serializers.infra import (
 class StudentDataSerializer(serializers.Serializer):
     grade = serializers.CharField(max_length=50)
     registration = serializers.CharField(max_length=20)
-    responsible = serializers.SerializerMethodField()
-
-    def get_responsible(self, obj):
-        return obj.responsible.id if obj.responsible else None
+    responsible = serializers.PrimaryKeyRelatedField(queryset=Responsible.objects.all(), required=False)
 
 class PassengerCreateSerializer(serializers.Serializer):
     cpf = serializers.CharField(max_length=14)

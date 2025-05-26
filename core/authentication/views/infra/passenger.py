@@ -19,4 +19,4 @@ class PassengerViewSet(ViewSet):
         return retrieve_passenger(request, pk)
 
     def create(self, request):
-        return  create_passenger(request)
+        return create_passenger(request)
