@@ -110,6 +110,21 @@
   ],
   "student_data": {
     "grade": "Engenharia de Software",
-    "registration": "RA2024001"
+    "registration": "RA2024001",
+    "responsible": 1
+  }
+}
+
+
+// Responsavel
+{
+  "cpf": "12345678901",
+  "user": {
+    "username": "joaodasilva",
+    "name": "João da Silva",
+    "email": "joao@email.com",
+    "telephone": "11999999999",
+    "passage_id": "PID123",
+    "data_of_birth": "2000-01-01"
   }
 }
