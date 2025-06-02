@@ -6,23 +6,28 @@ from core.authentication.serializers.handlers import (
     validate_unique_user_name, 
     validate_unique_username, 
     validate_max_age,
-    get_passenger_data
+    get_passenger_data,
+    get_responsible_data
 )
 
 class UserSerializer(serializers.ModelSerializer):
     driver_data = serializers.SerializerMethodField()
     passenger_data = serializers.SerializerMethodField()
+    responsible_data = serializers.SerializerMethodField()
 
     class Meta:
         model = User
         fields = "__all__" 
-        extra_fields = ['driver_data', 'passenger_data']  
+        extra_fields = ['driver_data', 'passenger_data', 'responsible_data']
 
     def get_driver_data(self, obj):
         return get_driver_data(self=self, obj=obj)
     
     def get_passenger_data(self, obj):
         return get_passenger_data(self=self, obj=obj)
+    
+    def get_responsible_data(self, obj):
+        return get_responsible_data(self=self, obj=obj)
 
 class UserWriterSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=255)
