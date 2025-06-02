@@ -32,7 +32,6 @@ def create_driver(request):
         name=user_data['name'],
         email=user_data['email'],
         telephone=user_data['telephone'],
-        passage_id=user_data['passage_id'],
         data_of_birth=user_data.get('data_of_birth'),
     )
 

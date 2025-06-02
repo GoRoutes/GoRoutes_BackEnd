@@ -1,33 +1,3 @@
-
-
-// Criar um passageiro estudante
-{
-  "cpf": "12345678901",
-  "is_student": true,
-  "user": {
-    "username": "joaodasilva",
-    "name": "João da Silva",
-    "email": "joao@email.com",
-    "telephone": "11999999999",
-    "passage_id": "PID123",
-    "data_of_birth": "2000-01-01"
-  },
-  "addresses": [
-    {
-      "street": "Rua A",
-      "city": "Cidade B",
-      "state": "SP",
-      "neighborhood": "Sla mn",
-      "number": 123,
-      "cep": 123456789
-    }
-  ],
-  "student_data": {
-    "grade": "Engenharia de Software",
-    "registration": "RA2024001"
-  }
-}
-
 // Criar um passageiro não estudante
 {
   "cpf": "98765432100",
@@ -37,7 +7,6 @@
     "name": "Maria da Silva",
     "email": "maria@email.com",
     "telephone": "11888888888",
-    "passage_id": "PID456",
     "data_of_birth": "1999-05-05"
   },
   "addresses": [
@@ -61,7 +30,6 @@
     "name": "João12 da Silva",
     "email": "joao1212@example.com",
     "telephone": "119999988288",
-    "passage_id": "ABC123456",
     "data_of_birth": "1990-05-20"
   },
   "addresses": [
@@ -76,7 +44,7 @@
     }
   ]
 }
-
+ // Criar um passageiro Estudante
 {
   "cpf": "12345678901",
   "is_student": true,
@@ -85,7 +53,6 @@
     "name": "João da Silva",
     "email": "joao@email.com",
     "telephone": "11999999999",
-    "passage_id": "PID123",
     "data_of_birth": "2000-01-01"
   },
   "addresses": [
@@ -124,7 +91,6 @@
     "name": "João da Silva",
     "email": "joao@email.com",
     "telephone": "11999999999",
-    "passage_id": "PID123",
     "data_of_birth": "2000-01-01"
   }
 }
