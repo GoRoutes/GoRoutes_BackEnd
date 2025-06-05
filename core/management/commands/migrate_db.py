@@ -30,6 +30,8 @@ class Command(BaseCommand):
         
         subprocess.run(['pdm', 'migrate'], check=True)
 
+        subprocess.run(['pdm', 'populate'], check=True)
+
         # Create superuser
         User = get_user_model()
         if not User.objects.filter(email='admin@admin.com').exists():

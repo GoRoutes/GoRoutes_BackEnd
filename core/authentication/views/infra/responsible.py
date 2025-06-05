@@ -1,11 +1,13 @@
 from rest_framework.viewsets import ViewSet
-from core.authentication.views.handlers.responsible_handlers import (
+from rest_framework.mixins import CreateModelMixin
+from core.authentication.views.handlers import (
     list_responsibles,
     retrieve_responsible,
-    create_responsible
+    create_responsible, 
+    delete_responsible
 )
 
-class ResponsibleViewSet(ViewSet):
+class ResponsibleViewSet(ViewSet, CreateModelMixin):
     def list(self, request):
         return list_responsibles(request)
 
@@ -14,3 +16,6 @@ class ResponsibleViewSet(ViewSet):
 
     def create(self, request):
         return create_responsible(request)
+    
+    def destroy(self, request, pk=None):
+        return delete_responsible(request, pk)

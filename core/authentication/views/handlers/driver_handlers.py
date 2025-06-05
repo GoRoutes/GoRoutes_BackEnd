@@ -51,3 +51,18 @@ def create_driver(request):
 
     output_serializer = DriverReadSerializer(driver)
     return Response(output_serializer.data, status=status.HTTP_201_CREATED)
+
+def delete_driver(request, pk):
+    try:
+        driver = Driver.objects.get(pk=pk)
+        user = driver.user
+        addresses = list(driver.adresses.all())
+        driver.delete()
+        user.delete()
+        for address in addresses:
+             address.delete()
+
+        return Response({"detail": "Motorista e endereços relacionados deletados com sucesso"}, status=status.HTTP_200_OK)
+
+    except Driver.DoesNotExist:
+        return Response({'detail': 'Motorista não encontrado'}, status=status.HTTP_404_NOT_FOUND)

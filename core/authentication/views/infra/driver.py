@@ -3,7 +3,8 @@ from rest_framework.viewsets import ViewSet
 from core.authentication.views.handlers import (
     list_drivers, 
     retrieve_driver,
-    create_driver
+    create_driver,
+    delete_driver
 )
 
 class DriverViewSet(ViewSet):
@@ -20,3 +21,6 @@ class DriverViewSet(ViewSet):
 
     def create(self, request):
         return create_driver(request)
+
+    def destroy(self, request, pk=None):
+        return delete_driver(request, pk)

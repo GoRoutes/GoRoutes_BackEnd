@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'core.authentication',
     'core.goroutes',
-    'core'
+    'core',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,7 @@ REST_FRAMEWORK = {
     # "DEFAULT_AUTHENTICATION_CLASSES": ("core.authentication.TokenAuthentication",),
     # "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",),
 #     'DEFAULT_PAGINATION_CLASS': 'config.pagination.CustomPagination',
-#     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 #     'PAGE_SIZE': 10,
 }
 

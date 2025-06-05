@@ -57,8 +57,23 @@ def create_passenger(request):
             passenger=passenger,
             grade=student_data['grade'],
             registration=student_data['registration'],
-            responsible=student_data.get('responsible')  # Já vem como objeto ou None
+            responsible=student_data.get('responsible')
         )
 
     output_serializer = PassengerReadSerializer(passenger)
     return Response(output_serializer.data, status=status.HTTP_201_CREATED)
+
+def delete_passenger(request, pk):
+    try:
+        passenger = Passenger.objects.get(pk=pk)
+        user = passenger.user
+        addresses = list(passenger.address.all())
+        passenger.delete()
+        user.delete()
+        for address in addresses:
+             address.delete()
+
+        return Response({"detail": "Passageiro e endereços relacionados deletados com sucesso"}, status=status.HTTP_200_OK)
+
+    except Passenger.DoesNotExist:
+        return Response({'detail': 'Passageiro não encontrado'}, status=status.HTTP_404_NOT_FOUND)
