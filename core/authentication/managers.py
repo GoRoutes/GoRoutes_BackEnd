@@ -10,8 +10,8 @@ class CustomUserManager(BaseUserManager):
             raise ValueError(_("The Email must be set"))
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
-        extra_fields.setdefault("passage_id", str(uuid.uuid4())) 
         user.set_password(password)
+        print(f"Creating user with email: {email}, password: {password}, extra_fields: {extra_fields}")
         user.save()
         return user
 

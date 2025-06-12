@@ -41,6 +41,7 @@ def create_responsible(request):
         email=user_data['email'],
         telephone=user_data['telephone'],
         data_of_birth=user_data.get('data_of_birth'),
+        password=user_data['password'],
     )
 
     responsible = Responsible.objects.create(

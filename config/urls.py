@@ -9,7 +9,10 @@ from drf_spectacular.views import (
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
-
+from rest_framework_simplejwt.views import (
+    TokenRefreshView,
+)
+from core.authentication.views.infra import CustomTokenObtainPairView
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -23,7 +26,6 @@ def api_root(request, format=None):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # OpenAPI 3
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path(
         'api/swagger/',
@@ -39,6 +41,8 @@ urlpatterns = [
     path('api/', api_root, name='api-root'),
     path('api/authentication/', include('core.authentication.urls')),
     path('api/goroutes/', include('core.goroutes.urls')),
+    # path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # path('api/transport/', include('core.transport.urls')),
     # path('api/uploader/', include('core.uploader.urls')),
     path('', lambda request: redirect('api/', permanent=True)),

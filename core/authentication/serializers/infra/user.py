@@ -9,6 +9,7 @@ from core.authentication.serializers.handlers import (
     get_passenger_data,
     get_responsible_data
 )
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class UserSerializer(serializers.ModelSerializer):
     driver_data = serializers.SerializerMethodField()
@@ -35,6 +36,7 @@ class UserWriterSerializer(serializers.Serializer):
     email = serializers.EmailField()
     telephone = serializers.CharField(max_length=20)
     data_of_birth = serializers.DateField(required=False, allow_null=True)
+    password = serializers.CharField(write_only=True, required=True, allow_blank=True)
 
     def validate(self, attrs):
         validate_unique_user_email(attrs["email"])
@@ -51,3 +53,13 @@ class UserReadSerializer(serializers.Serializer):
     email = serializers.EmailField()
     telephone = serializers.CharField(max_length=20)
     data_of_birth = serializers.DateField(required=False, allow_null=True)
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        user_data = UserSerializer(self.user).data
+        data.update({
+            'user': user_data
+        })
+
+        return data

@@ -1,5 +1,5 @@
 from .address import AddressReadSerializer, AddressWriterSerializer
-from .user import UserSerializer, UserWriterSerializer, UserReadSerializer
+from .user import UserSerializer, UserWriterSerializer, UserReadSerializer, CustomTokenObtainPairSerializer
 from .driver import DriverReadSerializer ,DriverCreateSerializer
 from .passenger import PassengerReadSerializer, PassengerCreateSerializer, StudentDataSerializer
 from .responsible import ResponsibleReadSerializer, ResponsibleCreateSerializer

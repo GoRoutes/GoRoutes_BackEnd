@@ -17,6 +17,7 @@ dependencies = [
     "django-extensions>=4.1",
     "pydotplus>=2.0.2",
     "faker>=37.3.0",
+    "djangorestframework-simplejwt>=5.5.0",
     ]
 requires-python = ">=3.13"
 readme = "README.md"
@@ -29,10 +30,6 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
-
-[[tool.pdm.autoexport]]
-filename = "requirements.txt"
-without-hashes = "true"
 
 [tool.ruff]
 line-length = 120
