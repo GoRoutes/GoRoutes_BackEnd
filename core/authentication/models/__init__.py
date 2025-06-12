@@ -1,4 +1,5 @@
 from .user import User
-from .student import Student
+from .address import Address
+from .responsible import Responsible
 from .driver import Driver
-from .parents import Parent
+from .passenger import Passenger, StudentData

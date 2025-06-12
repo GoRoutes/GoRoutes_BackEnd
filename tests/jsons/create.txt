@@ -1,0 +1,96 @@
+// Criar um passageiro não estudante
+{
+  "cpf": "98765432100",
+  "is_student": false,
+  "user": {
+    "username": "mariadasilva",
+    "name": "Maria da Silva",
+    "email": "maria@email.com",
+    "telephone": "11888888888",
+    "data_of_birth": "1999-05-05"
+  },
+  "addresses": [
+    {
+      "street": "Rua A",
+      "city": "Cidade B",
+      "state": "SP",
+      "neighborhood": "Sla mn",
+      "number": 123,
+      "cep": 123456789
+    }
+  ]
+}
+
+// Criar um motorista
+{
+  "cnh": "123456789",
+  "cpf": "000.000.000-00",
+  "user": {
+    "username": "jo21aosilva",
+    "name": "João12 da Silva",
+    "email": "joao1212@example.com",
+    "telephone": "119999988288",
+    "data_of_birth": "1990-05-20"
+  },
+  "addresses": [
+    {
+      "cep": "12345-678",
+      "street": "Rua A",
+      "number": "123",
+      "complement": "Apto 101",
+      "neighborhood": "Centro",
+      "city": "São Paulo",
+      "state": "SP"
+    }
+  ]
+}
+ // Criar um passageiro Estudante
+{
+  "cpf": "12345678901",
+  "is_student": true,
+  "user": {
+    "username": "joaodasilva",
+    "name": "João da Silva",
+    "email": "joao@email.com",
+    "telephone": "11999999999",
+    "data_of_birth": "2000-01-01"
+  },
+  "addresses": [
+    {
+      "street": "Rua A",
+      "city": "Cidade B",
+      "state": "SP",
+      "neighborhood": "Sla mn",
+      "number": 123,
+      "cep": 123456789,
+      "is_main": false
+    },
+    {
+      "street": "Rua AB",
+      "city": "Cidade Ba",
+      "state": "PR",
+      "neighborhood": "asdSla mn",
+      "number": 123,
+      "cep": 123456789,
+      "is_main": true
+    }
+  ],
+  "student_data": {
+    "grade": "Engenharia de Software",
+    "registration": "RA2024001",
+    "responsible": 1
+  }
+}
+
+
+// Responsavel
+{
+  "cpf": "12345678901",
+  "user": {
+    "username": "joaodasilva",
+    "name": "João da Silva",
+    "email": "joao@email.com",
+    "telephone": "11999999999",
+    "data_of_birth": "2000-01-01"
+  }
+}

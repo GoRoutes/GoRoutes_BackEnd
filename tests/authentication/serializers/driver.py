@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from core.authentication.serializers.user import UserSerializer
+from core.authentication.serializers.infra.user import UserSerializer
 
 from core.authentication.models import Driver
 

@@ -1,0 +1,68 @@
+from core.authentication.models import Driver, User, Address
+from core.authentication.serializers.infra import DriverReadSerializer, DriverCreateSerializer
+from django.db import transaction
+from rest_framework import status
+from rest_framework.response import Response
+
+def list_drivers(request):
+    drivers = Driver.objects.select_related('user').prefetch_related('adresses').all()
+    serializer = DriverReadSerializer(drivers, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+def retrieve_driver(request, pk):
+    try:
+        driver = Driver.objects.select_related('user').prefetch_related('adresses').get(pk=pk)
+    except Driver.DoesNotExist:
+        return Response({'detail': 'Motorista não encontrado'}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = DriverReadSerializer(driver)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@transaction.atomic
+def create_driver(request):
+    serializer = DriverCreateSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+
+    validated_data = serializer.validated_data
+    user_data = validated_data.pop('user')
+    addresses_data = request.data.pop('addresses', [])
+
+    user = User.objects.create_user(
+        username=user_data['username'],
+        name=user_data['name'],
+        email=user_data['email'],
+        telephone=user_data['telephone'],
+        data_of_birth=user_data.get('data_of_birth'),
+    )
+
+    driver = Driver.objects.create(
+        user=user,
+        cnh=validated_data['cnh'],
+        cpf=validated_data['cpf'],
+        is_active=validated_data.get('is_active', True)
+    )
+
+    address_objs = []
+    for addr in addresses_data:
+        address = Address.objects.create(**addr)
+        address_objs.append(address)
+
+    driver.adresses.set(address_objs)
+
+    output_serializer = DriverReadSerializer(driver)
+    return Response(output_serializer.data, status=status.HTTP_201_CREATED)
+
+def delete_driver(request, pk):
+    try:
+        driver = Driver.objects.get(pk=pk)
+        user = driver.user
+        addresses = list(driver.adresses.all())
+        driver.delete()
+        user.delete()
+        for address in addresses:
+             address.delete()
+
+        return Response({"detail": "Motorista e endereços relacionados deletados com sucesso"}, status=status.HTTP_200_OK)
+
+    except Driver.DoesNotExist:
+        return Response({'detail': 'Motorista não encontrado'}, status=status.HTTP_404_NOT_FOUND)

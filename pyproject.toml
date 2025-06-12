@@ -3,6 +3,7 @@ name = "GoRoutes_BackEnd"
 version = "0.1.0"
 description = "GoRoutes Backend"
 authors = [
+    {name = "AnthonyLoche", email = "anthonylocheifc@gmail.com"},
     {name = "jonatasperaza", email = "jonatassilvaperaza@gmail.com"},
 ]
 dependencies = [
@@ -11,7 +12,12 @@ dependencies = [
     "drf-spectacular>=0.28.0", 
     "python-dotenv>=1.1.0", 
     "django-cors-headers>=4.7.0", 
-    "Pillow>=11.2.1"
+    "Pillow>=11.2.1",
+    "passage-identity>=2.5.0",
+    "django-extensions>=4.1",
+    "pydotplus>=2.0.2",
+    "faker>=37.3.0",
+    "djangorestframework-simplejwt>=5.5.0",
     ]
 requires-python = ">=3.13"
 readme = "README.md"
@@ -24,10 +30,6 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
-
-[[tool.pdm.autoexport]]
-filename = "requirements.txt"
-without-hashes = "true"
 
 [tool.ruff]
 line-length = 120
@@ -54,7 +56,7 @@ startapp = "python manage.py startapp {args}"
 loaddata = "python manage.py loaddata {args}"
 dumpdata = "python manage.py dumpdata {args}"
 model = "python manage.py graph_models -a -g -o models.png"
-populate = "python manage.py populate"
+populate = "python manage.py populate_all"
 req = "pdm export -f requirements --without-hashes -o requirements.txt"
 check = "ruff check"
 pre_format = "ruff check --fix"
