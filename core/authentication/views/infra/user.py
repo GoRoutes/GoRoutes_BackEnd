@@ -17,5 +17,5 @@ class UserViewSet(ModelViewSet):
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
-    def get(self):
+    def get(self, request, *args, **kwargs):
         return Response({"detail": "Insira suas credenciais"}, status=status.HTTP_200_OK)
