@@ -9,6 +9,7 @@ from drf_spectacular.views import (
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+from core.authentication.utils import UpdatePicture
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
@@ -20,7 +21,7 @@ def api_root(request, format=None):
         'authentication': reverse('authentication-root', request=request, format=format),
         'goroutes': reverse('goroutes-root', request=request, format=format),
         # 'transport': reverse('transport-root', request=request, format=format),
-        # 'uploader': reverse('uploader-root', request=request, format=format),
+        'uploader': reverse('uploader-root', request=request, format=format),
     })
 
 
@@ -44,6 +45,7 @@ urlpatterns = [
     # path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # path('api/transport/', include('core.transport.urls')),
-    # path('api/uploader/', include('core.uploader.urls')),
+    path('api/uploader/', include('core.uploader.urls')),
     path('', lambda request: redirect('api/', permanent=True)),
+    # path('api/update-picture/', UpdatePicture.as_view(), name='update-picture'),
 ]

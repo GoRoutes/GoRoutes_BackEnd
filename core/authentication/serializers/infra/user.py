@@ -10,12 +10,15 @@ from core.authentication.serializers.handlers import (
     get_responsible_data
 )
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
+from core.uploader.models import Image
 class UserSerializer(serializers.ModelSerializer):
     driver_data = serializers.SerializerMethodField()
     passenger_data = serializers.SerializerMethodField()
     responsible_data = serializers.SerializerMethodField()
-
+    picture = serializers.PrimaryKeyRelatedField(
+        queryset=Image.objects.all(), required=False, allow_null=True
+    )
+    picture_file = serializers.SerializerMethodField()
     class Meta:
         model = User
         fields = "__all__" 
@@ -29,6 +32,11 @@ class UserSerializer(serializers.ModelSerializer):
     
     def get_responsible_data(self, obj):
         return get_responsible_data(self=self, obj=obj)
+    
+    def get_picture_file(self, obj):
+        if obj.picture and hasattr(obj.picture, 'file') and obj.picture.file:
+            return str(obj.picture.file)
+        return None
 
 class UserWriterSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=255)
@@ -37,6 +45,7 @@ class UserWriterSerializer(serializers.Serializer):
     telephone = serializers.CharField(max_length=20)
     data_of_birth = serializers.DateField(required=False, allow_null=True)
     password = serializers.CharField(write_only=True, required=True, allow_blank=True)
+    picture = serializers.PrimaryKeyRelatedField(queryset=Image.objects.all(), required=False)
 
     def validate(self, attrs):
         validate_unique_user_email(attrs["email"])
@@ -53,7 +62,6 @@ class UserReadSerializer(serializers.Serializer):
     email = serializers.EmailField()
     telephone = serializers.CharField(max_length=20)
     data_of_birth = serializers.DateField(required=False, allow_null=True)
-
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)

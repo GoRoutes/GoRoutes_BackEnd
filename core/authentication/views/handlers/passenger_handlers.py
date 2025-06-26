@@ -31,7 +31,7 @@ def create_passenger(request):
     user_data = validated_data.pop('user')
     addresses_data = request.data.pop('addresses', [])
     student_data = validated_data.pop('student_data', None)
-
+    
     user = User.objects.create_user(
         username=user_data['username'],
         name=user_data['name'],
@@ -39,6 +39,7 @@ def create_passenger(request):
         telephone=user_data['telephone'],
         data_of_birth=user_data.get('data_of_birth'),
         password=user_data['password'],
+        picture=user_data.get('picture'),
     )
 
     passenger = Passenger.objects.create(

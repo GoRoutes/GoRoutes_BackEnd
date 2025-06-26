@@ -13,7 +13,6 @@ def list_responsibles(request):
     serializer = ResponsibleReadSerializer(responsibles, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-
 def retrieve_responsible(request, pk):
     try:
         responsible = Responsible.objects.select_related('user').get(pk=pk)
@@ -42,6 +41,7 @@ def create_responsible(request):
         telephone=user_data['telephone'],
         data_of_birth=user_data.get('data_of_birth'),
         password=user_data['password'],
+        picture=user_data.get('picture'),
     )
 
     responsible = Responsible.objects.create(

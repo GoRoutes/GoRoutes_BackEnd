@@ -34,6 +34,7 @@ def create_driver(request):
         telephone=user_data['telephone'],
         data_of_birth=user_data.get('data_of_birth'),
         password=user_data['password'],
+        picture=user_data.get('picture'),
     )
 
     driver = Driver.objects.create(

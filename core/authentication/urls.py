@@ -6,6 +6,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework import viewsets, status
 
 from core.authentication.views.infra import UserViewSet, DriverViewSet, PassengerViewSet, ResponsibleViewSet, CustomTokenObtainPairView
+from core.authentication.utils import UpdatePicture
 
 router = DefaultRouter()
 
@@ -22,10 +23,12 @@ def authentication_root(request, format=None):
         'passengers': reverse('passenger-list', request=request, format=format),
         'responsibles': reverse('responsible-list', request=request, format=format),
         'token': reverse('token-obtain-pair', request=request, format=format),
+        'update-picture': reverse('update-picture', request=request, format=format),
     })
 
 urlpatterns = [
     path('', authentication_root, name='authentication-root'),
     path('token/', CustomTokenObtainPairView.as_view(), name='token-obtain-pair'),
+    path('update-picture/', UpdatePicture.as_view(), name='update-picture'),
     path('', include(router.urls)),
 ]
