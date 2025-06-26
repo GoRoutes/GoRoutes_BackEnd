@@ -29,4 +29,5 @@ class UpdatePicture(APIView):
         user.picture = image_created
         user.save()
 
-        return Response({"detail": "Profile picture updated successfully."}, status=status.HTTP_200_OK)
+        return Response({"detail": "Profile picture updated successfully.",
+                         "picture": image_created.file}, status=status.HTTP_200_OK)
