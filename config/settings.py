@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'core',
     'core.uploader',
     'django_extensions',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

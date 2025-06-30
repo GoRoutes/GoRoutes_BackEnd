@@ -5,10 +5,14 @@ from rest_framework import status
 from core.authentication.serializers.infra import UserSerializer, CustomTokenObtainPairSerializer
 from core.authentication.views.handlers.user_handlers import destroy_user
 from rest_framework_simplejwt.views import TokenObtainPairView
+from django_filters.rest_framework import DjangoFilterBackend
+from core.authentication.filters import ResponsibleByStudentsFilter
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = ResponsibleByStudentsFilter
 
     def destroy(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
