@@ -20,6 +20,7 @@ class User(AbstractUser):
 
     REQUIRED_FIELDS = []
     EMAIL_FIELD = "email"
+    USERNAME_FIELD = "email"
 
     objects = CustomUserManager()
 

@@ -170,3 +170,5 @@ cloudinary.config(
     api_key=API_KEY,
     api_secret=API_SECRET
 )
+
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
