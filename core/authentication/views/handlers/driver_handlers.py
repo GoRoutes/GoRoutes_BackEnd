@@ -25,7 +25,7 @@ def create_driver(request):
 
     validated_data = serializer.validated_data
     user_data = validated_data.pop('user')
-    addresses_data = request.data.pop('addresses', [])
+    addresses_data = validated_data.pop('addresses', [])
 
     user = User.objects.create_user(
         username=user_data['username'],
