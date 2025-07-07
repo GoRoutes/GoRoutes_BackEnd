@@ -40,5 +40,3 @@ class PassengerReadSerializer(serializers.Serializer):
     def get_address(self, obj):
         main_addresses = obj.address.filter(is_main=True)
         return AddressReadSerializer(main_addresses, many=True).data
-
-

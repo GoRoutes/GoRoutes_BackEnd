@@ -1,0 +1,422 @@
+[
+  {
+    "cpf": "000000000100",
+    "is_student": true,
+    "user": {
+      "username": "pedrohenrique",
+      "name": "Pedro Henrique",
+      "email": "pedrohenrique@gmail.com",
+      "password": "123456",
+      "telephone": "11999999000",
+      "data_of_birth": "2000-01-01"
+    },
+    "addresses": [
+      {
+        "street": "Servidão Aroldo da Silva",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Iririú",
+        "number": 191,
+        "cep": 89227201,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012900",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000000200",
+    "is_student": true,
+    "user": {
+      "username": "juliadacunha",
+      "name": "Júlia da Cunha",
+      "email": "juliadacunha@gmail.com",
+      "password": "123456",
+      "telephone": "11999999001",
+      "data_of_birth": "2000-01-02"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Polônia",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Iririú",
+        "number": 725,
+        "cep": 89227202,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012901",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000000300",
+    "is_student": true,
+    "user": {
+      "username": "yasminaraujo",
+      "name": "Yasmin Araújo",
+      "email": "yasminaraujo@gmail.com",
+      "password": "123456",
+      "telephone": "11999999002",
+      "data_of_birth": "2000-01-03"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Rio Fortuna",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Iririú",
+        "number": 367,
+        "cep": 89227203,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012902",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000000400",
+    "is_student": true,
+    "user": {
+      "username": "heloisaneumann",
+      "name": "Heloisa Neumann",
+      "email": "heloisaneumann@gmail.com",
+      "password": "123456",
+      "telephone": "11999999003",
+      "data_of_birth": "2000-01-04"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Comandante Hassel",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Iririú",
+        "number": 354,
+        "cep": 89227204,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012903",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000000500",
+    "is_student": true,
+    "user": {
+      "username": "isabellahaidar",
+      "name": "Isabella Haidar",
+      "email": "isabellahaidar@gmail.com",
+      "password": "123456",
+      "telephone": "11999999004",
+      "data_of_birth": "2000-01-05"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Victor Konder",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Iririú",
+        "number": 330,
+        "cep": 89227205,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012904",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000000600",
+    "is_student": true,
+    "user": {
+      "username": "nicolassteffens",
+      "name": "Nicolas Steffens",
+      "email": "nicolassteffens@gmail.com",
+      "password": "123456",
+      "telephone": "11999999005",
+      "data_of_birth": "2000-01-06"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Deputado Lauro Carneiro Loyola",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Iririú",
+        "number": 1242,
+        "cep": 89227206,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012905",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000000700",
+    "is_student": true,
+    "user": {
+      "username": "larissabiff",
+      "name": "Larissa Biff",
+      "email": "larissabiff@gmail.com",
+      "password": "123456",
+      "telephone": "11999999006",
+      "data_of_birth": "2000-01-07"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Libano",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Boa Vista",
+        "number": 146,
+        "cep": 89227207,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012906",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000000800",
+    "is_student": true,
+    "user": {
+      "username": "kaueian",
+      "name": "Kaue Ian",
+      "email": "kaueian@gmail.com",
+      "password": "123456",
+      "telephone": "11999999007",
+      "data_of_birth": "2000-01-08"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Desemb. Tavares Sobrinho",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Boa Vista",
+        "number": 789,
+        "cep": 89227208,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012907",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000000900",
+    "is_student": true,
+    "user": {
+      "username": "mariaclarap",
+      "name": "Maria Clara Pavanello",
+      "email": "mariaclarap@gmail.com",
+      "password": "123456",
+      "telephone": "11999999008",
+      "data_of_birth": "2000-01-09"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Antônio de Oliveira Silva",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Boa Vista",
+        "number": 567,
+        "cep": 89227209,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012908",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000001000",
+    "is_student": true,
+    "user": {
+      "username": "melissarafaela",
+      "name": "Melissa Rafaela",
+      "email": "melissarafaela@gmail.com",
+      "password": "123456",
+      "telephone": "11999999009",
+      "data_of_birth": "2000-01-10"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Cardeal Pacelli",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Boa Vista",
+        "number": 333,
+        "cep": 89227210,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012909",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000001100",
+    "is_student": true,
+    "user": {
+      "username": "danielcastro",
+      "name": "Daniel Castro",
+      "email": "danielcastro@gmail.com",
+      "password": "123456",
+      "telephone": "11999999010",
+      "data_of_birth": "2000-01-11"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Jatobá",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Guanabara",
+        "number": 51,
+        "cep": 89227211,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012910",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000001200",
+    "is_student": true,
+    "user": {
+      "username": "yohanajahn",
+      "name": "Yohana Jahn",
+      "email": "yohanajahn@gmail.com",
+      "password": "123456",
+      "telephone": "11999999011",
+      "data_of_birth": "2000-01-12"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Graciosa",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Guanabara",
+        "number": 1120,
+        "cep": 89227212,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012911",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000001300",
+    "is_student": true,
+    "user": {
+      "username": "juliacogrossi",
+      "name": "Júlia Vitória Cogrossi",
+      "email": "juliacogrossi@gmail.com",
+      "password": "123456",
+      "telephone": "11999999012",
+      "data_of_birth": "2000-01-13"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Vidal Ramos",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Guanabara",
+        "number": 268,
+        "cep": 89227213,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012912",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000001400",
+    "is_student": true,
+    "user": {
+      "username": "juliawermeling",
+      "name": "Julia Wermeling",
+      "email": "juliawermeling@gmail.com",
+      "password": "123456",
+      "telephone": "11999999013",
+      "data_of_birth": "2000-01-14"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Porto Alegre",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Guanabara",
+        "number": 52,
+        "cep": 89227214,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012913",
+      "responsible": 1
+    }
+  },
+  {
+    "cpf": "000000001500",
+    "is_student": true,
+    "user": {
+      "username": "abigailalencar",
+      "name": "Abigail Alencar",
+      "email": "abigailalencar@gmail.com",
+      "password": "123456",
+      "telephone": "11999999014",
+      "data_of_birth": "2000-01-15"
+    },
+    "addresses": [
+      {
+        "street": "Rua: Nacar",
+        "city": "Joinville",
+        "state": "SC",
+        "neighborhood": "Guanabara",
+        "number": 322,
+        "cep": 89227215,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "3AGRO2",
+      "registration": "2024012914",
+      "responsible": 1
+    }
+  }
+]

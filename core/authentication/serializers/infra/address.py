@@ -13,15 +13,9 @@ class AddressReadSerializer(serializers.Serializer):
     city = serializers.CharField(max_length=100)
     state = serializers.CharField(max_length=2)
     is_main = serializers.BooleanField(default=False)
-    full_address = serializers.SerializerMethodField()
+    full_address = serializers.CharField()
     latitude = serializers.CharField(max_length=20, allow_null=True, required=False, allow_blank=True)
-    longitude = serializers.CharField(max_length=20, allow_null=True, required=False, allow_blank=True)
-
-    def get_full_address(self, obj):
-        full_address = f'{obj.street}, {obj.number}, {obj.neighborhood}, {obj.city}, {obj.state}'
-        return full_address
-    
-    
+    longitude = serializers.CharField(max_length=20, allow_null=True, required=False, allow_blank=True)    
 
 class AddressWriterSerializer(serializers.Serializer):
     cep = serializers.CharField(max_length=9)

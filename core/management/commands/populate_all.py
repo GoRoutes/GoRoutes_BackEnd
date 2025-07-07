@@ -4,86 +4,124 @@ from core.authentication.models import (
 )
 from faker import Faker
 import random
+import os
+import json
+
+# Caminho para o JSON com os alunos
+data_file_path = os.path.join(os.path.dirname(__file__), 'data/students.json')
 
 fake = Faker('pt_BR')
 
 class Command(BaseCommand):
-    help = "Popula o banco de dados com dados fictícios"
+    help = "Popula o banco de dados com dados fictícios e reais dos alunos do IFC"
 
     def handle(self, *args, **kwargs):
         self.stdout.write("Populando dados...")
 
-        # Usuários
-        users = []
-        for _ in range(10):
+        with open(data_file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+
+        responsibles = []
+
+        # Criar o responsável fixo Anthony
+        anthony_user = User.objects.create(
+            username='anthony',
+            name='Anthony',
+            email='anthony@gmail.com',
+            telephone='11999999999',
+            data_of_birth='1980-01-01'
+        )
+        anthony_user.set_password('123456')
+        anthony_user.save()
+
+        anthony_responsible = Responsible.objects.create(
+            cpf=fake.cpf(),
+            user=anthony_user
+        )
+        responsibles.append(anthony_responsible)
+
+        # Criar mais 2 responsáveis aleatórios
+        for _ in range(2):
             user = User.objects.create(
                 username=fake.user_name(),
                 name=fake.name(),
                 email=fake.unique.email(),
                 telephone=fake.phone_number(),
-                data_of_birth=fake.date_of_birth(minimum_age=18, maximum_age=70)
+                data_of_birth=fake.date_of_birth(minimum_age=30, maximum_age=60)
             )
-            users.append(user)
-
-        addresses = []
-        for _ in range(15):
-            addr = Address.objects.create(
-                cep=fake.postcode(),
-                street=fake.street_name(),
-                number=str(fake.building_number()),
-                complement=fake.word() if random.choice([True, False]) else None,
-                neighborhood=fake.city_suffix(),
-                city=fake.city(),
-                state=fake.state_abbr(),
-                is_main=random.choice([True, False])
-            )
-            addresses.append(addr)
-
-        responsibles = []
-        passengers = []
-        students = []
-        drivers = []
-
-        for i in range(3):
             responsible = Responsible.objects.create(
                 cpf=fake.cpf(),
-                user=users[i]
+                user=user
             )
             responsibles.append(responsible)
 
-        for i in range(3, 6):
+        # Criar estudantes e passageiros do JSON
+        for entry in data:
+            u = entry["user"]
+            user = User.objects.create(
+                username=u["username"],
+                name=u["name"],
+                email=u["email"],
+                telephone=u["telephone"],
+                data_of_birth=u["data_of_birth"]
+            )
+            user.set_password(u["password"])
+            user.save()
+
+            # Endereço principal
+            address_data = entry["addresses"][0]
+            address = Address.objects.create(
+                street=address_data["street"],
+                number=address_data["number"],
+                neighborhood=address_data["neighborhood"],
+                city=address_data["city"],
+                state=address_data["state"],
+                cep=address_data["cep"],
+                is_main=address_data["is_main"]
+            )
+
+            # Passageiro
             passenger = Passenger.objects.create(
-                cpf=fake.cpf(),
-                user=users[i],
-                is_student=False
+                cpf=entry["cpf"],
+                user=user,
+                is_student=entry["is_student"]
             )
-            passenger.address.add(*random.sample(addresses, random.randint(1, 2)))
-            passengers.append(passenger)
+            passenger.address.add(address)
 
-        for i in range(6, 8):
-            responsible = random.choice(responsibles)
-            passenger = Passenger.objects.create(
-                cpf=fake.cpf(),
-                user=users[i],
-                is_student=True
+            # Se for estudante, vincula StudentData com Anthony
+            if entry["is_student"]:
+                StudentData.objects.create(
+                    passenger=passenger,
+                    grade=entry["student_data"]["grade"],
+                    registration=entry["student_data"]["registration"],
+                    responsible=anthony_responsible  
+                )
+
+        # Criar motoristas fictícios
+        for _ in range(2):
+            user = User.objects.create(
+                username=fake.user_name(),
+                name=fake.name(),
+                email=fake.unique.email(),
+                telephone=fake.phone_number(),
+                data_of_birth=fake.date_of_birth(minimum_age=25, maximum_age=60)
             )
-            passenger.address.add(*random.sample(addresses, random.randint(1, 2)))
-
-            StudentData.objects.create(
-                passenger=passenger,
-                grade=random.choice(['1º ano', '2º ano', '3º ano']),
-                registration=fake.numerify(text='##########'),
-                responsible=responsible
-            )
-            students.append(passenger)
-
-        for i in range(8, 10):
             driver = Driver.objects.create(
                 cnh=fake.numerify(text='###########'),
                 cpf=fake.cpf(),
-                user=users[i]
+                user=user
             )
-            driver.adresses.add(*random.sample(addresses, random.randint(1, 2)))
-            drivers.append(driver)
+
+            for _ in range(random.randint(1, 2)):
+                address = Address.objects.create(
+                    street=fake.street_name(),
+                    number=fake.building_number(),
+                    neighborhood=fake.city_suffix(),
+                    city=fake.city(),
+                    state=fake.state_abbr(),
+                    cep=fake.postcode(),
+                    is_main=random.choice([True, False])
+                )
+                driver.adresses.add(address)
 
         self.stdout.write(self.style.SUCCESS("Dados populados com sucesso!"))

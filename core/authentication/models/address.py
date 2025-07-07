@@ -14,6 +14,10 @@ class Address(models.Model):
     
     def __str__(self):
         return f'{self.street}, {self.number}, {self.neighborhood}, {self.city}, {self.state}'
+    
+    @property
+    def full_address(self):
+        return f'{self.street}, {self.number}, {self.neighborhood}, {self.city}, {self.state}'
 
     class Meta:
         verbose_name = 'Address'

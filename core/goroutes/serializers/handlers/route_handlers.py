@@ -28,6 +28,7 @@ def prepare_route_data(route):
         'init_hour': init_hour,
         'end_hour': end_hour,
         'duration': duration if duration else None,
+        'passengers_list': route.get("passengers_list", [])
     }
 
 def get_latitude_longitude(address):
