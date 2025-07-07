@@ -49,11 +49,11 @@ class RouteReadSerializer(serializers.Serializer):
     optimized_route_url = serializers.SerializerMethodField()
 
     def get_passengers(self, obj):
-        from core.authentication.serializers.infra import PassengerReadSerializer
+        from core.authentication.serializers.infra import PassengerRouteReadSerializer
 
         passenger_routes = PassengerRoute.objects.filter(route=obj)
         passengers = [pr.passenger for pr in passenger_routes]
-        return PassengerReadSerializer(passengers, many=True).data
+        return PassengerRouteReadSerializer(passengers, many=True).data
 
     def get_markers(self, obj):
         passenger_routes = PassengerRoute.objects.filter(route=obj)

@@ -40,3 +40,12 @@ class PassengerReadSerializer(serializers.Serializer):
     def get_address(self, obj):
         main_addresses = obj.address.filter(is_main=True)
         return AddressReadSerializer(main_addresses, many=True).data
+    
+
+class PassengerRouteReadSerializer(serializers.Serializer):
+    user = UserReadSerializer()
+    address = serializers.SerializerMethodField()
+    
+    def get_address(self, obj):
+        main_addresses = obj.address.filter(is_main=True)
+        return AddressReadSerializer(main_addresses, many=True).data
