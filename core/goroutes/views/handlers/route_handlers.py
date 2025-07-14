@@ -3,6 +3,9 @@ from core.authentication.models import Passenger
 from core.goroutes.serializers import RouteWriteSerializer, RouteReadSerializer
 from rest_framework.response import Response
 from rest_framework import status
+from core.goroutes.utils import get_latitude_longitude
+from django.db import transaction
+from django.db.models import signals
 
 def list_routes(request):
     """
@@ -12,28 +15,50 @@ def list_routes(request):
     serializer = RouteReadSerializer(routes, many=True)
     return Response(serializer.data)
 
+@transaction.atomic
 def create_route(request):
     serializer = RouteWriteSerializer(data=request.data)
     if serializer.is_valid():
         data = serializer.validated_data
 
-        # Criação da rota
+        # Obter coordenadas do endereço de origem
+        origin_lat, origin_lng = get_latitude_longitude(data["origin"])
+        if not origin_lat or not origin_lng:
+            return Response(
+                {"error": "Não foi possível obter as coordenadas do endereço de origem"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Obter coordenadas do endereço de destino
+        dest_lat, dest_lng = get_latitude_longitude(data["destination"])
+        if not dest_lat or not dest_lng:
+            return Response(
+                {"error": "Não foi possível obter as coordenadas do endereço de destino"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Criação da rota (inicialmente sem auto_recalculate)
         route = Route.objects.create(
             name=data["name"],
-            origin=data.get("origin", ""),
-            destination=data.get("destination", ""),
+            origin=data["origin"],
+            destination=data["destination"],
             distance=data.get("distance", 0.0),
-            init_hour=data.get("init_hour"),
-            end_hour=data.get("end_hour"),
-            duration=data.get("duration"),
-            latitude_origin=data.get("latitude_origin"),
-            longitude_origin=data.get("longitude_origin"),
-            latitude_destination=data.get("latitude_destination"),
-            longitude_destination=data.get("longitude_destination"),
+            init_hour=data["init_hour"],
+            end_hour=data["end_hour"],
+            duration=data.get("duration", 0.0),
+            latitude_origin=origin_lat,
+            longitude_origin=origin_lng,
+            latitude_destination=dest_lat,
+            longitude_destination=dest_lng,
+            auto_recalculate=False,  # Inicialmente falso
+            addresses=data.get("addresses", []),
+            vehicle=data.get("vehicle"),
+            addresses_order=data.get("addresses_order", []),
+            optimized_route_url=data.get("optimized_route_url", "")
         )
 
+        # Criar PassengerRoute para cada passageiro
         passenger_list = data.get("passengers_list", [])
-
         for passenger in passenger_list:
             # Garante que estamos lidando com instância e não com ID
             if isinstance(passenger, int):
@@ -43,8 +68,32 @@ def create_route(request):
                     continue  # ou trate o erro conforme sua necessidade
 
             # Evita duplicata
-            PassengerRoute.objects.get_or_create(passenger=passenger, route=route)
+            PassengerRoute.objects.create(passenger=passenger, route=route)
 
+        # Agora que os PassengerRoute foram criados, ativar auto_recalculate e tentar salvar
+        route.auto_recalculate = True
+        
+        # Chamar o signal manualmente para verificar se a otimização foi bem sucedida
+        signal_response = signals.pre_save.send(
+            sender=Route,
+            instance=route,
+            raw=False,
+            using='default',
+            update_fields=None
+        )
+        
+        # Verificar se algum receiver retornou False
+        for receiver, response in signal_response:
+            if response is False:
+                # Se houver erro na otimização, desfaz a transação
+                transaction.set_rollback(True)
+                return Response(
+                    {"error": "Não foi possível otimizar a rota. Verifique se todos os passageiros têm endereço principal cadastrado e se o veículo foi definido."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        
+        # Se chegou aqui, a otimização foi bem sucedida
+        route.save()
         return Response(RouteReadSerializer(route).data, status=status.HTTP_201_CREATED)
 
     # Erro de validação

@@ -1,1 +1,1 @@
-from .route_handlers import prepare_route_data, get_latitude_longitude
+from .route_handlers import prepare_route_data
