@@ -3,6 +3,10 @@ from rest_framework import serializers
 from core.goroutes.serializers.handlers import prepare_route_data
 from core.authentication.models import Passenger
 from core.goroutes.models import Route, PassengerRoute
+from urllib.parse import quote_plus
+import json
+from sklearn.cluster import KMeans
+from typing import List, Dict, Any
 
 class RouteWriteSerializer(serializers.Serializer):
     id = serializers.IntegerField(required=False, allow_null=True)
