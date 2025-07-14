@@ -40,3 +40,9 @@ class AddressWriterSerializer(serializers.Serializer):
         attrs["longitude"] = data_latitude_longitude.get("longitude")
 
         return attrs
+
+class AddressReadRouteSerializer(serializers.Serializer):
+    is_main = serializers.BooleanField(default=False)
+    full_address = serializers.CharField()
+    latitude = serializers.CharField(max_length=20, allow_null=True, required=False, allow_blank=True)
+    longitude = serializers.CharField(max_length=20, allow_null=True, required=False, allow_blank=True) 

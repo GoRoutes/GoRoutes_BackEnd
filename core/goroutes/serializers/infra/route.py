@@ -68,8 +68,8 @@ class RouteReadSerializer(serializers.Serializer):
             if hasattr(passenger, 'address'):
                 addresses.extend(passenger.address.filter(is_main=True))
 
-        from core.authentication.serializers.infra import AddressReadSerializer
-        return AddressReadSerializer(addresses, many=True).data
+        from core.authentication.serializers.infra import AddressReadRouteSerializer
+        return AddressReadRouteSerializer(addresses, many=True).data
 
     def get_optimized_route_url(self, obj):
         from urllib.parse import urlencode, quote_plus
