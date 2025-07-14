@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:9adf940d951914cfd89f7a5c5fa2b70d21f468b18cf4a1aa186706050f97cc1e"
+content_hash = "sha256:a8ff5ea6f21d245884c413da85fec1ac633899dd55e6c452f2a288123567d1ee"
 
 [[metadata.targets]]
 requires_python = ">=3.13"
@@ -167,6 +167,21 @@ dependencies = [
 files = [
     {file = "click-8.2.1-py3-none-any.whl", hash = "sha256:61a3265b914e850b85317d0b3109c7f8cd35a670f963866005d6ef1d5175a12b"},
     {file = "click-8.2.1.tar.gz", hash = "sha256:27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"},
+]
+
+[[package]]
+name = "cloudinary"
+version = "1.44.1"
+summary = "Python and Django SDK for Cloudinary"
+groups = ["default"]
+dependencies = [
+    "certifi",
+    "six",
+    "urllib3>=1.26.5",
+]
+files = [
+    {file = "cloudinary-1.44.1-py3-none-any.whl", hash = "sha256:b4785031179a5ec7010f46665e5c8fad2cae022c18405546f01d257e02f78b1c"},
+    {file = "cloudinary-1.44.1.tar.gz", hash = "sha256:62d4374b79d5476de2a86cb6a1da709a5429e02aef474bfc5d99f3e38a1a62ff"},
 ]
 
 [[package]]

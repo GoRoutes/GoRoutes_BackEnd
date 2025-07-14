@@ -6,6 +6,7 @@ from core.goroutes.models import Route, PassengerRoute
 from urllib.parse import quote_plus
 import json
 from sklearn.cluster import KMeans
+#@python-ignore
 from typing import List, Dict, Any
 
 class RouteWriteSerializer(serializers.Serializer):

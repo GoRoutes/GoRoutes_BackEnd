@@ -27,6 +27,7 @@ dependencies = [
   "typing>=3.7.4.3",
   "numpy>=2.3.1",
   "scikit-learn>=1.7.0",
+  "cloudinary>=1.44.1",
 ]
 requires-python = ">=3.13"
 readme = "README.md"
