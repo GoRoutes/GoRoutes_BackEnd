@@ -40,7 +40,6 @@ class Command(BaseCommand):
         )
         responsibles.append(anthony_responsible)
 
-        # Criar mais 2 responsáveis aleatórios
         for _ in range(2):
             user = User.objects.create(
                 username=fake.user_name(),
@@ -55,7 +54,6 @@ class Command(BaseCommand):
             )
             responsibles.append(responsible)
 
-        # Criar estudantes e passageiros do JSON
         for entry in data:
             u = entry["user"]
             user = User.objects.create(

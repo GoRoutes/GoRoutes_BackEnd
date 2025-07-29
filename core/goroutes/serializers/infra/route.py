@@ -47,12 +47,15 @@ class RouteReadSerializer(serializers.Serializer):
     latitude_destination = serializers.FloatField()
     longitude_destination = serializers.FloatField()
     passengers = serializers.SerializerMethodField()
-    markers = serializers.SerializerMethodField()
+    markers = serializers.JSONField()
     optimized_route_url = serializers.SerializerMethodField()
     vehicle = serializers.PrimaryKeyRelatedField(read_only=True)
     auto_recalculate = serializers.BooleanField()
     addresses = serializers.ListField(child=serializers.CharField())
     addresses_order = serializers.JSONField()
+    overview_polyline = serializers.JSONField()
+    points = serializers.JSONField()
+    coords_passageiros = serializers.JSONField()
 
     def get_passengers(self, obj):
         from core.authentication.serializers.infra import PassengerRouteReadSerializer
@@ -61,17 +64,17 @@ class RouteReadSerializer(serializers.Serializer):
         passengers = [pr.passenger for pr in passenger_routes]
         return PassengerRouteReadSerializer(passengers, many=True).data
 
-    def get_markers(self, obj):
-        passenger_routes = PassengerRoute.objects.filter(route=obj)
-        passengers = [pr.passenger for pr in passenger_routes]
+    # def get_markers(self, obj):
+    #     passenger_routes = PassengerRoute.objects.filter(route=obj)
+    #     passengers = [pr.passenger for pr in passenger_routes]
 
-        addresses = []
-        for passenger in passengers:
-            if hasattr(passenger, 'address'):
-                addresses.extend(passenger.address.filter(is_main=True))
+    #     addresses = []
+    #     for passenger in passengers:
+    #         if hasattr(passenger, 'address'):
+    #             addresses.extend(passenger.address.filter(is_main=True))
 
-        from core.authentication.serializers.infra import AddressReadRouteSerializer
-        return AddressReadRouteSerializer(addresses, many=True).data
+    #     from core.authentication.serializers.infra import AddressReadSerializer
+    #     return AddressReadSerializer(addresses, many=True).data
 
     def get_optimized_route_url(self, obj):
         if not obj.optimized_route_url:

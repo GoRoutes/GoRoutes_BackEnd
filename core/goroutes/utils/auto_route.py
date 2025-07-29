@@ -262,7 +262,8 @@ class OtimizadorRotas:
                         'caminho': caminho,
                         'distancia_total': distancia_total,
                         'tempo_estimado': tempo_total,
-                        'link_maps': link_maps
+                        'link_maps': link_maps,
+                        'coords_passageiros': coords_passageiros.tolist()
                     })
                 elif data['status'] == 'ZERO_RESULTS':
                     logging.error(f"Não foi possível encontrar rota entre {grupo['endereco_inicial']} e {endereco_final} com os waypoints fornecidos")

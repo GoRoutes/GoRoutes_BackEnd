@@ -30,8 +30,7 @@
     "username": "jo21aosilva",
     "name": "João12 da Silva",
     "email": "joao1212@example.com",
-        "password": "123456"
-
+        "password": "123456",
     "telephone": "119999988288",
     "data_of_birth": "1990-05-20"
   },
@@ -108,4 +107,6 @@
   "init_hour": "07:00:00",
   "end_hour": "07:45:00",
   "passengers_list": [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10, 11, 12, 13, 14, 15],
+  "auto_recalculate": true,
+  "vehicle": 1
 }

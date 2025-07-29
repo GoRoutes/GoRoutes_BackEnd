@@ -28,3 +28,14 @@ class AddressReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
         fields = '__all__'
+
+
+class AddressPassengerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ('id', 'full_address')
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['full_address'] = f"{instance.street}, {instance.number} - {instance.neighborhood}, {instance.city} - {instance.state}"
+        return representation

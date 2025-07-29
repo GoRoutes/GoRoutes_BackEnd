@@ -5,7 +5,7 @@ from core.authentication.serializers.infra import (
     AddressWriterSerializer, 
     UserWriterSerializer, 
     UserReadSerializer,
-    AddressReadRouteSerializer, 
+    AddressPassengerSerializer
 )
 
 class StudentDataSerializer(serializers.Serializer):
@@ -49,7 +49,7 @@ class PassengerRouteReadSerializer(serializers.Serializer):
         return {
             "id": obj.user.id,
             "name": obj.user.name,
-            "address": AddressReadRouteSerializer(
+            "address": AddressPassengerSerializer(
                 obj.address.filter(is_main=True), many=True
             ).data
         }

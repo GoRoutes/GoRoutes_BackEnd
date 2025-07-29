@@ -1,3 +1,4 @@
+from pyparsing import C
 from rest_framework.viewsets import ModelViewSet
 from core.authentication.models import User
 from rest_framework.response import Response
@@ -6,13 +7,13 @@ from core.authentication.serializers.infra import UserSerializer, CustomTokenObt
 from core.authentication.views.handlers.user_handlers import destroy_user
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django_filters.rest_framework import DjangoFilterBackend
-from core.authentication.filters import ResponsibleByStudentsFilter
+from core.authentication.filters import  CombinedUserFilter
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_class = ResponsibleByStudentsFilter
+    filterset_class = CombinedUserFilter
 
     def destroy(self, request, *args, **kwargs):
         pk = kwargs.get("pk")

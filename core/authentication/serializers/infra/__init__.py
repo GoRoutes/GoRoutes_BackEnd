@@ -1,4 +1,4 @@
-from .address import AddressReadSerializer, AddressWriterSerializer, AddressReadRouteSerializer
+from .address import AddressReadSerializer, AddressWriterSerializer, AddressPassengerSerializer
 from .user import UserSerializer, UserWriterSerializer, UserReadSerializer, CustomTokenObtainPairSerializer
 from .driver import DriverReadSerializer ,DriverCreateSerializer
 from .passenger import PassengerReadSerializer, PassengerCreateSerializer, StudentDataSerializer, PassengerRouteReadSerializer

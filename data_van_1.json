@@ -81,8 +81,8 @@
             "geocoder_status": "OK",
             "place_id": "ChIJR3hzML2x3pQR2XP01ReBh6c",
             "types": [
-                "premise",
-                "street_address"
+                "street_address",
+                "subpremise"
             ]
         },
         {
@@ -104,14 +104,6 @@
         {
             "geocoder_status": "OK",
             "place_id": "ChIJa5uemQax3pQRtLulElJdYsg",
-            "types": [
-                "premise",
-                "street_address"
-            ]
-        },
-        {
-            "geocoder_status": "OK",
-            "place_id": "ChIJK5QhRgWx3pQREE5FG6giEK0",
             "types": [
                 "premise",
                 "street_address"
@@ -351,7 +343,7 @@
                             "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Piratuba</b>",
                             "maneuver": "turn-right",
                             "polyline": {
-                                "points": "pfi_D~ebiHJsAHuAL_BLeBPiDRcCDe@DWDUHWH_@Pg@Rc@DIT_@^i@XYzDkDhEwDhAaAXUNMlJmI|BmB`BuA"
+                                "points": "pfi_D~ebiHJsAHuAL_BLeBPiDP}B@EDe@DWDUHWH_@Pg@Rc@DIT_@^i@XYzDkDhEwDhAaAXUNMlJmI|BmB`BuA"
                             },
                             "start_location": {
                                 "lat": -26.2668143,
@@ -1313,7 +1305,7 @@
                 {
                     "distance": {
                         "text": "0,6 km",
-                        "value": 630
+                        "value": 631
                     },
                     "duration": {
                         "text": "2 minutos",
@@ -1356,7 +1348,7 @@
                         {
                             "distance": {
                                 "text": "0,5 km",
-                                "value": 484
+                                "value": 485
                             },
                             "duration": {
                                 "text": "1 min",
@@ -1369,7 +1361,7 @@
                             "html_instructions": "Vire à <b>esquerda</b> na <b>R. Des. Tavares Sobrinho</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
                             "maneuver": "turn-left",
                             "polyline": {
-                                "points": "~lo_Dpy|hHx@_@x@a@fCgAhC_A~@c@~@a@~BgAxBgANG"
+                                "points": "~lo_Dpy|hHx@_@x@a@fCgAhCoAx@]dAW~BgAxBgANG"
                             },
                             "start_location": {
                                 "lat": -26.2985598,
@@ -1976,17 +1968,17 @@
                 },
                 {
                     "distance": {
-                        "text": "0,6 km",
-                        "value": 556
+                        "text": "0,7 km",
+                        "value": 662
                     },
                     "duration": {
                         "text": "2 minutos",
-                        "value": 96
+                        "value": 142
                     },
-                    "end_address": "R. Nacar, 322 - Guanabara, Joinville - SC, 89207-200, Brasil",
+                    "end_address": "R. Vidal Ramos, 268 - Guanabara, Joinville - SC, 89207-670, Brasil",
                     "end_location": {
-                        "lat": -26.3234991,
-                        "lng": -48.8305089
+                        "lat": -26.3218906,
+                        "lng": -48.8284656
                     },
                     "start_address": "R. Porto Alegre, 52 - Guanabara, Joinville - SC, 89207-680, Brasil",
                     "start_location": {
@@ -1996,20 +1988,20 @@
                     "steps": [
                         {
                             "distance": {
-                                "text": "0,1 km",
-                                "value": 148
+                                "text": "0,4 km",
+                                "value": 412
                             },
                             "duration": {
                                 "text": "1 min",
-                                "value": 27
+                                "value": 75
                             },
                             "end_location": {
-                                "lat": -26.3206571,
-                                "lng": -48.8320509
+                                "lat": -26.3224496,
+                                "lng": -48.8303013
                             },
                             "html_instructions": "Siga na direção <b>sudeste</b> na <b>R. Porto Alegre</b> em direção à <b>R. Graciosa</b>",
                             "polyline": {
-                                "points": "xps_Dju`iHnAkAxBuB"
+                                "points": "xps_Dju`iHnAkAxBuBnAoAnAmAbB_B`B_B"
                             },
                             "start_location": {
                                 "lat": -26.3196508,
@@ -2019,120 +2011,73 @@
                         },
                         {
                             "distance": {
-                                "text": "77 m",
-                                "value": 77
+                                "text": "68 m",
+                                "value": 68
                             },
                             "duration": {
                                 "text": "1 min",
-                                "value": 30
+                                "value": 18
                             },
                             "end_location": {
-                                "lat": -26.3211734,
-                                "lng": -48.8325697
+                                "lat": -26.3220554,
+                                "lng": -48.8297773
                             },
-                            "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Graciosa</b>",
-                            "maneuver": "turn-right",
-                            "polyline": {
-                                "points": "bws_Dho`iHp@n@r@v@"
-                            },
-                            "start_location": {
-                                "lat": -26.3206571,
-                                "lng": -48.8320509
-                            },
-                            "travel_mode": "DRIVING"
-                        },
-                        {
-                            "distance": {
-                                "text": "0,3 km",
-                                "value": 331
-                            },
-                            "duration": {
-                                "text": "1 min",
-                                "value": 39
-                            },
-                            "end_location": {
-                                "lat": -26.3234991,
-                                "lng": -48.8305089
-                            },
-                            "html_instructions": "Vire à <b>esquerda</b> na 1ª rua transversal para <b>R. Nacar</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Ursa Maior</b>",
                             "maneuver": "turn-left",
                             "polyline": {
-                                "points": "hzs_Dpr`iHlAeAlAeA~@o@|@m@j@i@BCf@e@p@o@l@m@"
+                                "points": "hbt_Djd`iHg@s@e@s@"
                             },
                             "start_location": {
-                                "lat": -26.3211734,
-                                "lng": -48.8325697
-                            },
-                            "travel_mode": "DRIVING"
-                        }
-                    ],
-                    "traffic_speed_entry": [],
-                    "via_waypoint": []
-                },
-                {
-                    "distance": {
-                        "text": "0,3 km",
-                        "value": 273
-                    },
-                    "duration": {
-                        "text": "1 min",
-                        "value": 60
-                    },
-                    "end_address": "R. Vidal Ramos, 268 - Guanabara, Joinville - SC, 89207-670, Brasil",
-                    "end_location": {
-                        "lat": -26.3218906,
-                        "lng": -48.8284656
-                    },
-                    "start_address": "R. Nacar, 322 - Guanabara, Joinville - SC, 89207-200, Brasil",
-                    "start_location": {
-                        "lat": -26.3234991,
-                        "lng": -48.8305089
-                    },
-                    "steps": [
-                        {
-                            "distance": {
-                                "text": "2 m",
-                                "value": 2
-                            },
-                            "duration": {
-                                "text": "1 min",
-                                "value": 0
-                            },
-                            "end_location": {
-                                "lat": -26.3235152,
-                                "lng": -48.8304931
-                            },
-                            "html_instructions": "Siga na direção <b>sudeste</b> na <b>R. Nacar</b> em direção à <b>R. Vidal Ramos</b>",
-                            "polyline": {
-                                "points": "zht_Dte`iHBC"
-                            },
-                            "start_location": {
-                                "lat": -26.3234991,
-                                "lng": -48.8305089
+                                "lat": -26.3224496,
+                                "lng": -48.8303013
                             },
                             "travel_mode": "DRIVING"
                         },
                         {
                             "distance": {
-                                "text": "0,3 km",
-                                "value": 271
+                                "text": "72 m",
+                                "value": 72
                             },
                             "duration": {
                                 "text": "1 min",
-                                "value": 60
+                                "value": 23
+                            },
+                            "end_location": {
+                                "lat": -26.3225394,
+                                "lng": -48.8293
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Dr. Lúcio Correia</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "z_t_Dba`iHn@o@n@o@"
+                            },
+                            "start_location": {
+                                "lat": -26.3220554,
+                                "lng": -48.8297773
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 110
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 26
                             },
                             "end_location": {
                                 "lat": -26.3218906,
                                 "lng": -48.8284656
                             },
-                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Vidal Ramos</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
+                            "html_instructions": "Vire à <b>esquerda</b> na 1ª rua transversal para <b>R. Vidal Ramos</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
                             "maneuver": "turn-left",
                             "polyline": {
-                                "points": "~ht_Dpe`iHaBuBaBwB{B_DEE"
+                                "points": "zbt_Db~_iH{B_DEE"
                             },
                             "start_location": {
-                                "lat": -26.3235152,
-                                "lng": -48.8304931
+                                "lat": -26.3225394,
+                                "lng": -48.8293
                             },
                             "travel_mode": "DRIVING"
                         }
@@ -2427,7 +2372,7 @@
                 }
             ],
             "overview_polyline": {
-                "points": "|sf_DrndiHfGWJQPa@n@KtEOnG_@bPw@bc@gBzGYZk@WU[QmEeZe@_DEs@p@F~BRn@D?c@BsB@aDBiDB{Bd@mFkBMcAIJsAVuD^oGd@wEx@cCtAmBhN{LhYeVsEmJSkADaEkAuBw@eAb@_@dA}@fD_DwEuGi@e@cEaCLWvDwDdCiChCzDiC{DdAiApAhBqAiBh@g@xAuAlAoA|@{@RMo@aAk@y@m@}@nByAaCmDm@w@`Ay@ZWtFsEv@o@wEmHqDuFpDtFvElHw@n@y@n@^h@|CxEzCrEnE|GfCxDt@o@xBmBpDaDvNwMHkAkEcGuAyBOoBb@uDbA}An@k@v@o@`CaBdBQlBHxBQnEt@zN~C|E`FnE|ErHlIdI|Ih@p@^w@Z}@]eAW{@z@}Az@}ARg@Z_@nLoFvB_Az@a@gA_Dm@cBl@bBfA~Cx@_@`EiBhEcBhIyDlB}@X`At@|BpAbEjAtEx@hCq@|F[bD}BnB|BoBt@fDh@hBe@^kJ~HwHpG_IfHxLvMjPrQdGhGnAxA`AzBb@vM|AhOVdApA?pF_AvAaAnAeBfH{L[{CoA{EeAyAe@u@PObByAvAaAtA[|WiBzAVvBzBARb@x@x@DnAGj@LbGdFl@h@{AtAMNLOzAuAl@n@`B|A`BzAn@l@yBtBoAjAnAkAxBuBp@n@r@v@lAeAlCuBtCaC~A}A}AyB}EwG|EvG`BtBj@e@lAcAxAqArDeE?}@?iAXw@dAsAbCwBvBxF`A|BZl@z@s@z@w@bB}AdCmCdFkFlC{EZZZ{AdA}FvD{YrDgYlCaQj@aBfAwAzBsB|C_DbAs@lCIhH_@v@CbAE@sA?eBQmCqCmF}AkEOwBJyArByGrB}NxAkDvAcBhFmElAsBfAkIpA}AjMcLrQaPlQcPlCgBtEtCt@dApAxBd@^lAa@fCi@jECtAm@`AiA`BeDVwDVuIdAwE|AgC~AoA`Bo@nKk@tEa@|A{@hB}AnBy@`D?zDxBxGfFhF|DrCt@pCUtAs@pDyFpCiFdAsB`BsCdA{@^ShHq@|FoA|AoAxA_ClAuDdAcCdAoAlIsCdCCzHd@pBc@tB{AnD_FxFmIpBmC`CgBrH}CbDKjFNvHBtBaA|@uA`@sBD_CT_CXq@x@aA~E{BdFqBnGgCvAeAn@uAJcBe@iFLaBt@eBbEoD~IiIXq@jBkCpCa@|KhBnKjCrLtCnHdCbCN~ByAdJ_KzAaBd@_@Kc@[aAmBoEmCoFuIgMiToY{GcIkUiOy\\sSkQmKwLgK"
+                "points": "|sf_DrndiHfGWJQPa@n@KtEOnG_@bPw@bc@gBlG]LBNEJe@WUE?UQmEeZe@_DEs@p@F~BRn@D?c@BsB@aDBiDB{Bd@mFkBMcAIJsAVuD^oG^aEj@uBnAwBhN_MtO_NxEsDrBgB{AyCmB{D[oADcEUaAoBkCvAmApAiAfBeBwBuC{AyBa@a@e@]iDmBFMf@w@fBaBhDeDZFdA|Aj@|@KSeBgCQSdAiApAhBqAiBrAoA~A}AnAqA^WcA{AW_@m@}@v@k@v@m@i@y@i@{@{AoBxAmA~DgDpB_BiKcPhKbPqB~A`G`JvFpIvDzFjBaB~DkDxOuN`@m@?g@o@mAkCiDgBmCO}ADqBXoARy@dA}@lAcAnB{AhB]rBHf@GjBGfBXrOzCzAl@vD|D`CjC~@fAhF|FbK|KpA~A`AkB{@kC|C{F|JyEnF_CuBcGtBbGdKyE~Bu@xFoC|BeAp@~BtBvFMT|@zClAlDm@zF[`CO|@oB`BnBaBN?p@tCj@lB{E|DgLtJkHnGyAtAf@j@`CjCbFnFxM~NvJ`KjAnAnAdC`@lL|ApPVpAf@J|Ek@nCwArAeBdHmLLeAQ{@sA{Fs@eAcAyAz@w@`CiBjA_@~WmBtADjBrAf@hAZt@z@LtBExE~DbBxAiBdBhBeBzA~AdEvDiE`EhEaEdJ}ImAgB~A_BaCeD`CdDbElFvAmArDaD~ByCGgBL{@n@cAx@y@`A{@l@e@Xv@v@rBjAzCv@|AfA}@fD_DtE{ElBiB~@iBb@y@\\m@^i@LLLLTcAJg@jA}GxBaQjGme@nB}Lp@yArBaCzFyFlBW|CQnFU~AG@}AEgEk@wAkCcFo@eBc@cEVeBn@sAvAkHf@{Dl@gElB{DjBwB~EeEz@aC|@}G~BaC`HiGzI_IjTsRhKgJlChAxBfB|@`BfAfBTMtAa@nCe@pBF`BWv@c@hBcCz@_Cv@qPjA_ElBcClA{@rBm@xBWhHMnDe@fE}ClBq@vAGnCt@~N`L`CbBtCd@nC_@bBoAxF_K~CkG|B}Br@WpJw@~CgAhBaBvAiCfAiDpAmCrEeCvEaA`G`@jAFvBMlBs@`BaBjAaBhCoDjEwGnC_DtHwDrBa@nFDtIPxBShBkAr@uAXoCDsBZkBjAcBbIkD~GqCzCqA`AeA`@kA?{B_@cFRuAxAyBfB{AlGiFhCuC|@oBzAsAhDKtJhB`JxB~DlAxJpBrFvBdADv@OjB{AnLmMj@e@Su@eEqJiBsDmC_EcMwPoQuUqBkBwDcCe\\aTuZsQwKoHeGuF"
             },
             "summary": "R. Piratuba",
             "warnings": [],
@@ -2445,7 +2390,6 @@
                 11,
                 10,
                 13,
-                14,
                 12
             ]
         }

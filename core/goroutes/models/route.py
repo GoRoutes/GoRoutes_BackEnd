@@ -18,6 +18,10 @@ class Route(models.Model):
     auto_recalculate = models.BooleanField(default=False)
     addresses = models.JSONField(default=list)
     optimized_route_url = models.URLField(null=True, blank=True)
+    overview_polyline = models.JSONField(null=True, blank=True)
+    markers = models.JSONField(null=True, blank=True)
+    coords_passageiros = models.JSONField(default=list)
+    points = models.JSONField(default=list)
     
     # Campos necessários para o signal
     start_address = models.CharField(max_length=255, null=True, blank=True)
