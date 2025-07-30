@@ -4,6 +4,9 @@ from core.authentication.models import Address, User, Driver, Passenger, Student
 admin.site.register(User)
 admin.site.register(Address)
 admin.site.register(Driver)
-admin.site.register(Passenger)
 admin.site.register(StudentData)
 admin.site.register(Responsible)
+
+@admin.register(Passenger)
+class PassengerAdmin(admin.ModelAdmin):
+    search_fields = ['user__name', 'user__email']  # Ajuste conforme o modelo de User

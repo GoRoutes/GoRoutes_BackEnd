@@ -12,7 +12,7 @@ class Vehicle(models.Model):
     plate = models.CharField(max_length=255, help_text=_("The plate of the vehicle"))
     model = models.CharField(max_length=255, help_text=_("The model of the vehicle"))
     seats = models.IntegerField(help_text=_("The number of seats of the vehicle"))
-    picture = models.ImageField(upload_to='vehicles/', help_text=_("The picture of the vehicle"))
+    picture = models.ImageField(upload_to='vehicles/', help_text=_("The picture of the vehicle"), null=True, blank=True)
     status = models.CharField(max_length=255, choices=VehicleStatus.choices, help_text=_("The status of the vehicle"))
 
     class Meta:
