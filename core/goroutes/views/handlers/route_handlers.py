@@ -1,6 +1,6 @@
 from core.goroutes.models import Route, PassengerRoute
 from core.authentication.models import Passenger
-from core.goroutes.serializers import RouteWriteSerializer, RouteReadSerializer
+from core.goroutes.serializers import RouteWriteSerializer, RouteReadSerializer, RouteRetrieveSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from core.goroutes.utils import get_latitude_longitude
@@ -13,6 +13,18 @@ def list_routes(request):
     """
     routes = Route.objects.all()
     serializer = RouteReadSerializer(routes, many=True)
+    return Response(serializer.data)
+
+def retrieve_route(request, pk):
+    """
+    Retrieve a specific route by its primary key.
+    """
+    try:
+        route = Route.objects.get(pk=pk)
+    except Route.DoesNotExist:
+        return Response({'detail': 'Rota não encontrada'}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = RouteRetrieveSerializer(route)
     return Response(serializer.data)
 
 @transaction.atomic

@@ -1,9 +1,8 @@
 from django.conf import settings
 from rest_framework import serializers
 from core.authentication.models import Passenger
-from core.goroutes.models import Route, PassengerRoute, Vehicle
-from urllib.parse import quote_plus
-import json
+from core.goroutes.models import PassengerRoute, Vehicle
+from core.goroutes.serializers import VehicleSerializer
 
 class RouteWriteSerializer(serializers.Serializer):
     id = serializers.IntegerField(required=False, allow_null=True)
@@ -47,9 +46,40 @@ class RouteReadSerializer(serializers.Serializer):
     latitude_destination = serializers.FloatField()
     longitude_destination = serializers.FloatField()
     passengers = serializers.SerializerMethodField()
+    optimized_route_url = serializers.SerializerMethodField()
+    vehicle = VehicleSerializer(read_only=True)
+    auto_recalculate = serializers.BooleanField()
+  
+    def get_passengers(self, obj):
+        from core.authentication.serializers.infra import PassengerRouteReadSerializer
+
+        passenger_routes = PassengerRoute.objects.filter(route=obj)
+        passengers = [pr.passenger for pr in passenger_routes]
+        return PassengerRouteReadSerializer(passengers, many=True).data
+
+    def get_optimized_route_url(self, obj):
+        if not obj.optimized_route_url:
+            return None
+        return obj.optimized_route_url
+    
+
+class RouteRetrieveSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    name = serializers.CharField(max_length=255)
+    origin = serializers.CharField(max_length=255)
+    destination = serializers.CharField(max_length=255)
+    distance = serializers.FloatField()
+    init_hour = serializers.TimeField()
+    end_hour = serializers.TimeField()
+    duration = serializers.FloatField()
+    latitude_origin = serializers.FloatField()
+    longitude_origin = serializers.FloatField()
+    latitude_destination = serializers.FloatField()
+    longitude_destination = serializers.FloatField()
+    passengers = serializers.SerializerMethodField()
     markers = serializers.JSONField()
     optimized_route_url = serializers.SerializerMethodField()
-    vehicle = serializers.PrimaryKeyRelatedField(read_only=True)
+    vehicle = VehicleSerializer(read_only=True)
     auto_recalculate = serializers.BooleanField()
     addresses = serializers.ListField(child=serializers.CharField())
     addresses_order = serializers.JSONField()
@@ -63,18 +93,6 @@ class RouteReadSerializer(serializers.Serializer):
         passenger_routes = PassengerRoute.objects.filter(route=obj)
         passengers = [pr.passenger for pr in passenger_routes]
         return PassengerRouteReadSerializer(passengers, many=True).data
-
-    # def get_markers(self, obj):
-    #     passenger_routes = PassengerRoute.objects.filter(route=obj)
-    #     passengers = [pr.passenger for pr in passenger_routes]
-
-    #     addresses = []
-    #     for passenger in passengers:
-    #         if hasattr(passenger, 'address'):
-    #             addresses.extend(passenger.address.filter(is_main=True))
-
-    #     from core.authentication.serializers.infra import AddressReadSerializer
-    #     return AddressReadSerializer(addresses, many=True).data
 
     def get_optimized_route_url(self, obj):
         if not obj.optimized_route_url:

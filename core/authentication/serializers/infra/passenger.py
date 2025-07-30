@@ -46,10 +46,12 @@ class PassengerRouteReadSerializer(serializers.Serializer):
     user = serializers.SerializerMethodField()
 
     def get_user(self, obj):
+        main_address = obj.address.filter(is_main=True).first()
+
         return {
             "id": obj.user.id,
             "name": obj.user.name,
-            "address": AddressPassengerSerializer(
-                obj.address.filter(is_main=True), many=True
-            ).data
+            "address": (
+                main_address.full_address if main_address else None
+            )
         }
