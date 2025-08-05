@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'core.uploader',
     'django_extensions',
     'django_filters',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -172,3 +173,13 @@ cloudinary.config(
 )
 
 GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+ASGI_APPLICATION = 'config.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+    },
+}
