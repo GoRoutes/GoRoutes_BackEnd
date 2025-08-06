@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:af9218e21f4dea3141e9488f514c5f363977f6c68f5c35b540657c03555a9383"
+content_hash = "sha256:bfb43fd20ca7ecc1945b0c51686dc97e0c6a7215d938a61a25e3b590dd2bb5f5"
 
 [[metadata.targets]]
 requires_python = ">=3.13"
@@ -164,7 +164,7 @@ files = [
 
 [[package]]
 name = "channels"
-version = "4.3.0"
+version = "4.3.1"
 requires_python = ">=3.9"
 summary = "Brings async, event-driven capabilities to Django."
 groups = ["default"]
@@ -173,8 +173,8 @@ dependencies = [
     "asgiref<4,>=3.9.0",
 ]
 files = [
-    {file = "channels-4.3.0-py3-none-any.whl", hash = "sha256:0497f3affb95e621b37d6bae1b6a5d9e8e1e1221007a2566f280091cf30ffcce"},
-    {file = "channels-4.3.0.tar.gz", hash = "sha256:7db32c61dcd88eada1647e6c6f6ad2eb724b75d4852eeff26ad1c51ccd1a37f7"},
+    {file = "channels-4.3.1-py3-none-any.whl", hash = "sha256:b091d4b26f91d807de3e84aead7ba785314f27eaf5bac31dd51b1c956b883859"},
+    {file = "channels-4.3.1.tar.gz", hash = "sha256:97413ffd674542db08e16a9ef09cd86ec0113e5f8125fbd33cf0854adcf27cdb"},
 ]
 
 [[package]]

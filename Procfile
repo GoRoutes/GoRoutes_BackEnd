@@ -1,1 +1,1 @@
-web: gunicorn config.asgi:application --timeout 120
+web: uvicorn config.asgi:application --port 5000
