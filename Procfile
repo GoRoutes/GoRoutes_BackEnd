@@ -1,1 +1,1 @@
-web: gunicorn config.asgi:application
+web: gunicorn config.asgi:application --timeout 120
