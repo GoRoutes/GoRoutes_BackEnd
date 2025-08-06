@@ -1,1 +1,1 @@
-web: uvicorn config.asgi:application --port 5000
+web: uvicorn config.asgi:application --host 0.0.0.0 --port 5000
