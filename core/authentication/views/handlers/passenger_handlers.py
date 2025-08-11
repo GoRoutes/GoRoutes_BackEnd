@@ -32,7 +32,6 @@ def create_passenger(request):
     addresses_data = validated_data.pop('addresses', [])
     student_data = validated_data.pop('student_data', None)
     
-    breakpoint()
     user = User.objects.create_user(
         username=user_data['username'],
         name=user_data['name'],
