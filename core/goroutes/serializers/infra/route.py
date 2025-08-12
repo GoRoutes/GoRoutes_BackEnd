@@ -1,6 +1,5 @@
 from operator import is_
 from django.conf import settings
-from django.contrib.gis.gdal import driver
 from rest_framework import serializers
 from core.authentication.models import Passenger, Driver
 from core.goroutes.models import PassengerRoute, Vehicle
