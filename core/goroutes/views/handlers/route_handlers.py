@@ -49,7 +49,6 @@ def create_route(request):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # Criação da rota (inicialmente sem auto_recalculate)
         route = Route.objects.create(
             name=data["name"],
             origin=data["origin"],
@@ -65,6 +64,7 @@ def create_route(request):
             auto_recalculate=False,  # Inicialmente falso
             addresses=data.get("addresses", []),
             vehicle=data.get("vehicle"),
+            driver=data.get("driver"),
             addresses_order=data.get("addresses_order", []),
             optimized_route_url=data.get("optimized_route_url", "")
         )

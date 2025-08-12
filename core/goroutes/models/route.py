@@ -1,5 +1,5 @@
 from django.db import models
-from core.authentication.models import Passenger
+from core.authentication.models import Passenger, Driver
 from core.goroutes.models.vehicle import Vehicle
 
 class Route(models.Model):
@@ -22,6 +22,8 @@ class Route(models.Model):
     markers = models.JSONField(null=True, blank=True)
     coords_passageiros = models.JSONField(default=list)
     points = models.JSONField(default=list)
+    is_active = models.BooleanField(default=True)
+    driver = models.OneToOneField(Driver, on_delete=models.CASCADE, null=True, blank=True, related_name='route')
     
     # Campos necessários para o signal
     start_address = models.CharField(max_length=255, null=True, blank=True)

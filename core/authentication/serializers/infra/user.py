@@ -11,6 +11,7 @@ from core.authentication.serializers.handlers import (
 )
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from core.uploader.models import Image
+from core.uploader.serializers import ImageUploadSerializer
 class UserSerializer(serializers.ModelSerializer):
     driver_data = serializers.SerializerMethodField()
     passenger_data = serializers.SerializerMethodField()
@@ -62,6 +63,9 @@ class UserReadSerializer(serializers.Serializer):
     email = serializers.EmailField()
     telephone = serializers.CharField(max_length=20)
     data_of_birth = serializers.DateField(required=False, allow_null=True)
+    my_location = serializers.JSONField()
+    picture = ImageUploadSerializer(read_only=True)
+
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
