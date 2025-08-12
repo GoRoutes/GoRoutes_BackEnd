@@ -17,9 +17,11 @@ class User(AbstractUser):
         blank=True,
         related_name='user_picture'
     )
+    my_location = models.JSONField(null=True, blank=True)
 
     REQUIRED_FIELDS = []
     EMAIL_FIELD = "email"
+    USERNAME_FIELD = "email"
 
     objects = CustomUserManager()
 

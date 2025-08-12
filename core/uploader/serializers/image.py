@@ -3,11 +3,12 @@ from core.uploader.models import Image
 
 class ImageUploadSerializer(serializers.ModelSerializer):
     file = serializers.ImageField(required=True)
-    description = serializers.CharField(max_length=255, required=False)
+    file_rounded = serializers.CharField(read_only=True)
+    description = serializers.URLField(max_length=255, required=False)
 
     class Meta:
         model = Image
-        fields = ["id", "file", "description", "uploaded_on", "folder"]
+        fields = ["id", "file", "description", "uploaded_on", "folder", "file_rounded"]
 
     def validate_file(self, value):
         """

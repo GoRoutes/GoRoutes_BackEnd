@@ -1,0 +1,2398 @@
+{
+    "geocoded_waypoints": [
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJ4f1Tz6Sv3pQRkrTfWsh7m20",
+            "types": [
+                "street_address",
+                "subpremise"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJXX_fr9-x3pQRi2Sx-p-vKZM",
+            "types": [
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJKXBfM96x3pQRts9E3_UxMtU",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJZSGrveCx3pQRelUqaCb_0g0",
+            "types": [
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJ9cSe2OCx3pQRWg6V9PdO7GQ",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJYXQfh-Sx3pQR1fdJ2PZ0bOE",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJZTm8c-ex3pQRiS_eZTEekEo",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJ54chf5Cx3pQRNzx9YU9JoC4",
+            "types": [
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJ2Qw9Z5ux3pQRHYh6lfIkoWU",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJrXBFHpmx3pQRnBYzHcW_SJ4",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJR3hzML2x3pQR2XP01ReBh6c",
+            "types": [
+                "street_address",
+                "subpremise"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJzUzYAwax3pQRXT38rtgKcPE",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJfYh-awax3pQR0POKediOBy4",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJa5uemQax3pQRtLulElJdYsg",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJn9o3vg-x3pQREyvhdkdyY3Q",
+            "types": [
+                "premise",
+                "street_address"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "partial_match": true,
+            "place_id": "EjJCUi0yODAgLSBDb2zDqWdpbyBBZ3LDrWNvbGEsIEFyYXF1YXJpIC0gU0MsIEJyYXppbCIuKiwKFAoSCXG-fAyZnN6UEeeWJQ81YFa0EhQKEgnRu06HV7XelBFUm2eIggtvaQ",
+            "types": [
+                "route"
+            ]
+        }
+    ],
+    "routes": [
+        {
+            "bounds": {
+                "northeast": {
+                    "lat": -26.2535858,
+                    "lng": -48.7360194
+                },
+                "southwest": {
+                    "lat": -26.4128924,
+                    "lng": -48.8524246
+                }
+            },
+            "copyrights": "Powered by Google, ©2025 Google",
+            "legs": [
+                {
+                    "distance": {
+                        "text": "5,7 km",
+                        "value": 5734
+                    },
+                    "duration": {
+                        "text": "12 minutos",
+                        "value": 736
+                    },
+                    "end_address": "Servidão Aroldo da Silva, 191 - Iririú, Joinville - SC, 89227-371, Brasil",
+                    "end_location": {
+                        "lat": -26.2743824,
+                        "lng": -48.82148429999999
+                    },
+                    "start_address": "Av. Rolf Wiest, 333 - Bom Retiro, Joinville - SC, 89223-005, Brasil",
+                    "start_location": {
+                        "lat": -26.2535858,
+                        "lng": -48.8524246
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 185
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 75
+                            },
+                            "end_location": {
+                                "lat": -26.255089,
+                                "lng": -48.85198889999999
+                            },
+                            "html_instructions": "Siga na direção <b>sul</b> para a <b>Av. Rolf Wiest</b>",
+                            "polyline": {
+                                "points": "|sf_DrndiHRAJARAB?dBErAIRA@?BA?ABCBIHSFMDI"
+                            },
+                            "start_location": {
+                                "lat": -26.2535858,
+                                "lng": -48.8524246
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 303
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 29
+                            },
+                            "end_location": {
+                                "lat": -26.2577872,
+                                "lng": -48.8517041
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>Av. Rolf Wiest</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "h}f_D|kdiHh@Ab@G\\GbC?N?@?t@EtEY@?JG"
+                            },
+                            "start_location": {
+                                "lat": -26.255089,
+                                "lng": -48.85198889999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "1,1 km",
+                                "value": 1092
+                            },
+                            "duration": {
+                                "text": "2 minutos",
+                                "value": 100
+                            },
+                            "end_location": {
+                                "lat": -26.2675676,
+                                "lng": -48.850762
+                            },
+                            "html_instructions": "Pegue a <b>Av. Santos Dumont</b>",
+                            "maneuver": "merge",
+                            "polyline": {
+                                "points": "dng_DbjdiHH@n@?hBGnDWv@Cj@A~AK`@?dAGTC`EITArAGdAGLAfCMdCMTAhEWj@CbA?B?b@CbAGD?hAGrBS"
+                            },
+                            "start_location": {
+                                "lat": -26.2577872,
+                                "lng": -48.8517041
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,6 km",
+                                "value": 642
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 69
+                            },
+                            "end_location": {
+                                "lat": -26.2663048,
+                                "lng": -48.84497750000001
+                            },
+                            "html_instructions": "Na rotatória, pegue a <b>2ª</b> saída para a <b>R. Dom Bosco</b>",
+                            "maneuver": "roundabout-right",
+                            "polyline": {
+                                "points": "hki_DfddiH?@@@@?@@@?@@@?@?@@@?@?@?@A@?@?@?@A@?@A@??A@A@ABI@G?K?AAA?A?AAAAA?AAAA??AAAA?AAA?AAA?A?A?A?A?A?A?IBGUEOw@eFAAMy@Kq@[}BS{AcAgHG[YwBAIAAC[AW"
+                            },
+                            "start_location": {
+                                "lat": -26.2675676,
+                                "lng": -48.850762
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 126
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 16
+                            },
+                            "end_location": {
+                                "lat": -26.2674257,
+                                "lng": -48.8451545
+                            },
+                            "html_instructions": "Vire à <b>direita</b> antes de MAGRÃO AGROPET",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "jci_Db`ciHj@DD@|@F`AJn@D"
+                            },
+                            "start_location": {
+                                "lat": -26.2663048,
+                                "lng": -48.84497750000001
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,4 km",
+                                "value": 424
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 47
+                            },
+                            "end_location": {
+                                "lat": -26.2676874,
+                                "lng": -48.84092
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Rezende</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "lji_DdaciH?c@?q@BaA?a@@_C?O?K@aA@kA@U@WAg@@e@?AJmA?ADe@Fe@?AJmA"
+                            },
+                            "start_location": {
+                                "lat": -26.2674257,
+                                "lng": -48.8451545
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 98
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 13
+                            },
+                            "end_location": {
+                                "lat": -26.2668143,
+                                "lng": -48.8408007
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Irmãs Lauer</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "`li_DvfbiHwAKSAcAI"
+                            },
+                            "start_location": {
+                                "lat": -26.2676874,
+                                "lng": -48.84092
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "1,3 km",
+                                "value": 1310
+                            },
+                            "duration": {
+                                "text": "3 minutos",
+                                "value": 155
+                            },
+                            "end_location": {
+                                "lat": -26.2735385,
+                                "lng": -48.8308845
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Piratuba</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "pfi_D~ebiHJsAHuAL_BLeBPiDP}B@EDe@DWDUHWH_@Pg@Rc@DIT_@^i@XYzDkDhEwDhAaAXUNMlJmI|BmB`BuA"
+                            },
+                            "start_location": {
+                                "lat": -26.2668143,
+                                "lng": -48.8408007
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 165
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 39
+                            },
+                            "end_location": {
+                                "lat": -26.2747194,
+                                "lng": -48.8298881
+                            },
+                            "html_instructions": "Continue para <b>R. Videira</b>",
+                            "polyline": {
+                                "points": "rpj_D~g`iH~AgABCRQrBgB"
+                            },
+                            "start_location": {
+                                "lat": -26.2735385,
+                                "lng": -48.8308845
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,4 km",
+                                "value": 354
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 48
+                            },
+                            "end_location": {
+                                "lat": -26.2735911,
+                                "lng": -48.8267114
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>Rua Baercker Wagner</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "~wj_Dxa`iH{AyCyA{CS_@IWCIGUEWASAS?Q?MBi@@[@i@@KAQ"
+                            },
+                            "start_location": {
+                                "lat": -26.2747194,
+                                "lng": -48.8298881
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 120
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 18
+                            },
+                            "end_location": {
+                                "lat": -26.2729314,
+                                "lng": -48.82577
+                            },
+                            "html_instructions": "<b>Rua Baercker Wagner</b> faz uma curva suave à <b>esquerda</b> e se torna <b>Av. Pref. Wittich Freitag</b>",
+                            "polyline": {
+                                "points": "|pj_D|m_iHEQCIISw@eAw@eA"
+                            },
+                            "start_location": {
+                                "lat": -26.2735911,
+                                "lng": -48.8267114
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 198
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 24
+                            },
+                            "end_location": {
+                                "lat": -26.2743041,
+                                "lng": -48.8245049
+                            },
+                            "html_instructions": "Vire à <b>direita</b>, antes da farmácia",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "xlj_D`h_iHb@_@r@m@PO`@]DCVWfBeB"
+                            },
+                            "start_location": {
+                                "lat": -26.2729314,
+                                "lng": -48.82577
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 214
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 25
+                            },
+                            "end_location": {
+                                "lat": -26.273013,
+                                "lng": -48.8229232
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> depois de Supermercado Economia (à esquerda)",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "juj_Db`_iHwBuCuAmBEKCEEEMMIGKI"
+                            },
+                            "start_location": {
+                                "lat": -26.2743041,
+                                "lng": -48.8245049
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 127
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 15
+                            },
+                            "end_location": {
+                                "lat": -26.2720311,
+                                "lng": -48.8222748
+                            },
+                            "html_instructions": "Continue para <b>R. Cerro Verde</b>",
+                            "polyline": {
+                                "points": "hmj_Dfv~hHYSiDmB"
+                            },
+                            "start_location": {
+                                "lat": -26.273013,
+                                "lng": -48.8229232
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 254
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 36
+                            },
+                            "end_location": {
+                                "lat": -26.273693,
+                                "lng": -48.8205401
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Rio Fortuna</b>/<wbr/><b>R. Ten. Paulo Lopes</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "dgj_Ddr~hHFMDI`@m@r@q@r@o@l@g@j@g@PS|@aAHK"
+                            },
+                            "start_location": {
+                                "lat": -26.2720311,
+                                "lng": -48.8222748
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 122
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 27
+                            },
+                            "end_location": {
+                                "lat": -26.2743824,
+                                "lng": -48.82148429999999
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>Servidão Aroldo da Silva</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "pqj_Djg~hHPRb@l@`@n@X^DHBBFNDJ"
+                            },
+                            "start_location": {
+                                "lat": -26.273693,
+                                "lng": -48.8205401
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,2 km",
+                        "value": 246
+                    },
+                    "duration": {
+                        "text": "1 min",
+                        "value": 63
+                    },
+                    "end_address": "R. Polônia, 725 - Iririú, Joinville - SC, 89227-340, Brasil",
+                    "end_location": {
+                        "lat": -26.2744492,
+                        "lng": -48.82069749999999
+                    },
+                    "start_address": "Servidão Aroldo da Silva, 191 - Iririú, Joinville - SC, 89227-371, Brasil",
+                    "start_location": {
+                        "lat": -26.2743824,
+                        "lng": -48.82148429999999
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 122
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 26
+                            },
+                            "end_location": {
+                                "lat": -26.273693,
+                                "lng": -48.8205401
+                            },
+                            "html_instructions": "Siga na direção <b>nordeste</b> na <b>Servidão Aroldo da Silva</b> em direção à <b>R. Rio Fortuna</b>/<wbr/><b>R. Ten. Paulo Lopes</b>",
+                            "polyline": {
+                                "points": "zuj_Dfm~hHEKGOCCEIY_@a@o@c@m@QS"
+                            },
+                            "start_location": {
+                                "lat": -26.2743824,
+                                "lng": -48.82148429999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "54 m",
+                                "value": 54
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 15
+                            },
+                            "end_location": {
+                                "lat": -26.2740411,
+                                "lng": -48.8201678
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Rio Fortuna</b>/<wbr/><b>R. Ten. Paulo Lopes</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "pqj_Djg~hHdAiA"
+                            },
+                            "start_location": {
+                                "lat": -26.273693,
+                                "lng": -48.8205401
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "70 m",
+                                "value": 70
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 22
+                            },
+                            "end_location": {
+                                "lat": -26.2744492,
+                                "lng": -48.82069749999999
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Polônia</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "vsj_D`e~hHpAhB"
+                            },
+                            "start_location": {
+                                "lat": -26.2740411,
+                                "lng": -48.8201678
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,3 km",
+                        "value": 263
+                    },
+                    "duration": {
+                        "text": "1 min",
+                        "value": 50
+                    },
+                    "end_address": "R. Rio Fortuna, 367 - Iririú, Joinville - SC, 89227-370, Brasil",
+                    "end_location": {
+                        "lat": -26.2753432,
+                        "lng": -48.8188904
+                    },
+                    "start_address": "R. Polônia, 725 - Iririú, Joinville - SC, 89227-340, Brasil",
+                    "start_location": {
+                        "lat": -26.2744492,
+                        "lng": -48.82069749999999
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "70 m",
+                                "value": 70
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 13
+                            },
+                            "end_location": {
+                                "lat": -26.2740411,
+                                "lng": -48.8201678
+                            },
+                            "html_instructions": "Siga na direção <b>nordeste</b> na <b>R. Polônia</b> em direção à <b>R. Rio Fortuna</b>/<wbr/><b>R. Ten. Paulo Lopes</b>",
+                            "polyline": {
+                                "points": "hvj_Djh~hHqAiB"
+                            },
+                            "start_location": {
+                                "lat": -26.2744492,
+                                "lng": -48.82069749999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 193
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 37
+                            },
+                            "end_location": {
+                                "lat": -26.2753432,
+                                "lng": -48.8188904
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Rio Fortuna</b>/<wbr/><b>R. Ten. Paulo Lopes</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "vsj_D`e~hHh@g@h@g@n@m@n@o@\\_@TWPOHI"
+                            },
+                            "start_location": {
+                                "lat": -26.2740411,
+                                "lng": -48.8201678
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,3 km",
+                        "value": 268
+                    },
+                    "duration": {
+                        "text": "1 min",
+                        "value": 56
+                    },
+                    "end_address": "R. Cmte. Hassel, 354 - Iririú, Joinville - SC, 89227-530, Brasil",
+                    "end_location": {
+                        "lat": -26.2750931,
+                        "lng": -48.817002
+                    },
+                    "start_address": "R. Rio Fortuna, 367 - Iririú, Joinville - SC, 89227-370, Brasil",
+                    "start_location": {
+                        "lat": -26.2753432,
+                        "lng": -48.8188904
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "21 m",
+                                "value": 21
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 3
+                            },
+                            "end_location": {
+                                "lat": -26.2754982,
+                                "lng": -48.8187716
+                            },
+                            "html_instructions": "Siga na direção <b>sudeste</b> na <b>R. Rio Fortuna</b>/<wbr/><b>R. Ten. Paulo Lopes</b> em direção à <b>R. Dep. Jota Gonçalves</b>",
+                            "polyline": {
+                                "points": "z{j_D`}}hHJIRM"
+                            },
+                            "start_location": {
+                                "lat": -26.2753432,
+                                "lng": -48.8188904
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 121
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 15
+                            },
+                            "end_location": {
+                                "lat": -26.2748091,
+                                "lng": -48.8178388
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Dep. Jota Gonçalves</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "z|j_Dh|}hHo@aASYW_@m@}@"
+                            },
+                            "start_location": {
+                                "lat": -26.2754982,
+                                "lng": -48.8187716
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "76 m",
+                                "value": 76
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 19
+                            },
+                            "end_location": {
+                                "lat": -26.2753664,
+                                "lng": -48.81739409999999
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Alfonso Luiz Schwartz</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "pxj_Dnv}hHv@k@v@m@"
+                            },
+                            "start_location": {
+                                "lat": -26.2748091,
+                                "lng": -48.8178388
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "50 m",
+                                "value": 50
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 19
+                            },
+                            "end_location": {
+                                "lat": -26.2750931,
+                                "lng": -48.817002
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Cmte. Hassel</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "`|j_Dts}hHi@y@MS"
+                            },
+                            "start_location": {
+                                "lat": -26.2753664,
+                                "lng": -48.81739409999999
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,7 km",
+                        "value": 730
+                    },
+                    "duration": {
+                        "text": "2 minutos",
+                        "value": 131
+                    },
+                    "end_address": "R. Victor Konder, 330 - Iririú, Joinville - SC, 89227-240, Brasil",
+                    "end_location": {
+                        "lat": -26.2745011,
+                        "lng": -48.8117938
+                    },
+                    "start_address": "R. Cmte. Hassel, 354 - Iririú, Joinville - SC, 89227-530, Brasil",
+                    "start_location": {
+                        "lat": -26.2750931,
+                        "lng": -48.817002
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 101
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 40
+                            },
+                            "end_location": {
+                                "lat": -26.2744888,
+                                "lng": -48.8162436
+                            },
+                            "html_instructions": "Siga na direção <b>nordeste</b> na <b>R. Cmte. Hassel</b> em direção à <b>R. Mirassol</b>",
+                            "polyline": {
+                                "points": "hzj_Dfq}hH[g@m@w@m@w@"
+                            },
+                            "start_location": {
+                                "lat": -26.2750931,
+                                "lng": -48.817002
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 279
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 42
+                            },
+                            "end_location": {
+                                "lat": -26.2764731,
+                                "lng": -48.81453399999999
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>Rua João Reinhold</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "pvj_Dnl}hH`Ay@VSBCtAiAr@m@p@k@x@o@v@o@"
+                            },
+                            "start_location": {
+                                "lat": -26.2744888,
+                                "lng": -48.8162436
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,4 km",
+                                "value": 350
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 49
+                            },
+                            "end_location": {
+                                "lat": -26.2745011,
+                                "lng": -48.8117938
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Victor Konder</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "|bk_Dxa}hHwEmHqDuF"
+                            },
+                            "start_location": {
+                                "lat": -26.2764731,
+                                "lng": -48.81453399999999
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,9 km",
+                        "value": 874
+                    },
+                    "duration": {
+                        "text": "2 minutos",
+                        "value": 124
+                    },
+                    "end_address": "R. Dep. Lauro Carneiro de Loyola, 1242 - Iririú, Joinville - SC, 89227-250, Brasil",
+                    "end_location": {
+                        "lat": -26.2784258,
+                        "lng": -48.8184662
+                    },
+                    "start_address": "R. Victor Konder, 330 - Iririú, Joinville - SC, 89227-240, Brasil",
+                    "start_location": {
+                        "lat": -26.2745011,
+                        "lng": -48.8117938
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,4 km",
+                                "value": 350
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 47
+                            },
+                            "end_location": {
+                                "lat": -26.2764731,
+                                "lng": -48.81453399999999
+                            },
+                            "html_instructions": "Siga na direção <b>sudoeste</b> na <b>R. Victor Konder</b> em direção à <b>Rua João Reinhold</b>",
+                            "polyline": {
+                                "points": "rvj_Dtp|hHpDtFvElH"
+                            },
+                            "start_location": {
+                                "lat": -26.2745011,
+                                "lng": -48.8117938
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "79 m",
+                                "value": 79
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 9
+                            },
+                            "end_location": {
+                                "lat": -26.2759001,
+                                "lng": -48.8150061
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>Rua João Reinhold</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "|bk_Dxa}hHw@n@y@n@"
+                            },
+                            "start_location": {
+                                "lat": -26.2764731,
+                                "lng": -48.81453399999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,4 km",
+                                "value": 445
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 68
+                            },
+                            "end_location": {
+                                "lat": -26.2784258,
+                                "lng": -48.8184662
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na 1ª rua transversal para <b>R. Dep. Lauro Carneiro de Loyola</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "j_k_Dxd}hH^h@xA|BbAzAbA|AvAtBBDxAzB`AxA"
+                            },
+                            "start_location": {
+                                "lat": -26.2759001,
+                                "lng": -48.8150061
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "3,7 km",
+                        "value": 3730
+                    },
+                    "duration": {
+                        "text": "7 minutos",
+                        "value": 411
+                    },
+                    "end_address": "R. Líbano, 146 - Boa Vista, Joinville - SC, 89206-510, Brasil",
+                    "end_location": {
+                        "lat": -26.2979691,
+                        "lng": -48.8119086
+                    },
+                    "start_address": "R. Dep. Lauro Carneiro de Loyola, 1242 - Iririú, Joinville - SC, 89227-250, Brasil",
+                    "start_location": {
+                        "lat": -26.2784258,
+                        "lng": -48.8184662
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 163
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 24
+                            },
+                            "end_location": {
+                                "lat": -26.2793516,
+                                "lng": -48.8197348
+                            },
+                            "html_instructions": "Siga na direção <b>sudoeste</b> na <b>R. Dep. Lauro Carneiro de Loyola</b> em direção à <b>R. Papa João XXIII</b>",
+                            "polyline": {
+                                "points": "dok_Dlz}hHn@`AfCxD"
+                            },
+                            "start_location": {
+                                "lat": -26.2784258,
+                                "lng": -48.8184662
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,6 km",
+                                "value": 644
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 71
+                            },
+                            "end_location": {
+                                "lat": -26.2837182,
+                                "lng": -48.8155418
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na 1ª rua transversal para <b>R. Papa João XXIII</b><div style=\"font-size:0.9em\">Você verá COMPREMAIS VEÍCULOS (à esquerda)</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "|tk_Dhb~hHt@o@t@q@bA{@n@i@RSv@q@t@q@l@k@l@k@zAuAb@a@~@{@pAkAtBkBRSDGBIBG@K?G"
+                            },
+                            "start_location": {
+                                "lat": -26.2793516,
+                                "lng": -48.8197348
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 275
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 25
+                            },
+                            "end_location": {
+                                "lat": -26.2822116,
+                                "lng": -48.8134002
+                            },
+                            "html_instructions": "<b>R. Papa João XXIII</b> faz uma curva suave à <b>esquerda</b> e se torna <b>R. Xavier Arp</b>",
+                            "polyline": {
+                                "points": "fpl_Dbh}hH?IAICIEQKQY_@s@_Ac@k@ECm@y@SUUYMOW[EKGMEKCKAAEO"
+                            },
+                            "start_location": {
+                                "lat": -26.2837182,
+                                "lng": -48.8155418
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 169
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 19
+                            },
+                            "end_location": {
+                                "lat": -26.2824333,
+                                "lng": -48.8117554
+                            },
+                            "html_instructions": "Continue para <b>Ac. Ten. Paulo Lopes</b>",
+                            "polyline": {
+                                "points": "xfl_Dvz|hHCO?E?CAE?CAg@AS?]B]Ba@@EDUH[FW@GPq@"
+                            },
+                            "start_location": {
+                                "lat": -26.2822116,
+                                "lng": -48.8134002
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 277
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 26
+                            },
+                            "end_location": {
+                                "lat": -26.2845642,
+                                "lng": -48.8105159
+                            },
+                            "html_instructions": "Pegue a <b>R. Ten. Paulo Lopes</b>",
+                            "maneuver": "merge",
+                            "polyline": {
+                                "points": "dhl_Dnp|hHp@k@RQZYVSTQBCDEVSXSv@m@VKZIXEZAR?R?RB"
+                            },
+                            "start_location": {
+                                "lat": -26.2824333,
+                                "lng": -48.8117554
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "54 m",
+                                "value": 54
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 5
+                            },
+                            "end_location": {
+                                "lat": -26.2850429,
+                                "lng": -48.8105083
+                            },
+                            "html_instructions": "Continue para <b>R. Albano Schmidt</b>",
+                            "polyline": {
+                                "points": "nul_Dvh|hHF@F@L@J?L?L?JAFCDA"
+                            },
+                            "start_location": {
+                                "lat": -26.2845642,
+                                "lng": -48.8105159
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "1,3 km",
+                                "value": 1318
+                            },
+                            "duration": {
+                                "text": "2 minutos",
+                                "value": 114
+                            },
+                            "end_location": {
+                                "lat": -26.2946322,
+                                "lng": -48.8174416
+                            },
+                            "html_instructions": "Continue para <b>R. Pref. Helmuth Fallgatter</b>",
+                            "polyline": {
+                                "points": "nxl_Dth|hH~AIJ@bBXB?zAXrFbAb@J~Cp@bA\\VN|@z@xB`CLRz@|@l@n@HHHJHHf@l@BBZ\\BDPR^`@TTz@`Av@z@LNdBlBt@z@v@x@\\b@^`@v@x@FHp@n@f@l@h@p@"
+                            },
+                            "start_location": {
+                                "lat": -26.2850429,
+                                "lng": -48.8105083
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "66 m",
+                                "value": 66
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 18
+                            },
+                            "end_location": {
+                                "lat": -26.2949639,
+                                "lng": -48.8168985
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Cardeal Câmara</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "ltn_D~s}hH^w@`@s@"
+                            },
+                            "start_location": {
+                                "lat": -26.2946322,
+                                "lng": -48.8174416
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "78 m",
+                                "value": 78
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 11
+                            },
+                            "end_location": {
+                                "lat": -26.2946599,
+                                "lng": -48.8161975
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b>, depois da igreja (à esquerda)",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "nvn_Drp}hHEICIY{@W{@"
+                            },
+                            "start_location": {
+                                "lat": -26.2949639,
+                                "lng": -48.8168985
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,5 km",
+                                "value": 540
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 64
+                            },
+                            "end_location": {
+                                "lat": -26.2985598,
+                                "lng": -48.8132147
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Des. Tavares Sobrinho</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "rtn_Dfl}hHz@}A@Cx@yAN_@BGDIBEFGHG~@c@HEhAi@|@]|@]~A}@BCz@]z@]z@a@z@a@"
+                            },
+                            "start_location": {
+                                "lat": -26.2946599,
+                                "lng": -48.8161975
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 146
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 34
+                            },
+                            "end_location": {
+                                "lat": -26.2979691,
+                                "lng": -48.8119086
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Líbano</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "~lo_Dpy|hHgA_Dm@cB"
+                            },
+                            "start_location": {
+                                "lat": -26.2985598,
+                                "lng": -48.8132147
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,6 km",
+                        "value": 631
+                    },
+                    "duration": {
+                        "text": "2 minutos",
+                        "value": 100
+                    },
+                    "end_address": "R. Des. Tavares Sobrinho, 789 - Boa Vista, Joinville - SC, 89206-500, Brasil",
+                    "end_location": {
+                        "lat": -26.3024754,
+                        "lng": -48.8110902
+                    },
+                    "start_address": "R. Líbano, 146 - Boa Vista, Joinville - SC, 89206-510, Brasil",
+                    "start_location": {
+                        "lat": -26.2979691,
+                        "lng": -48.8119086
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 146
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 25
+                            },
+                            "end_location": {
+                                "lat": -26.2985598,
+                                "lng": -48.8132147
+                            },
+                            "html_instructions": "Siga na direção <b>sudoeste</b> na <b>R. Líbano</b> em direção à <b>R. Des. Tavares Sobrinho</b>",
+                            "polyline": {
+                                "points": "hio_Dlq|hHl@bBfA~C"
+                            },
+                            "start_location": {
+                                "lat": -26.2979691,
+                                "lng": -48.8119086
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,5 km",
+                                "value": 485
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 75
+                            },
+                            "end_location": {
+                                "lat": -26.3024754,
+                                "lng": -48.8110902
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Des. Tavares Sobrinho</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "~lo_Dpy|hHx@_@x@a@fCgAhCoAx@]dAW~BgAxBgANG"
+                            },
+                            "start_location": {
+                                "lat": -26.2985598,
+                                "lng": -48.8132147
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,8 km",
+                        "value": 782
+                    },
+                    "duration": {
+                        "text": "2 minutos",
+                        "value": 111
+                    },
+                    "end_address": "R. Antônio de Oliveira Silva, 567 - Boa Vista, Joinville - SC, 89206-030, Brasil",
+                    "end_location": {
+                        "lat": -26.3034947,
+                        "lng": -48.8171295
+                    },
+                    "start_address": "R. Des. Tavares Sobrinho, 789 - Boa Vista, Joinville - SC, 89206-500, Brasil",
+                    "start_location": {
+                        "lat": -26.3024754,
+                        "lng": -48.8110902
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "69 m",
+                                "value": 69
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 9
+                            },
+                            "end_location": {
+                                "lat": -26.303027,
+                                "lng": -48.8107832
+                            },
+                            "html_instructions": "Siga na direção <b>sudeste</b> na <b>R. Des. Tavares Sobrinho</b> em direção à <b>R. Paramirim</b>",
+                            "polyline": {
+                                "points": "nep_Dhl|hHlB}@"
+                            },
+                            "start_location": {
+                                "lat": -26.3024754,
+                                "lng": -48.8110902
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 209
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 39
+                            },
+                            "end_location": {
+                                "lat": -26.3038734,
+                                "lng": -48.8126575
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Paramirim</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "|hp_Djj|hHX`AV|@\\~@\\~@\\z@Zz@"
+                            },
+                            "start_location": {
+                                "lat": -26.303027,
+                                "lng": -48.8107832
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "14 m",
+                                "value": 14
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 2
+                            },
+                            "end_location": {
+                                "lat": -26.3037979,
+                                "lng": -48.8127742
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Alcântara</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "dnp_Dbv|hHEJGH"
+                            },
+                            "start_location": {
+                                "lat": -26.3038734,
+                                "lng": -48.8126575
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 159
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 21
+                            },
+                            "end_location": {
+                                "lat": -26.3044006,
+                                "lng": -48.8142211
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Domingos Massaneiro</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "vmp_Dxv|hH^lA\\lATn@b@tA"
+                            },
+                            "start_location": {
+                                "lat": -26.3037979,
+                                "lng": -48.8127742
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 242
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 27
+                            },
+                            "end_location": {
+                                "lat": -26.3041192,
+                                "lng": -48.8165703
+                            },
+                            "html_instructions": "Continue para <b>R. Des. Francisco José Rodrigues de Oliveira</b>",
+                            "polyline": {
+                                "points": "nqp_Dz_}hHHPHT@JAFCTCb@QvAOdAADAHALMl@A@IbAAn@"
+                            },
+                            "start_location": {
+                                "lat": -26.3044006,
+                                "lng": -48.8142211
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "89 m",
+                                "value": 89
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 13
+                            },
+                            "end_location": {
+                                "lat": -26.3034947,
+                                "lng": -48.8171295
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Antônio de Oliveira Silva</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "vop_Dpn}hHMLoB`B"
+                            },
+                            "start_location": {
+                                "lat": -26.3041192,
+                                "lng": -48.8165703
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,8 km",
+                        "value": 758
+                    },
+                    "duration": {
+                        "text": "2 minutos",
+                        "value": 96
+                    },
+                    "end_address": "R. Cardeal Pacelli, 333 - Boa Vista, Joinville - SC, 89206-010, Brasil",
+                    "end_location": {
+                        "lat": -26.3009063,
+                        "lng": -48.82117969999999
+                    },
+                    "start_address": "R. Antônio de Oliveira Silva, 567 - Boa Vista, Joinville - SC, 89206-030, Brasil",
+                    "start_location": {
+                        "lat": -26.3034947,
+                        "lng": -48.8171295
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "89 m",
+                                "value": 89
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 14
+                            },
+                            "end_location": {
+                                "lat": -26.3041192,
+                                "lng": -48.8165703
+                            },
+                            "html_instructions": "Siga na direção <b>sudeste</b> na <b>R. Antônio de Oliveira Silva</b> em direção à <b>R. Des. Francisco José Rodrigues de Oliveira</b>",
+                            "polyline": {
+                                "points": "xkp_D`r}hHnBaBLM"
+                            },
+                            "start_location": {
+                                "lat": -26.3034947,
+                                "lng": -48.8171295
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 147
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 16
+                            },
+                            "end_location": {
+                                "lat": -26.3045986,
+                                "lng": -48.81794379999999
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Des. Francisco José Rodrigues de Oliveira</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "vop_Dpn}hH@LHf@f@lB@Bh@hB"
+                            },
+                            "start_location": {
+                                "lat": -26.3041192,
+                                "lng": -48.8165703
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,5 km",
+                                "value": 522
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 66
+                            },
+                            "end_location": {
+                                "lat": -26.3009063,
+                                "lng": -48.82117969999999
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Cardeal Pacelli</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "vrp_Dbw}hHe@^uD|CuD`DMJOLsExDeA|@WT"
+                            },
+                            "start_location": {
+                                "lat": -26.3045986,
+                                "lng": -48.81794379999999
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "3,8 km",
+                        "value": 3808
+                    },
+                    "duration": {
+                        "text": "6 minutos",
+                        "value": 366
+                    },
+                    "end_address": "R. Graciosa, 1120 - Guanabara, Joinville - SC, 89207-101, Brasil",
+                    "end_location": {
+                        "lat": -26.3186123,
+                        "lng": -48.8301168
+                    },
+                    "start_address": "R. Cardeal Pacelli, 333 - Boa Vista, Joinville - SC, 89206-010, Brasil",
+                    "start_location": {
+                        "lat": -26.3009063,
+                        "lng": -48.82117969999999
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 213
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 44
+                            },
+                            "end_location": {
+                                "lat": -26.2994318,
+                                "lng": -48.8225507
+                            },
+                            "html_instructions": "Siga na direção <b>noroeste</b> na <b>R. Cardeal Pacelli</b> em direção à <b>R. Albano Schmidt</b>",
+                            "polyline": {
+                                "points": "t{o_Djk~hHuBdBwAtAyAtA"
+                            },
+                            "start_location": {
+                                "lat": -26.3009063,
+                                "lng": -48.82117969999999
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "1,6 km",
+                                "value": 1589
+                            },
+                            "duration": {
+                                "text": "3 minutos",
+                                "value": 150
+                            },
+                            "end_location": {
+                                "lat": -26.3070749,
+                                "lng": -48.8351058
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> depois de Pimenta Comércio de Máquinas (à esquerda)",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "lro_D|s~hHf@j@h@l@vA|AvA~ATT@@rBvBj@n@h@n@v@~@v@~@t@v@NPdAhAfCjC|BbCFHFF^\\l@b@h@p@n@l@`AhAJJPR^^LNNTl@bAL\\BL@JHl@B|@Cb@@VJhCFnBBt@Jd@LtBFt@V`CVrBBb@"
+                            },
+                            "start_location": {
+                                "lat": -26.2994318,
+                                "lng": -48.8225507
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,7 km",
+                                "value": 674
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 54
+                            },
+                            "end_location": {
+                                "lat": -26.3111806,
+                                "lng": -48.8319251
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>Rua Aubé</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "dbq_DlbaiHBNBL@LBRDR@D@@@B@@B@D@J@PDl@IhBOn@KTE`A]ZQd@[JKHGNQX_@^k@DGl@_Ap@iAj@}@`@u@fBsCBIDIFUBU@O?ICK"
+                            },
+                            "start_location": {
+                                "lat": -26.3070749,
+                                "lng": -48.8351058
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 263
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 21
+                            },
+                            "end_location": {
+                                "lat": -26.3100914,
+                                "lng": -48.8296334
+                            },
+                            "html_instructions": "Continue para <b>R. Albano Schmidt</b>",
+                            "polyline": {
+                                "points": "z{q_Dpn`iHCMAIGWOo@G_@Kk@I]ESKe@IUIQKOQWIOKM]c@e@u@"
+                            },
+                            "start_location": {
+                                "lat": -26.3111806,
+                                "lng": -48.8319251
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,8 km",
+                                "value": 785
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 68
+                            },
+                            "end_location": {
+                                "lat": -26.3166013,
+                                "lng": -48.8288392
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Graciliano Ramos</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "`uq_Dd``iHPOh@g@x@q@^[XQLINIXIPGNCXEvDYhCSlCQnBObBMnAIP?VAT?`@DD@\\NZRXTVXh@v@"
+                            },
+                            "start_location": {
+                                "lat": -26.3100914,
+                                "lng": -48.8296334
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 284
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 29
+                            },
+                            "end_location": {
+                                "lat": -26.3186123,
+                                "lng": -48.8301168
+                            },
+                            "html_instructions": "Na rotatória, pegue a <b>2ª</b> saída para a <b>R. Graciosa</b> em direção a <b>R. Florianópolis</b>/<wbr/><b>Motel VIP</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
+                            "maneuver": "roundabout-right",
+                            "polyline": {
+                                "points": "v}r_Df{_iH?@?@AB?@?@?@?B?@@F@H@FBFDFDDDBFDD@LBD@D?D?F?D?DADADAd@C\\?J?J@F@JH`@`@r@d@LLPRb@^^Z"
+                            },
+                            "start_location": {
+                                "lat": -26.3166013,
+                                "lng": -48.8288392
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,2 km",
+                        "value": 163
+                    },
+                    "duration": {
+                        "text": "1 min",
+                        "value": 25
+                    },
+                    "end_address": "R. Jatobá, 51 - Guanabara, Joinville - SC, 89207-720, Brasil",
+                    "end_location": {
+                        "lat": -26.3186768,
+                        "lng": -48.8311583
+                    },
+                    "start_address": "R. Graciosa, 1120 - Guanabara, Joinville - SC, 89207-101, Brasil",
+                    "start_location": {
+                        "lat": -26.3186123,
+                        "lng": -48.8301168
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "85 m",
+                                "value": 85
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 8
+                            },
+                            "end_location": {
+                                "lat": -26.319213,
+                                "lng": -48.8306489
+                            },
+                            "html_instructions": "Siga na direção <b>sudoeste</b> na <b>R. Graciosa</b> em direção à <b>R. dos Cravos</b>",
+                            "polyline": {
+                                "points": "hjs_Dfc`iHRNt@n@l@h@"
+                            },
+                            "start_location": {
+                                "lat": -26.3186123,
+                                "lng": -48.8301168
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "78 m",
+                                "value": 78
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 17
+                            },
+                            "end_location": {
+                                "lat": -26.3186768,
+                                "lng": -48.8311583
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 2ª rua transversal para <b>R. Jatobá</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "`ns_Dpf`iH{AtAMN"
+                            },
+                            "start_location": {
+                                "lat": -26.319213,
+                                "lng": -48.8306489
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,4 km",
+                        "value": 439
+                    },
+                    "duration": {
+                        "text": "1 min",
+                        "value": 79
+                    },
+                    "end_address": "R. Porto Alegre, 52 - Guanabara, Joinville - SC, 89207-680, Brasil",
+                    "end_location": {
+                        "lat": -26.3196508,
+                        "lng": -48.8330174
+                    },
+                    "start_address": "R. Jatobá, 51 - Guanabara, Joinville - SC, 89207-720, Brasil",
+                    "start_location": {
+                        "lat": -26.3186768,
+                        "lng": -48.8311583
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "78 m",
+                                "value": 78
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 13
+                            },
+                            "end_location": {
+                                "lat": -26.319213,
+                                "lng": -48.8306489
+                            },
+                            "html_instructions": "Siga na direção <b>sudeste</b> na <b>R. Jatobá</b> em direção à <b>R. Graciosa</b>",
+                            "polyline": {
+                                "points": "vjs_Dvi`iHLOzAuA"
+                            },
+                            "start_location": {
+                                "lat": -26.3186768,
+                                "lng": -48.8311583
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 213
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 40
+                            },
+                            "end_location": {
+                                "lat": -26.3206571,
+                                "lng": -48.8320509
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Graciosa</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "`ns_Dpf`iHl@n@l@n@r@l@r@l@l@l@n@l@"
+                            },
+                            "start_location": {
+                                "lat": -26.319213,
+                                "lng": -48.8306489
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 148
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 26
+                            },
+                            "end_location": {
+                                "lat": -26.3196508,
+                                "lng": -48.8330174
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 3ª rua transversal para <b>R. Porto Alegre</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "bws_Dho`iHyBtBoAjA"
+                            },
+                            "start_location": {
+                                "lat": -26.3206571,
+                                "lng": -48.8320509
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "0,7 km",
+                        "value": 662
+                    },
+                    "duration": {
+                        "text": "2 minutos",
+                        "value": 146
+                    },
+                    "end_address": "R. Vidal Ramos, 268 - Guanabara, Joinville - SC, 89207-670, Brasil",
+                    "end_location": {
+                        "lat": -26.3218906,
+                        "lng": -48.8284656
+                    },
+                    "start_address": "R. Porto Alegre, 52 - Guanabara, Joinville - SC, 89207-680, Brasil",
+                    "start_location": {
+                        "lat": -26.3196508,
+                        "lng": -48.8330174
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,4 km",
+                                "value": 412
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 77
+                            },
+                            "end_location": {
+                                "lat": -26.3224496,
+                                "lng": -48.8303013
+                            },
+                            "html_instructions": "Siga na direção <b>sudeste</b> na <b>R. Porto Alegre</b> em direção à <b>R. Graciosa</b>",
+                            "polyline": {
+                                "points": "xps_Dju`iHnAkAxBuBnAoAnAmAbB_B`B_B"
+                            },
+                            "start_location": {
+                                "lat": -26.3196508,
+                                "lng": -48.8330174
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "68 m",
+                                "value": 68
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 19
+                            },
+                            "end_location": {
+                                "lat": -26.3220554,
+                                "lng": -48.8297773
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Ursa Maior</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "hbt_Djd`iHg@s@e@s@"
+                            },
+                            "start_location": {
+                                "lat": -26.3224496,
+                                "lng": -48.8303013
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "72 m",
+                                "value": 72
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 21
+                            },
+                            "end_location": {
+                                "lat": -26.3225394,
+                                "lng": -48.8293
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na 1ª rua transversal para <b>R. Dr. Lúcio Correia</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "z_t_Dba`iHn@o@n@o@"
+                            },
+                            "start_location": {
+                                "lat": -26.3220554,
+                                "lng": -48.8297773
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,1 km",
+                                "value": 110
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 29
+                            },
+                            "end_location": {
+                                "lat": -26.3218906,
+                                "lng": -48.8284656
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na 1ª rua transversal para <b>R. Vidal Ramos</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "zbt_Db~_iH{B_DEE"
+                            },
+                            "start_location": {
+                                "lat": -26.3225394,
+                                "lng": -48.8293
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                },
+                {
+                    "distance": {
+                        "text": "18,7 km",
+                        "value": 18675
+                    },
+                    "duration": {
+                        "text": "30 minutos",
+                        "value": 1780
+                    },
+                    "end_address": "BR-280 - Colégio Agrícola, Araquari - SC, Brasil",
+                    "end_location": {
+                        "lat": -26.3913958,
+                        "lng": -48.7360194
+                    },
+                    "start_address": "R. Vidal Ramos, 268 - Guanabara, Joinville - SC, 89207-670, Brasil",
+                    "start_location": {
+                        "lat": -26.3218906,
+                        "lng": -48.8284656
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 269
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 43
+                            },
+                            "end_location": {
+                                "lat": -26.323481,
+                                "lng": -48.8304992
+                            },
+                            "html_instructions": "Siga na direção <b>sudoeste</b> na <b>R. Vidal Ramos</b> em direção à <b>R. Dr. Lúcio Correia</b>",
+                            "polyline": {
+                                "points": "x~s_D|x_iHDDzB~C|AvB|AvB"
+                            },
+                            "start_location": {
+                                "lat": -26.3218906,
+                                "lng": -48.8284656
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,5 km",
+                                "value": 548
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 68
+                            },
+                            "end_location": {
+                                "lat": -26.3266187,
+                                "lng": -48.8265773
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Nacar</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "vht_Dre`iHl@g@l@g@`@]`@_@v@s@v@q@fBqBLOHMBG?OAOAUCq@BWHc@NS^o@TW@?LKRURSl@g@l@e@"
+                            },
+                            "start_location": {
+                                "lat": -26.323481,
+                                "lng": -48.8304992
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,2 km",
+                                "value": 242
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 29
+                            },
+                            "end_location": {
+                                "lat": -26.3276855,
+                                "lng": -48.8286916
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Des. Heráclito Ribeiro</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "j|t_Dbm_iHXv@L\\h@tAd@lAd@lAZn@Zl@"
+                            },
+                            "start_location": {
+                                "lat": -26.3266187,
+                                "lng": -48.8265773
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,6 km",
+                                "value": 571
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 84
+                            },
+                            "end_location": {
+                                "lat": -26.3313194,
+                                "lng": -48.8246893
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Eleotério Maia</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "`cu_Dhz_iHz@s@JIn@m@p@m@p@o@RSTUl@q@l@q@bBaBt@s@v@u@R_@j@iANYHMHQZk@@A^i@"
+                            },
+                            "start_location": {
+                                "lat": -26.3276855,
+                                "lng": -48.8286916
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "21 m",
+                                "value": 21
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 7
+                            },
+                            "end_location": {
+                                "lat": -26.331461,
+                                "lng": -48.8248291
+                            },
+                            "html_instructions": "Vire à <b>direita</b> na <b>R. Teresópolis</b>",
+                            "maneuver": "turn-right",
+                            "polyline": {
+                                "points": "vyu_Dha_iHLLLL"
+                            },
+                            "start_location": {
+                                "lat": -26.3313194,
+                                "lng": -48.8246893
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "1,7 km",
+                                "value": 1720
+                            },
+                            "duration": {
+                                "text": "4 minutos",
+                                "value": 263
+                            },
+                            "end_location": {
+                                "lat": -26.3368057,
+                                "lng": -48.8091426
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na 1ª rua transversal para <b>R. Florianópolis</b><div style=\"font-size:0.9em\">Você verá Lubrax+ (à esquerda em 800 m)</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "rzu_Ddb_iHTcADWDOVkAZiBJw@Jo@NwABUBU`B}L?ELy@b@iDx@iGViBXcCfAoId@{Cr@iF\\iCTq@FWFUJYNYLOFIb@i@LSLQLMNKDEFGTSVQRSTQf@g@h@i@t@{@Z_@f@S"
+                            },
+                            "start_location": {
+                                "lat": -26.331461,
+                                "lng": -48.8248291
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,3 km",
+                                "value": 315
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 53
+                            },
+                            "end_location": {
+                                "lat": -26.3396256,
+                                "lng": -48.808882
+                            },
+                            "html_instructions": "Continue para <b>R. João Elias de Oliveira</b>",
+                            "polyline": {
+                                "points": "`|v_Db`|hHdACfAEtAKvAKlAEl@AZAZAbAE"
+                            },
+                            "start_location": {
+                                "lat": -26.3368057,
+                                "lng": -48.8091426
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "3,2 km",
+                                "value": 3163
+                            },
+                            "duration": {
+                                "text": "7 minutos",
+                                "value": 401
+                            },
+                            "end_location": {
+                                "lat": -26.3535333,
+                                "lng": -48.788739
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Monsenhor Gercino</b><div style=\"font-size:0.9em\">Passe pelo posto de gasolina (à direita, em 2,2 km)</div>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "tmw_Dn~{hH@sA?I?{AEkBKa@_@u@{@wAO[e@cAYk@O[KQK[G[CIGSG[Is@ASAWAW?Q@SDe@BMJ]FOHOP_@JSLc@b@oBDS^cCLqALo@Ha@@W@ETmBRiA@I`@oAXi@Zg@TYRWTYVWh@m@RWdBmAdAy@^e@LUHMTi@Ls@H}@^gDNq@BEP[j@k@NOp@i@`Aw@dB_BdB_BRQRQxAuAHGdB}Aj@i@@Av@q@VSTSj@i@j@i@FEDGt@m@FIr@k@`@_@TShAcAjAcAjAeAPO|AuAr@q@l@o@hAaAxCoCn@k@^]RQLGDAHAD?D?B@FBPJPLfAj@`@X`@XXTZ\\LR@BHNb@x@l@~@Xf@"
+                            },
+                            "start_location": {
+                                "lat": -26.3396256,
+                                "lng": -48.808882
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0,7 km",
+                                "value": 657
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 48
+                            },
+                            "end_location": {
+                                "lat": -26.3571139,
+                                "lng": -48.78481920000001
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> para permanecer na <b>R. Monsenhor Gercino</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "pdz_Dr`xhHJGHELGLEf@MPEl@Q`@Md@CXAT?X@h@BV@RARCVC`@MXOVO@?BCTUBAb@m@j@}@Ra@Vo@HUDWDYB[FiBJaF"
+                            },
+                            "start_location": {
+                                "lat": -26.3535333,
+                                "lng": -48.788739
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "8,0 km",
+                                "value": 7964
+                            },
+                            "duration": {
+                                "text": "8 minutos",
+                                "value": 493
+                            },
+                            "end_location": {
+                                "lat": -26.4128924,
+                                "lng": -48.7567721
+                            },
+                            "html_instructions": "Continue para <b>Rodovia Rio do Morro</b>",
+                            "polyline": {
+                                "points": "|zz_DbhwhHDmADe@L{@Lm@TaARk@Rc@R_@\\e@V]b@_@RQTQPKPKVKTK`@Kb@I|@Oz@GpFIv@C|@E|@K`@KPGBCPIt@e@^]`@_@NMVQPKRKd@Sb@MNCZE`@AX?H@P@\\FTD\\NB@VLDBVNDDfAx@fAz@z@p@BBVRLHz@p@XRTPVVRJRNTJh@h@XTf@\\f@^VNd@PTD~@LX?nAI\\IHAVIDCXM\\Wd@e@j@_AjAsBR_@@Af@_A@A@A~@eBN[P]@Cd@_A@A@AZo@t@yAj@y@b@a@`@YJG@A@?NI^Kz@OxBKrAIfBQbBa@ZMTMHIXWVK`@a@T[RYXc@Te@Re@Vu@Tw@Ja@LYNg@Ra@R_@Xc@HMDGZUfDyAfA_@^G|@Qp@Gx@?L@J@P?n@FbAJVDNBP?x@F`A?t@MHAFAh@Qp@]ROZURW\\c@b@m@LQLQJONQ^i@T]T[@CRUBCR[hBqCx@mAPWT_@Zc@FIv@_Ar@q@XQXUXM`B{@t@YNGZQb@QNEXI`@Kf@EvAEPAP@rBJf@@`@@l@?h@@Z@V?f@@vAFl@?RCVE^I^Q^STQRSPWLQHWHSDWFYHm@@o@?MBw@?I@c@@UDa@Jc@FOBIBEHQHMHMLMVWlAo@|BaARI`@OVKFCB?\\O@?ZMbBs@|CoApBw@h@Yl@k@RYLUFSDQDO@OBQ?q@Eg@Eq@UcBCk@?a@BUBSDUDUFOHS\\k@h@i@p@m@VS\\YXW@?TQDE@?\\WdA}@nBcBrAoARUZc@DK@AP_@?Ch@iAT]TSTOXQf@Id@Eh@?p@Bb@D`BZdFbAHB`FbArA`@`@LHDLBHBJDzC~@PDdBb@~Cj@`BZn@VpB~@j@Pd@Lb@D`@?VC^K\\OZWd@e@JMxAeBbEkEz@_AtA{ADEd@_@"
+                            },
+                            "start_location": {
+                                "lat": -26.3571139,
+                                "lng": -48.78481920000001
+                            },
+                            "travel_mode": "DRIVING"
+                        },
+                        {
+                            "distance": {
+                                "text": "3,2 km",
+                                "value": 3205
+                            },
+                            "duration": {
+                                "text": "5 minutos",
+                                "value": 291
+                            },
+                            "end_location": {
+                                "lat": -26.3913958,
+                                "lng": -48.7360194
+                            },
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>BR-280</b>",
+                            "maneuver": "turn-left",
+                            "polyline": {
+                                "points": "pwe`DxxqhHKc@GQSo@i@wAcAwBcAqBWi@KSe@_A_@u@}@{Aa@i@e@o@GIcAsAOSsAiBSW}@mAmDyEW]CG_@e@EEm@w@_AmA[e@QUKQsAeBQWe@k@s@_Ak@w@u@aAEEs@aAe@i@g@i@c@_@MMWS_@WQM_Am@eAo@yE}C}F{Dc@WgGaEo@]IEmAw@YQgAo@eAm@k@Yi@[}AaAQKm@_@m@][UEC}@i@wBqAiAq@{A{@MIy@e@iDqB{@k@qDqCs@m@qBeB_BaB"
+                            },
+                            "start_location": {
+                                "lat": -26.4128924,
+                                "lng": -48.7567721
+                            },
+                            "travel_mode": "DRIVING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                }
+            ],
+            "overview_polyline": {
+                "points": "|sf_DrndiHfGWJQPa@n@KtEOnG_@bPw@bc@gBlG]LBNEJe@WUE?UQmEeZe@_DEs@p@F~BRn@D?c@BsB@aDBiDB{Bd@mFkBMcAIJsAVuD^oG^aEj@uBnAwBhN_MtO_NxEsDrBgB{AyCmB{D[oADcEUaAoBkCvAmApAiAfBeBwBuC{AyBa@a@e@]iDmBFMf@w@fBaBhDeDZFdA|Aj@|@KSeBgCQSdAiApAhBqAiBrAoA~A}AnAqA^WcA{AW_@m@}@v@k@v@m@i@y@i@{@{AoBxAmA~DgDpB_BiKcPhKbPqB~A`G`JvFpIvDzFjBaB~DkDxOuN`@m@?g@o@mAkCiDgBmCO}ADqBXoARy@dA}@lAcAnB{AhB]rBHf@GjBGfBXrOzCzAl@vD|D`CjC~@fAhF|FbK|KpA~A`AkB{@kC|C{F|JyEnF_CuBcGtBbGdKyE~Bu@xFoC|BeAp@~BtBvFMT|@zClAlDm@zF[`CO|@oB`BnBaBN?p@tCj@lB{E|DgLtJkHnGyAtAf@j@`CjCbFnFxM~NvJ`KjAnAnAdC`@lL|ApPVpAf@J|Ek@nCwArAeBdHmLLeAQ{@sA{Fs@eAcAyAz@w@`CiBjA_@~WmBtADjBrAf@hAZt@z@LtBExE~DbBxAiBdBhBeBzA~AdEvDiE`EhEaEdJ}ImAgB~A_BaCeD`CdDzDnFzAoArDcDbCwCGgBL{@n@cAx@y@`A{@l@e@Xv@v@rBjAzCv@|AfA}@fD_DtE{ElBiB~@iBb@y@\\m@^i@LLLLTcAJg@jA}GxBaQjGme@nB}Lp@yArBaCzFyFlBW|CQnFU~AG@}AEgEk@wAkCcFo@eBc@cEVeBn@sAvAkHf@{Dl@gElB{DjBwB~EeEz@aC|@}G~BaC`HiGzI_IjTsRhKgJlChAxBfB|@`BfAfBTMtAa@nCe@pBF`BWv@c@hBcCz@_Cv@qPjA_ElBcClA{@rBm@xBWhHMnDe@fE}ClBq@vAGnCt@~N`L`CbBtCd@nC_@bBoAxF_K~CkG|B}Br@WpJw@~CgAhBaBvAiCfAiDpAmCrEeCvEaA`G`@jAFvBMlBs@`BaBjAaBhCoDjEwGnC_DtHwDrBa@nFDtIPxBShBkAr@uAXoCDsBZkBjAcBbIkD~GqCzCqA`AeA`@kA?{B_@cFRuAxAyBfB{AlGiFhCuC|@oBzAsAhDKtJhB`JxB~DlAxJpBrFvBdADv@OjB{AnLmMj@e@Su@eEqJiBsDmC_EcMwPoQuUqBkBwDcCe\\aTuZsQwKoHeGuF"
+            },
+            "summary": "R. Piratuba",
+            "warnings": [],
+            "waypoint_order": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                11,
+                10,
+                13,
+                12
+            ]
+        }
+    ],
+    "status": "OK"
+}

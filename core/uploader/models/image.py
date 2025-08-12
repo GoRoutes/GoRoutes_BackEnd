@@ -1,5 +1,5 @@
-import uuid
 from django.db import models
+import uuid
 from cloudinary.models import CloudinaryField
 
 class Image(models.Model):
@@ -21,9 +21,11 @@ class Image(models.Model):
     description = models.TextField(null=True, blank=True)
     uploaded_on = models.DateTimeField(auto_now_add=True)
 
+    # Novo campo para a versão cortada (redonda)
+    file_rounded = models.URLField(null=True, blank=True, help_text="URL da imagem redonda")
+
     def save(self, *args, **kwargs):
-        if not self.public_id:  
-          
+        if not self.public_id and self.file:
             self.public_id = self.file.public_id  
         super().save(*args, **kwargs)
 
@@ -33,4 +35,3 @@ class Image(models.Model):
     class Meta:
         verbose_name = "Image"
         verbose_name_plural = "Images"
-        

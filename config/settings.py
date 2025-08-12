@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'core.uploader',
     'django_extensions',
     'django_filters',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -79,19 +80,20 @@ REST_FRAMEWORK = {
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-if MODE == 'MIGRATE':
-    DATABASES = {
-        'default': dj_database_url.config(
-            default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
-            conn_max_age=600,
-        )
-    }
-else:  # DEVELOPMENT ou qualquer outro valor padrão
+if MODE == 'DEVELOPMENT':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='sqlite:///db.sqlite3',
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
     }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -170,3 +172,15 @@ cloudinary.config(
     api_key=API_KEY,
     api_secret=API_SECRET
 )
+
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+ASGI_APPLICATION = 'config.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [(os.getenv('REDIS_URL'))],
+        },
+    },
+}

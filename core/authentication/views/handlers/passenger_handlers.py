@@ -29,7 +29,7 @@ def create_passenger(request):
 
     validated_data = serializer.validated_data
     user_data = validated_data.pop('user')
-    addresses_data = request.data.pop('addresses', [])
+    addresses_data = validated_data.pop('addresses', [])
     student_data = validated_data.pop('student_data', None)
     
     user = User.objects.create_user(
@@ -47,12 +47,12 @@ def create_passenger(request):
         cpf=validated_data['cpf'],
         is_student=validated_data.get('is_student', False)
     )
-
     address_objs = []
     for addr in addresses_data:
         address = Address.objects.create(**addr)
         address_objs.append(address)
     passenger.address.set(address_objs)
+    print("Endereços atribuídos:", passenger.address.all())
 
     if passenger.is_student and student_data:
         StudentData.objects.create(

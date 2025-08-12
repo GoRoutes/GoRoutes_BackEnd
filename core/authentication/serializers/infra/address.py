@@ -1,34 +1,41 @@
 from rest_framework import serializers
 from core.authentication.models import Address
+from core.goroutes.utils import get_latitude_longitude
 
-from core.authentication.serializers.handlers import validate_states
+class AddressWriterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = '__all__'
 
-class AddressReadSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    cep = serializers.CharField(max_length=9)
-    street = serializers.CharField(max_length=100)
-    number = serializers.CharField(max_length=10)
-    complement = serializers.CharField(max_length=100, allow_null=True, required=False, allow_blank=True)
-    neighborhood = serializers.CharField(max_length=100)
-    city = serializers.CharField(max_length=100)
-    state = serializers.CharField(max_length=2)
-    is_main = serializers.BooleanField(default=False)
-    full_address = serializers.SerializerMethodField()
+    def create(self, validated_data):
+        street = validated_data.get('street', '')
+        number = validated_data.get('number', '')
+        city = validated_data.get('city', '')
+        state = validated_data.get('state', '')
+        
+        # Construir o endereço completo
+        full_address = f"{street}, {number} - {city}, {state}"
+        
+        # Obter latitude e longitude
+        data_latitude_longitude = get_latitude_longitude(full_address)
+        
+        if data_latitude_longitude:
+            validated_data['latitude'], validated_data['longitude'] = data_latitude_longitude
+        
+        return super().create(validated_data)
 
-    def get_full_address(self, obj):
-        full_address = f'{obj.street}, {obj.number}, {obj.neighborhood}, {obj.city}, {obj.state}'
-        return full_address
+class AddressReadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = '__all__'
 
-class AddressWriterSerializer(serializers.Serializer):
-    cep = serializers.CharField(max_length=9)
-    street = serializers.CharField(max_length=100)
-    number = serializers.CharField(max_length=10)
-    complement = serializers.CharField(max_length=100, allow_null=True, required=False, allow_blank=True)
-    neighborhood = serializers.CharField(max_length=100)
-    city = serializers.CharField(max_length=100)
-    state = serializers.CharField(max_length=2)
-    is_main = serializers.BooleanField(default=False)
 
-    def validate(self, attrs):
-        validate_states(attrs["state"])
-        return attrs
+class AddressPassengerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ('id', 'full_address')
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['full_address'] = f"{instance.street}, {instance.number} - {instance.neighborhood}, {instance.city} - {instance.state}"
+        return representation

@@ -1,1 +1,1 @@
-from .responsibles_by_students import ResponsibleByStudentsFilter
+from .responsibles_by_students import CombinedUserFilter

@@ -4,7 +4,8 @@ from core.authentication.serializers.infra import (
     AddressReadSerializer, 
     AddressWriterSerializer, 
     UserWriterSerializer, 
-    UserReadSerializer
+    UserReadSerializer,
+    AddressPassengerSerializer
 )
 
 class StudentDataSerializer(serializers.Serializer):
@@ -40,5 +41,17 @@ class PassengerReadSerializer(serializers.Serializer):
     def get_address(self, obj):
         main_addresses = obj.address.filter(is_main=True)
         return AddressReadSerializer(main_addresses, many=True).data
+    
+class PassengerRouteReadSerializer(serializers.Serializer):
+    user = serializers.SerializerMethodField()
 
+    def get_user(self, obj):
+        main_address = obj.address.filter(is_main=True).first()
 
+        return {
+            "id": obj.user.id,
+            "name": obj.user.name,
+            "address": (
+                main_address.full_address if main_address else None
+            )
+        }
