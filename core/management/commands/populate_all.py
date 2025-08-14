@@ -35,7 +35,7 @@ class Command(BaseCommand):
         anthony_user.save()
 
         anthony_responsible = Responsible.objects.create(
-            cpf=fake.cpf(),
+            cpf="11345562926",
             user=anthony_user
         )
         responsibles.append(anthony_responsible)
