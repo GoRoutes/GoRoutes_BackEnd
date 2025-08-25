@@ -1,0 +1,2077 @@
+{
+    "id": 3,
+    "name": "Rota Sul",
+    "origin": "Avenida Rolf Wiest, 333 - Bom Retiro, Joinville - SC, 89223-005",
+    "destination": "BR-280 - Colégio Agrícola, 5200, Araquari - SC, 89245-000",
+    "distance": 37763.0,
+    "init_hour": "07:00:00",
+    "end_hour": "07:45:00",
+    "duration": 0.0,
+    "latitude_origin": -26.2536743,
+    "longitude_origin": -48.8532415,
+    "latitude_destination": -26.3913958,
+    "longitude_destination": -48.7360194,
+    "passengers": [
+        {
+            "user": {
+                "id": 4,
+                "name": "Pedro Henrique",
+                "address": "Servidão Aroldo da Silva, 191, Iririú, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 5,
+                "name": "Júlia da Cunha",
+                "address": "Rua: Polônia, 725, Iririú, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 6,
+                "name": "Yasmin Araújo",
+                "address": "Rua: Rio Fortuna, 367, Iririú, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 7,
+                "name": "Heloisa Neumann",
+                "address": "Rua: Comandante Hassel, 354, Iririú, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 8,
+                "name": "Isabella Haidar",
+                "address": "Rua: Victor Konder, 330, Iririú, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 9,
+                "name": "Nicolas Steffens",
+                "address": "Rua: Deputado Lauro Carneiro Loyola, 1242, Iririú, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 10,
+                "name": "Larissa Biff",
+                "address": "Rua: Libano, 146, Boa Vista, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 11,
+                "name": "Kaue Ian",
+                "address": "Rua: Desemb. Tavares Sobrinho, 789, Boa Vista, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 12,
+                "name": "Maria Clara Pavanello",
+                "address": "Rua: Antônio de Oliveira Silva, 567, Boa Vista, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 13,
+                "name": "Melissa Rafaela",
+                "address": "Rua: Cardeal Pacelli, 333, Boa Vista, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 14,
+                "name": "Daniel Castro",
+                "address": "Rua: Jatobá, 51, Guanabara, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 15,
+                "name": "Yohana Jahn",
+                "address": "Rua: Graciosa, 1120, Guanabara, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 16,
+                "name": "Júlia Vitória Cogrossi",
+                "address": "Rua: Vidal Ramos, 268, Guanabara, Joinville, SC"
+            }
+        },
+        {
+            "user": {
+                "id": 17,
+                "name": "Julia Wermeling",
+                "address": "Rua: Porto Alegre, 52, Guanabara, Joinville, SC"
+            }
+        }
+    ],
+    "markers": [
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 185
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 75
+            },
+            "start_location": {
+                "lat": -26.2535858,
+                "lng": -48.8524246
+            },
+            "end_location": {
+                "lat": -26.255089,
+                "lng": -48.85198889999999
+            },
+            "polyline": {
+                "points": "|sf_DrndiHRAJARAB?dBErAIRA@?BA?ABCBIHSFMDI"
+            },
+            "html_instructions": "Siga na direção sul para a Av. Rolf Wiest"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 303
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 29
+            },
+            "start_location": {
+                "lat": -26.255089,
+                "lng": -48.85198889999999
+            },
+            "end_location": {
+                "lat": -26.2577872,
+                "lng": -48.8517041
+            },
+            "polyline": {
+                "points": "h}f_D|kdiHh@Ab@G\\GbC?N?@?t@EtEY@?JG"
+            },
+            "html_instructions": "Vire à direita na Av. Rolf Wiest"
+        },
+        {
+            "distance": {
+                "text": "1,1 km",
+                "value": 1092
+            },
+            "duration": {
+                "text": "2 minutos",
+                "value": 100
+            },
+            "start_location": {
+                "lat": -26.2577872,
+                "lng": -48.8517041
+            },
+            "end_location": {
+                "lat": -26.2675676,
+                "lng": -48.850762
+            },
+            "polyline": {
+                "points": "dng_DbjdiHH@n@?hBGnDWv@Cj@A~AK`@?dAGTC`EITArAGdAGLAfCMdCMTAhEWj@CbA?B?b@CbAGD?hAGrBS"
+            },
+            "html_instructions": "Pegue a Av. Santos Dumont"
+        },
+        {
+            "distance": {
+                "text": "0,6 km",
+                "value": 642
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 69
+            },
+            "start_location": {
+                "lat": -26.2675676,
+                "lng": -48.850762
+            },
+            "end_location": {
+                "lat": -26.2663048,
+                "lng": -48.84497750000001
+            },
+            "polyline": {
+                "points": "hki_DfddiH?@@@@?@@@?@@@?@?@@@?@?@?@A@?@?@?@A@?@A@??A@A@ABI@G?K?AAA?A?AAAAA?AAAA??AAAA?AAA?AAA?A?A?A?A?A?A?IBGUEOw@eFAAMy@Kq@[}BS{AcAgHG[YwBAIAAC[AW"
+            },
+            "html_instructions": "Na rotatória, pegue a 2ª saída para a R. Dom Bosco"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 126
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 16
+            },
+            "start_location": {
+                "lat": -26.2663048,
+                "lng": -48.84497750000001
+            },
+            "end_location": {
+                "lat": -26.2674257,
+                "lng": -48.8451545
+            },
+            "polyline": {
+                "points": "jci_Db`ciHj@DD@|@F`AJn@D"
+            },
+            "html_instructions": "Vire à direita antes de MAGRÃO AGROPET"
+        },
+        {
+            "distance": {
+                "text": "0,4 km",
+                "value": 424
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 47
+            },
+            "start_location": {
+                "lat": -26.2674257,
+                "lng": -48.8451545
+            },
+            "end_location": {
+                "lat": -26.2676874,
+                "lng": -48.84092
+            },
+            "polyline": {
+                "points": "lji_DdaciH?c@?q@BaA?a@@_C?O?K@aA@kA@U@WAg@@e@?AJmA?ADe@Fe@?AJmA"
+            },
+            "html_instructions": "Vire à esquerda na R. Rezende"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 98
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 13
+            },
+            "start_location": {
+                "lat": -26.2676874,
+                "lng": -48.84092
+            },
+            "end_location": {
+                "lat": -26.2668143,
+                "lng": -48.8408007
+            },
+            "polyline": {
+                "points": "`li_DvfbiHwAKSAcAI"
+            },
+            "html_instructions": "Vire à esquerda na R. Irmãs Lauer"
+        },
+        {
+            "distance": {
+                "text": "1,3 km",
+                "value": 1310
+            },
+            "duration": {
+                "text": "3 minutos",
+                "value": 155
+            },
+            "start_location": {
+                "lat": -26.2668143,
+                "lng": -48.8408007
+            },
+            "end_location": {
+                "lat": -26.2735385,
+                "lng": -48.8308845
+            },
+            "polyline": {
+                "points": "pfi_D~ebiHJsAHuAL_BLeBPiDP}B@EDe@DWDUHWH_@Pg@Rc@DIT_@^i@XYzDkDhEwDhAaAXUNMlJmI|BmB`BuA"
+            },
+            "html_instructions": "Vire à direita na 1ª rua transversal para R. Piratuba"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 165
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 39
+            },
+            "start_location": {
+                "lat": -26.2735385,
+                "lng": -48.8308845
+            },
+            "end_location": {
+                "lat": -26.2747194,
+                "lng": -48.8298881
+            },
+            "polyline": {
+                "points": "rpj_D~g`iH~AgABCRQrBgB"
+            },
+            "html_instructions": "Continue para R. Videira"
+        },
+        {
+            "distance": {
+                "text": "0,4 km",
+                "value": 354
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 48
+            },
+            "start_location": {
+                "lat": -26.2747194,
+                "lng": -48.8298881
+            },
+            "end_location": {
+                "lat": -26.2735911,
+                "lng": -48.8267114
+            },
+            "polyline": {
+                "points": "~wj_Dxa`iH{AyCyA{CS_@IWCIGUEWASAS?Q?MBi@@[@i@@KAQ"
+            },
+            "html_instructions": "Vire à esquerda na Rua Baercker Wagner"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 120
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 18
+            },
+            "start_location": {
+                "lat": -26.2735911,
+                "lng": -48.8267114
+            },
+            "end_location": {
+                "lat": -26.2729314,
+                "lng": -48.82577
+            },
+            "polyline": {
+                "points": "|pj_D|m_iHEQCIISw@eAw@eA"
+            },
+            "html_instructions": "Rua Baercker Wagner faz uma curva suave à esquerda e se torna Av. Pref. Wittich Freitag"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 198
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 24
+            },
+            "start_location": {
+                "lat": -26.2729314,
+                "lng": -48.82577
+            },
+            "end_location": {
+                "lat": -26.2743041,
+                "lng": -48.8245049
+            },
+            "polyline": {
+                "points": "xlj_D`h_iHb@_@r@m@PO`@]DCVWfBeB"
+            },
+            "html_instructions": "Vire à direita, antes da farmácia"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 214
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 25
+            },
+            "start_location": {
+                "lat": -26.2743041,
+                "lng": -48.8245049
+            },
+            "end_location": {
+                "lat": -26.273013,
+                "lng": -48.8229232
+            },
+            "polyline": {
+                "points": "juj_Db`_iHwBuCuAmBEKCEEEMMIGKI"
+            },
+            "html_instructions": "Vire à esquerda depois de Supermercado Economia (à esquerda)"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 127
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 15
+            },
+            "start_location": {
+                "lat": -26.273013,
+                "lng": -48.8229232
+            },
+            "end_location": {
+                "lat": -26.2720311,
+                "lng": -48.8222748
+            },
+            "polyline": {
+                "points": "hmj_Dfv~hHYSiDmB"
+            },
+            "html_instructions": "Continue para R. Cerro Verde"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 254
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 36
+            },
+            "start_location": {
+                "lat": -26.2720311,
+                "lng": -48.8222748
+            },
+            "end_location": {
+                "lat": -26.273693,
+                "lng": -48.8205401
+            },
+            "polyline": {
+                "points": "dgj_Ddr~hHFMDI`@m@r@q@r@o@l@g@j@g@PS|@aAHK"
+            },
+            "html_instructions": "Vire à direita na R. Rio Fortuna/R. Ten. Paulo Lopes"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 122
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 27
+            },
+            "start_location": {
+                "lat": -26.273693,
+                "lng": -48.8205401
+            },
+            "end_location": {
+                "lat": -26.2743824,
+                "lng": -48.82148429999999
+            },
+            "polyline": {
+                "points": "pqj_Djg~hHPRb@l@`@n@X^DHBBFNDJ"
+            },
+            "html_instructions": "Vire à direita na Servidão Aroldo da SilvaO destino estará à direita"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 122
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 26
+            },
+            "start_location": {
+                "lat": -26.2743824,
+                "lng": -48.82148429999999
+            },
+            "end_location": {
+                "lat": -26.273693,
+                "lng": -48.8205401
+            },
+            "polyline": {
+                "points": "zuj_Dfm~hHEKGOCCEIY_@a@o@c@m@QS"
+            },
+            "html_instructions": "Siga na direção nordeste na Servidão Aroldo da Silva em direção à R. Rio Fortuna/R. Ten. Paulo Lopes"
+        },
+        {
+            "distance": {
+                "text": "54 m",
+                "value": 54
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 15
+            },
+            "start_location": {
+                "lat": -26.273693,
+                "lng": -48.8205401
+            },
+            "end_location": {
+                "lat": -26.2740411,
+                "lng": -48.8201678
+            },
+            "polyline": {
+                "points": "pqj_Djg~hHdAiA"
+            },
+            "html_instructions": "Vire à direita na R. Rio Fortuna/R. Ten. Paulo Lopes"
+        },
+        {
+            "distance": {
+                "text": "70 m",
+                "value": 70
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 22
+            },
+            "start_location": {
+                "lat": -26.2740411,
+                "lng": -48.8201678
+            },
+            "end_location": {
+                "lat": -26.2744492,
+                "lng": -48.82069749999999
+            },
+            "polyline": {
+                "points": "vsj_D`e~hHpAhB"
+            },
+            "html_instructions": "Vire à direita na 1ª rua transversal para R. PolôniaO destino estará à esquerda"
+        },
+        {
+            "distance": {
+                "text": "70 m",
+                "value": 70
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 13
+            },
+            "start_location": {
+                "lat": -26.2744492,
+                "lng": -48.82069749999999
+            },
+            "end_location": {
+                "lat": -26.2740411,
+                "lng": -48.8201678
+            },
+            "polyline": {
+                "points": "hvj_Djh~hHqAiB"
+            },
+            "html_instructions": "Siga na direção nordeste na R. Polônia em direção à R. Rio Fortuna/R. Ten. Paulo Lopes"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 193
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 37
+            },
+            "start_location": {
+                "lat": -26.2740411,
+                "lng": -48.8201678
+            },
+            "end_location": {
+                "lat": -26.2753432,
+                "lng": -48.8188904
+            },
+            "polyline": {
+                "points": "vsj_D`e~hHh@g@h@g@n@m@n@o@\\_@TWPOHI"
+            },
+            "html_instructions": "Vire à direita na 1ª rua transversal para R. Rio Fortuna/R. Ten. Paulo LopesO destino estará à esquerda"
+        },
+        {
+            "distance": {
+                "text": "21 m",
+                "value": 21
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 3
+            },
+            "start_location": {
+                "lat": -26.2753432,
+                "lng": -48.8188904
+            },
+            "end_location": {
+                "lat": -26.2754982,
+                "lng": -48.8187716
+            },
+            "polyline": {
+                "points": "z{j_D`}}hHJIRM"
+            },
+            "html_instructions": "Siga na direção sudeste na R. Rio Fortuna/R. Ten. Paulo Lopes em direção à R. Dep. Jota Gonçalves"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 121
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 15
+            },
+            "start_location": {
+                "lat": -26.2754982,
+                "lng": -48.8187716
+            },
+            "end_location": {
+                "lat": -26.2748091,
+                "lng": -48.8178388
+            },
+            "polyline": {
+                "points": "z|j_Dh|}hHo@aASYW_@m@}@"
+            },
+            "html_instructions": "Vire à esquerda na R. Dep. Jota Gonçalves"
+        },
+        {
+            "distance": {
+                "text": "76 m",
+                "value": 76
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 19
+            },
+            "start_location": {
+                "lat": -26.2748091,
+                "lng": -48.8178388
+            },
+            "end_location": {
+                "lat": -26.2753664,
+                "lng": -48.81739409999999
+            },
+            "polyline": {
+                "points": "pxj_Dnv}hHv@k@v@m@"
+            },
+            "html_instructions": "Vire à direita na R. Alfonso Luiz Schwartz"
+        },
+        {
+            "distance": {
+                "text": "50 m",
+                "value": 50
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 19
+            },
+            "start_location": {
+                "lat": -26.2753664,
+                "lng": -48.81739409999999
+            },
+            "end_location": {
+                "lat": -26.2750931,
+                "lng": -48.817002
+            },
+            "polyline": {
+                "points": "`|j_Dts}hHi@y@MS"
+            },
+            "html_instructions": "Vire à esquerda na R. Cmte. HasselO destino estará à esquerda"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 101
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 40
+            },
+            "start_location": {
+                "lat": -26.2750931,
+                "lng": -48.817002
+            },
+            "end_location": {
+                "lat": -26.2744888,
+                "lng": -48.8162436
+            },
+            "polyline": {
+                "points": "hzj_Dfq}hH[g@m@w@m@w@"
+            },
+            "html_instructions": "Siga na direção nordeste na R. Cmte. Hassel em direção à R. Mirassol"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 279
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 42
+            },
+            "start_location": {
+                "lat": -26.2744888,
+                "lng": -48.8162436
+            },
+            "end_location": {
+                "lat": -26.2764731,
+                "lng": -48.81453399999999
+            },
+            "polyline": {
+                "points": "pvj_Dnl}hH`Ay@VSBCtAiAr@m@p@k@x@o@v@o@"
+            },
+            "html_instructions": "Vire à direita na Rua João Reinhold"
+        },
+        {
+            "distance": {
+                "text": "0,4 km",
+                "value": 350
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 49
+            },
+            "start_location": {
+                "lat": -26.2764731,
+                "lng": -48.81453399999999
+            },
+            "end_location": {
+                "lat": -26.2745011,
+                "lng": -48.8117938
+            },
+            "polyline": {
+                "points": "|bk_Dxa}hHwEmHqDuF"
+            },
+            "html_instructions": "Vire à esquerda na R. Victor KonderO destino estará à esquerda"
+        },
+        {
+            "distance": {
+                "text": "0,4 km",
+                "value": 350
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 47
+            },
+            "start_location": {
+                "lat": -26.2745011,
+                "lng": -48.8117938
+            },
+            "end_location": {
+                "lat": -26.2764731,
+                "lng": -48.81453399999999
+            },
+            "polyline": {
+                "points": "rvj_Dtp|hHpDtFvElH"
+            },
+            "html_instructions": "Siga na direção sudoeste na R. Victor Konder em direção à Rua João Reinhold"
+        },
+        {
+            "distance": {
+                "text": "79 m",
+                "value": 79
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 9
+            },
+            "start_location": {
+                "lat": -26.2764731,
+                "lng": -48.81453399999999
+            },
+            "end_location": {
+                "lat": -26.2759001,
+                "lng": -48.8150061
+            },
+            "polyline": {
+                "points": "|bk_Dxa}hHw@n@y@n@"
+            },
+            "html_instructions": "Vire à direita na Rua João Reinhold"
+        },
+        {
+            "distance": {
+                "text": "0,4 km",
+                "value": 445
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 68
+            },
+            "start_location": {
+                "lat": -26.2759001,
+                "lng": -48.8150061
+            },
+            "end_location": {
+                "lat": -26.2784258,
+                "lng": -48.8184662
+            },
+            "polyline": {
+                "points": "j_k_Dxd}hH^h@xA|BbAzAbA|AvAtBBDxAzB`AxA"
+            },
+            "html_instructions": "Vire à esquerda na 1ª rua transversal para R. Dep. Lauro Carneiro de LoyolaO destino estará à direita"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 163
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 24
+            },
+            "start_location": {
+                "lat": -26.2784258,
+                "lng": -48.8184662
+            },
+            "end_location": {
+                "lat": -26.2793516,
+                "lng": -48.8197348
+            },
+            "polyline": {
+                "points": "dok_Dlz}hHn@`AfCxD"
+            },
+            "html_instructions": "Siga na direção sudoeste na R. Dep. Lauro Carneiro de Loyola em direção à R. Papa João XXIII"
+        },
+        {
+            "distance": {
+                "text": "0,6 km",
+                "value": 644
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 71
+            },
+            "start_location": {
+                "lat": -26.2793516,
+                "lng": -48.8197348
+            },
+            "end_location": {
+                "lat": -26.2837182,
+                "lng": -48.8155418
+            },
+            "polyline": {
+                "points": "|tk_Dhb~hHt@o@t@q@bA{@n@i@RSv@q@t@q@l@k@l@k@zAuAb@a@~@{@pAkAtBkBRSDGBIBG@K?G"
+            },
+            "html_instructions": "Vire à esquerda na 1ª rua transversal para R. Papa João XXIIIVocê verá COMPREMAIS VEÍCULOS (à esquerda)"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 275
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 25
+            },
+            "start_location": {
+                "lat": -26.2837182,
+                "lng": -48.8155418
+            },
+            "end_location": {
+                "lat": -26.2822116,
+                "lng": -48.8134002
+            },
+            "polyline": {
+                "points": "fpl_Dbh}hH?IAICIEQKQY_@s@_Ac@k@ECm@y@SUUYMOW[EKGMEKCKAAEO"
+            },
+            "html_instructions": "R. Papa João XXIII faz uma curva suave à esquerda e se torna R. Xavier Arp"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 169
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 19
+            },
+            "start_location": {
+                "lat": -26.2822116,
+                "lng": -48.8134002
+            },
+            "end_location": {
+                "lat": -26.2824333,
+                "lng": -48.8117554
+            },
+            "polyline": {
+                "points": "xfl_Dvz|hHCO?E?CAE?CAg@AS?]B]Ba@@EDUH[FW@GPq@"
+            },
+            "html_instructions": "Continue para Ac. Ten. Paulo Lopes"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 277
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 26
+            },
+            "start_location": {
+                "lat": -26.2824333,
+                "lng": -48.8117554
+            },
+            "end_location": {
+                "lat": -26.2845642,
+                "lng": -48.8105159
+            },
+            "polyline": {
+                "points": "dhl_Dnp|hHp@k@RQZYVSTQBCDEVSXSv@m@VKZIXEZAR?R?RB"
+            },
+            "html_instructions": "Pegue a R. Ten. Paulo Lopes"
+        },
+        {
+            "distance": {
+                "text": "54 m",
+                "value": 54
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 5
+            },
+            "start_location": {
+                "lat": -26.2845642,
+                "lng": -48.8105159
+            },
+            "end_location": {
+                "lat": -26.2850429,
+                "lng": -48.8105083
+            },
+            "polyline": {
+                "points": "nul_Dvh|hHF@F@L@J?L?L?JAFCDA"
+            },
+            "html_instructions": "Continue para R. Albano Schmidt"
+        },
+        {
+            "distance": {
+                "text": "1,3 km",
+                "value": 1318
+            },
+            "duration": {
+                "text": "2 minutos",
+                "value": 114
+            },
+            "start_location": {
+                "lat": -26.2850429,
+                "lng": -48.8105083
+            },
+            "end_location": {
+                "lat": -26.2946322,
+                "lng": -48.8174416
+            },
+            "polyline": {
+                "points": "nxl_Dth|hH~AIJ@bBXB?zAXrFbAb@J~Cp@bA\\VN|@z@xB`CLRz@|@l@n@HHHJHHf@l@BBZ\\BDPR^`@TTz@`Av@z@LNdBlBt@z@v@x@\\b@^`@v@x@FHp@n@f@l@h@p@"
+            },
+            "html_instructions": "Continue para R. Pref. Helmuth Fallgatter"
+        },
+        {
+            "distance": {
+                "text": "66 m",
+                "value": 66
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 18
+            },
+            "start_location": {
+                "lat": -26.2946322,
+                "lng": -48.8174416
+            },
+            "end_location": {
+                "lat": -26.2949639,
+                "lng": -48.8168985
+            },
+            "polyline": {
+                "points": "ltn_D~s}hH^w@`@s@"
+            },
+            "html_instructions": "Vire à esquerda na R. Cardeal Câmara"
+        },
+        {
+            "distance": {
+                "text": "78 m",
+                "value": 78
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 11
+            },
+            "start_location": {
+                "lat": -26.2949639,
+                "lng": -48.8168985
+            },
+            "end_location": {
+                "lat": -26.2946599,
+                "lng": -48.8161975
+            },
+            "polyline": {
+                "points": "nvn_Drp}hHEICIY{@W{@"
+            },
+            "html_instructions": "Vire à esquerda, depois da igreja (à esquerda)"
+        },
+        {
+            "distance": {
+                "text": "0,5 km",
+                "value": 540
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 64
+            },
+            "start_location": {
+                "lat": -26.2946599,
+                "lng": -48.8161975
+            },
+            "end_location": {
+                "lat": -26.2985598,
+                "lng": -48.8132147
+            },
+            "polyline": {
+                "points": "rtn_Dfl}hHz@}A@Cx@yAN_@BGDIBEFGHG~@c@HEhAi@|@]|@]~A}@BCz@]z@]z@a@z@a@"
+            },
+            "html_instructions": "Vire à direita na R. Des. Tavares Sobrinho"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 146
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 34
+            },
+            "start_location": {
+                "lat": -26.2985598,
+                "lng": -48.8132147
+            },
+            "end_location": {
+                "lat": -26.2979691,
+                "lng": -48.8119086
+            },
+            "polyline": {
+                "points": "~lo_Dpy|hHgA_Dm@cB"
+            },
+            "html_instructions": "Vire à esquerda na R. LíbanoO destino estará à direita"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 146
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 25
+            },
+            "start_location": {
+                "lat": -26.2979691,
+                "lng": -48.8119086
+            },
+            "end_location": {
+                "lat": -26.2985598,
+                "lng": -48.8132147
+            },
+            "polyline": {
+                "points": "hio_Dlq|hHl@bBfA~C"
+            },
+            "html_instructions": "Siga na direção sudoeste na R. Líbano em direção à R. Des. Tavares Sobrinho"
+        },
+        {
+            "distance": {
+                "text": "0,5 km",
+                "value": 485
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 75
+            },
+            "start_location": {
+                "lat": -26.2985598,
+                "lng": -48.8132147
+            },
+            "end_location": {
+                "lat": -26.3024754,
+                "lng": -48.8110902
+            },
+            "polyline": {
+                "points": "~lo_Dpy|hHx@_@x@a@fCgAhCoAx@]dAW~BgAxBgANG"
+            },
+            "html_instructions": "Vire à esquerda na R. Des. Tavares SobrinhoO destino estará à esquerda"
+        },
+        {
+            "distance": {
+                "text": "69 m",
+                "value": 69
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 9
+            },
+            "start_location": {
+                "lat": -26.3024754,
+                "lng": -48.8110902
+            },
+            "end_location": {
+                "lat": -26.303027,
+                "lng": -48.8107832
+            },
+            "polyline": {
+                "points": "nep_Dhl|hHlB}@"
+            },
+            "html_instructions": "Siga na direção sudeste na R. Des. Tavares Sobrinho em direção à R. Paramirim"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 209
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 39
+            },
+            "start_location": {
+                "lat": -26.303027,
+                "lng": -48.8107832
+            },
+            "end_location": {
+                "lat": -26.3038734,
+                "lng": -48.8126575
+            },
+            "polyline": {
+                "points": "|hp_Djj|hHX`AV|@\\~@\\~@\\z@Zz@"
+            },
+            "html_instructions": "Vire à direita na 1ª rua transversal para R. Paramirim"
+        },
+        {
+            "distance": {
+                "text": "14 m",
+                "value": 14
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 2
+            },
+            "start_location": {
+                "lat": -26.3038734,
+                "lng": -48.8126575
+            },
+            "end_location": {
+                "lat": -26.3037979,
+                "lng": -48.8127742
+            },
+            "polyline": {
+                "points": "dnp_Dbv|hHEJGH"
+            },
+            "html_instructions": "Vire à direita na R. Alcântara"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 159
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 21
+            },
+            "start_location": {
+                "lat": -26.3037979,
+                "lng": -48.8127742
+            },
+            "end_location": {
+                "lat": -26.3044006,
+                "lng": -48.8142211
+            },
+            "polyline": {
+                "points": "vmp_Dxv|hH^lA\\lATn@b@tA"
+            },
+            "html_instructions": "Vire à esquerda na R. Domingos Massaneiro"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 242
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 27
+            },
+            "start_location": {
+                "lat": -26.3044006,
+                "lng": -48.8142211
+            },
+            "end_location": {
+                "lat": -26.3041192,
+                "lng": -48.8165703
+            },
+            "polyline": {
+                "points": "nqp_Dz_}hHHPHT@JAFCTCb@QvAOdAADAHALMl@A@IbAAn@"
+            },
+            "html_instructions": "Continue para R. Des. Francisco José Rodrigues de Oliveira"
+        },
+        {
+            "distance": {
+                "text": "89 m",
+                "value": 89
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 13
+            },
+            "start_location": {
+                "lat": -26.3041192,
+                "lng": -48.8165703
+            },
+            "end_location": {
+                "lat": -26.3034947,
+                "lng": -48.8171295
+            },
+            "polyline": {
+                "points": "vop_Dpn}hHMLoB`B"
+            },
+            "html_instructions": "Vire à direita na R. Antônio de Oliveira SilvaO destino estará à direita"
+        },
+        {
+            "distance": {
+                "text": "89 m",
+                "value": 89
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 14
+            },
+            "start_location": {
+                "lat": -26.3034947,
+                "lng": -48.8171295
+            },
+            "end_location": {
+                "lat": -26.3041192,
+                "lng": -48.8165703
+            },
+            "polyline": {
+                "points": "xkp_D`r}hHnBaBLM"
+            },
+            "html_instructions": "Siga na direção sudeste na R. Antônio de Oliveira Silva em direção à R. Des. Francisco José Rodrigues de Oliveira"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 147
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 16
+            },
+            "start_location": {
+                "lat": -26.3041192,
+                "lng": -48.8165703
+            },
+            "end_location": {
+                "lat": -26.3045986,
+                "lng": -48.81794379999999
+            },
+            "polyline": {
+                "points": "vop_Dpn}hH@LHf@f@lB@Bh@hB"
+            },
+            "html_instructions": "Vire à direita na R. Des. Francisco José Rodrigues de Oliveira"
+        },
+        {
+            "distance": {
+                "text": "0,5 km",
+                "value": 522
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 66
+            },
+            "start_location": {
+                "lat": -26.3045986,
+                "lng": -48.81794379999999
+            },
+            "end_location": {
+                "lat": -26.3009063,
+                "lng": -48.82117969999999
+            },
+            "polyline": {
+                "points": "vrp_Dbw}hHe@^uD|CuD`DMJOLsExDeA|@WT"
+            },
+            "html_instructions": "Vire à direita na R. Cardeal PacelliO destino estará à esquerda"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 213
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 44
+            },
+            "start_location": {
+                "lat": -26.3009063,
+                "lng": -48.82117969999999
+            },
+            "end_location": {
+                "lat": -26.2994318,
+                "lng": -48.8225507
+            },
+            "polyline": {
+                "points": "t{o_Djk~hHuBdBwAtAyAtA"
+            },
+            "html_instructions": "Siga na direção noroeste na R. Cardeal Pacelli em direção à R. Albano Schmidt"
+        },
+        {
+            "distance": {
+                "text": "1,6 km",
+                "value": 1589
+            },
+            "duration": {
+                "text": "3 minutos",
+                "value": 150
+            },
+            "start_location": {
+                "lat": -26.2994318,
+                "lng": -48.8225507
+            },
+            "end_location": {
+                "lat": -26.3070749,
+                "lng": -48.8351058
+            },
+            "polyline": {
+                "points": "lro_D|s~hHf@j@h@l@vA|AvA~ATT@@rBvBj@n@h@n@v@~@v@~@t@v@NPdAhAfCjC|BbCFHFF^\\l@b@h@p@n@l@`AhAJJPR^^LNNTl@bAL\\BL@JHl@B|@Cb@@VJhCFnBBt@Jd@LtBFt@V`CVrBBb@"
+            },
+            "html_instructions": "Vire à esquerda depois de Pimenta Comércio de Máquinas (à esquerda)"
+        },
+        {
+            "distance": {
+                "text": "0,7 km",
+                "value": 674
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 54
+            },
+            "start_location": {
+                "lat": -26.3070749,
+                "lng": -48.8351058
+            },
+            "end_location": {
+                "lat": -26.3111806,
+                "lng": -48.8319251
+            },
+            "polyline": {
+                "points": "dbq_DlbaiHBNBL@LBRDR@D@@@B@@B@D@J@PDl@IhBOn@KTE`A]ZQd@[JKHGNQX_@^k@DGl@_Ap@iAj@}@`@u@fBsCBIDIFUBU@O?ICK"
+            },
+            "html_instructions": "Vire à esquerda na Rua Aubé"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 263
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 21
+            },
+            "start_location": {
+                "lat": -26.3111806,
+                "lng": -48.8319251
+            },
+            "end_location": {
+                "lat": -26.3100914,
+                "lng": -48.8296334
+            },
+            "polyline": {
+                "points": "z{q_Dpn`iHCMAIGWOo@G_@Kk@I]ESKe@IUIQKOQWIOKM]c@e@u@"
+            },
+            "html_instructions": "Continue para R. Albano Schmidt"
+        },
+        {
+            "distance": {
+                "text": "0,8 km",
+                "value": 785
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 68
+            },
+            "start_location": {
+                "lat": -26.3100914,
+                "lng": -48.8296334
+            },
+            "end_location": {
+                "lat": -26.3166013,
+                "lng": -48.8288392
+            },
+            "polyline": {
+                "points": "`uq_Dd``iHPOh@g@x@q@^[XQLINIXIPGNCXEvDYhCSlCQnBObBMnAIP?VAT?`@DD@\\NZRXTVXh@v@"
+            },
+            "html_instructions": "Vire à direita na R. Graciliano Ramos"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 284
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 29
+            },
+            "start_location": {
+                "lat": -26.3166013,
+                "lng": -48.8288392
+            },
+            "end_location": {
+                "lat": -26.3186123,
+                "lng": -48.8301168
+            },
+            "polyline": {
+                "points": "v}r_Df{_iH?@?@AB?@?@?@?B?@@F@H@FBFDFDDDBFDD@LBD@D?D?F?D?DADADAd@C\\?J?J@F@JH`@`@r@d@LLPRb@^^Z"
+            },
+            "html_instructions": "Na rotatória, pegue a 2ª saída para a R. Graciosa em direção a R. Florianópolis/Motel VIPO destino estará à esquerda"
+        },
+        {
+            "distance": {
+                "text": "85 m",
+                "value": 85
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 8
+            },
+            "start_location": {
+                "lat": -26.3186123,
+                "lng": -48.8301168
+            },
+            "end_location": {
+                "lat": -26.319213,
+                "lng": -48.8306489
+            },
+            "polyline": {
+                "points": "hjs_Dfc`iHRNt@n@l@h@"
+            },
+            "html_instructions": "Siga na direção sudoeste na R. Graciosa em direção à R. dos Cravos"
+        },
+        {
+            "distance": {
+                "text": "78 m",
+                "value": 78
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 17
+            },
+            "start_location": {
+                "lat": -26.319213,
+                "lng": -48.8306489
+            },
+            "end_location": {
+                "lat": -26.3186768,
+                "lng": -48.8311583
+            },
+            "polyline": {
+                "points": "`ns_Dpf`iH{AtAMN"
+            },
+            "html_instructions": "Vire à direita na 2ª rua transversal para R. JatobáO destino estará à direita"
+        },
+        {
+            "distance": {
+                "text": "78 m",
+                "value": 78
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 13
+            },
+            "start_location": {
+                "lat": -26.3186768,
+                "lng": -48.8311583
+            },
+            "end_location": {
+                "lat": -26.319213,
+                "lng": -48.8306489
+            },
+            "polyline": {
+                "points": "vjs_Dvi`iHLOzAuA"
+            },
+            "html_instructions": "Siga na direção sudeste na R. Jatobá em direção à R. Graciosa"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 213
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 40
+            },
+            "start_location": {
+                "lat": -26.319213,
+                "lng": -48.8306489
+            },
+            "end_location": {
+                "lat": -26.3206571,
+                "lng": -48.8320509
+            },
+            "polyline": {
+                "points": "`ns_Dpf`iHl@n@l@n@r@l@r@l@l@l@n@l@"
+            },
+            "html_instructions": "Vire à direita na 1ª rua transversal para R. Graciosa"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 148
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 26
+            },
+            "start_location": {
+                "lat": -26.3206571,
+                "lng": -48.8320509
+            },
+            "end_location": {
+                "lat": -26.3196508,
+                "lng": -48.8330174
+            },
+            "polyline": {
+                "points": "bws_Dho`iHyBtBoAjA"
+            },
+            "html_instructions": "Vire à direita na 3ª rua transversal para R. Porto AlegreO destino estará à esquerda"
+        },
+        {
+            "distance": {
+                "text": "0,4 km",
+                "value": 412
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 77
+            },
+            "start_location": {
+                "lat": -26.3196508,
+                "lng": -48.8330174
+            },
+            "end_location": {
+                "lat": -26.3224496,
+                "lng": -48.8303013
+            },
+            "polyline": {
+                "points": "xps_Dju`iHnAkAxBuBnAoAnAmAbB_B`B_B"
+            },
+            "html_instructions": "Siga na direção sudeste na R. Porto Alegre em direção à R. Graciosa"
+        },
+        {
+            "distance": {
+                "text": "68 m",
+                "value": 68
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 19
+            },
+            "start_location": {
+                "lat": -26.3224496,
+                "lng": -48.8303013
+            },
+            "end_location": {
+                "lat": -26.3220554,
+                "lng": -48.8297773
+            },
+            "polyline": {
+                "points": "hbt_Djd`iHg@s@e@s@"
+            },
+            "html_instructions": "Vire à esquerda na R. Ursa Maior"
+        },
+        {
+            "distance": {
+                "text": "72 m",
+                "value": 72
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 21
+            },
+            "start_location": {
+                "lat": -26.3220554,
+                "lng": -48.8297773
+            },
+            "end_location": {
+                "lat": -26.3225394,
+                "lng": -48.8293
+            },
+            "polyline": {
+                "points": "z_t_Dba`iHn@o@n@o@"
+            },
+            "html_instructions": "Vire à direita na 1ª rua transversal para R. Dr. Lúcio Correia"
+        },
+        {
+            "distance": {
+                "text": "0,1 km",
+                "value": 110
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 29
+            },
+            "start_location": {
+                "lat": -26.3225394,
+                "lng": -48.8293
+            },
+            "end_location": {
+                "lat": -26.3218906,
+                "lng": -48.8284656
+            },
+            "polyline": {
+                "points": "zbt_Db~_iH{B_DEE"
+            },
+            "html_instructions": "Vire à esquerda na 1ª rua transversal para R. Vidal RamosO destino estará à direita"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 269
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 43
+            },
+            "start_location": {
+                "lat": -26.3218906,
+                "lng": -48.8284656
+            },
+            "end_location": {
+                "lat": -26.323481,
+                "lng": -48.8304992
+            },
+            "polyline": {
+                "points": "x~s_D|x_iHDDzB~C|AvB|AvB"
+            },
+            "html_instructions": "Siga na direção sudoeste na R. Vidal Ramos em direção à R. Dr. Lúcio Correia"
+        },
+        {
+            "distance": {
+                "text": "0,5 km",
+                "value": 548
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 68
+            },
+            "start_location": {
+                "lat": -26.323481,
+                "lng": -48.8304992
+            },
+            "end_location": {
+                "lat": -26.3266187,
+                "lng": -48.8265773
+            },
+            "polyline": {
+                "points": "vht_Dre`iHl@g@l@g@`@]`@_@v@s@v@q@fBqBLOHMBG?OAOAUCq@BWHc@NS^o@TW@?LKRURSl@g@l@e@"
+            },
+            "html_instructions": "Vire à esquerda na R. Nacar"
+        },
+        {
+            "distance": {
+                "text": "0,2 km",
+                "value": 242
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 29
+            },
+            "start_location": {
+                "lat": -26.3266187,
+                "lng": -48.8265773
+            },
+            "end_location": {
+                "lat": -26.3276855,
+                "lng": -48.8286916
+            },
+            "polyline": {
+                "points": "j|t_Dbm_iHXv@L\\h@tAd@lAd@lAZn@Zl@"
+            },
+            "html_instructions": "Vire à direita na R. Des. Heráclito Ribeiro"
+        },
+        {
+            "distance": {
+                "text": "0,6 km",
+                "value": 571
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 84
+            },
+            "start_location": {
+                "lat": -26.3276855,
+                "lng": -48.8286916
+            },
+            "end_location": {
+                "lat": -26.3313194,
+                "lng": -48.8246893
+            },
+            "polyline": {
+                "points": "`cu_Dhz_iHz@s@JIn@m@p@m@p@o@RSTUl@q@l@q@bBaBt@s@v@u@R_@j@iANYHMHQZk@@A^i@"
+            },
+            "html_instructions": "Vire à esquerda na R. Eleotério Maia"
+        },
+        {
+            "distance": {
+                "text": "21 m",
+                "value": 21
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 7
+            },
+            "start_location": {
+                "lat": -26.3313194,
+                "lng": -48.8246893
+            },
+            "end_location": {
+                "lat": -26.331461,
+                "lng": -48.8248291
+            },
+            "polyline": {
+                "points": "vyu_Dha_iHLLLL"
+            },
+            "html_instructions": "Vire à direita na R. Teresópolis"
+        },
+        {
+            "distance": {
+                "text": "1,7 km",
+                "value": 1720
+            },
+            "duration": {
+                "text": "4 minutos",
+                "value": 263
+            },
+            "start_location": {
+                "lat": -26.331461,
+                "lng": -48.8248291
+            },
+            "end_location": {
+                "lat": -26.3368057,
+                "lng": -48.8091426
+            },
+            "polyline": {
+                "points": "rzu_Ddb_iHTcADWDOVkAZiBJw@Jo@NwABUBU`B}L?ELy@b@iDx@iGViBXcCfAoId@{Cr@iF\\iCTq@FWFUJYNYLOFIb@i@LSLQLMNKDEFGTSVQRSTQf@g@h@i@t@{@Z_@f@S"
+            },
+            "html_instructions": "Vire à esquerda na 1ª rua transversal para R. FlorianópolisVocê verá Lubrax+ (à esquerda em 800 m)"
+        },
+        {
+            "distance": {
+                "text": "0,3 km",
+                "value": 315
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 53
+            },
+            "start_location": {
+                "lat": -26.3368057,
+                "lng": -48.8091426
+            },
+            "end_location": {
+                "lat": -26.3396256,
+                "lng": -48.808882
+            },
+            "polyline": {
+                "points": "`|v_Db`|hHdACfAEtAKvAKlAEl@AZAZAbAE"
+            },
+            "html_instructions": "Continue para R. João Elias de Oliveira"
+        },
+        {
+            "distance": {
+                "text": "3,2 km",
+                "value": 3163
+            },
+            "duration": {
+                "text": "7 minutos",
+                "value": 401
+            },
+            "start_location": {
+                "lat": -26.3396256,
+                "lng": -48.808882
+            },
+            "end_location": {
+                "lat": -26.3535333,
+                "lng": -48.788739
+            },
+            "polyline": {
+                "points": "tmw_Dn~{hH@sA?I?{AEkBKa@_@u@{@wAO[e@cAYk@O[KQK[G[CIGSG[Is@ASAWAW?Q@SDe@BMJ]FOHOP_@JSLc@b@oBDS^cCLqALo@Ha@@W@ETmBRiA@I`@oAXi@Zg@TYRWTYVWh@m@RWdBmAdAy@^e@LUHMTi@Ls@H}@^gDNq@BEP[j@k@NOp@i@`Aw@dB_BdB_BRQRQxAuAHGdB}Aj@i@@Av@q@VSTSj@i@j@i@FEDGt@m@FIr@k@`@_@TShAcAjAcAjAeAPO|AuAr@q@l@o@hAaAxCoCn@k@^]RQLGDAHAD?D?B@FBPJPLfAj@`@X`@XXTZ\\LR@BHNb@x@l@~@Xf@"
+            },
+            "html_instructions": "Vire à esquerda na R. Monsenhor GercinoPasse pelo posto de gasolina (à direita, em 2,2 km)"
+        },
+        {
+            "distance": {
+                "text": "0,7 km",
+                "value": 657
+            },
+            "duration": {
+                "text": "1 min",
+                "value": 48
+            },
+            "start_location": {
+                "lat": -26.3535333,
+                "lng": -48.788739
+            },
+            "end_location": {
+                "lat": -26.3571139,
+                "lng": -48.78481920000001
+            },
+            "polyline": {
+                "points": "pdz_Dr`xhHJGHELGLEf@MPEl@Q`@Md@CXAT?X@h@BV@RARCVC`@MXOVO@?BCTUBAb@m@j@}@Ra@Vo@HUDWDYB[FiBJaF"
+            },
+            "html_instructions": "Vire à esquerda para permanecer na R. Monsenhor Gercino"
+        },
+        {
+            "distance": {
+                "text": "8,0 km",
+                "value": 7964
+            },
+            "duration": {
+                "text": "8 minutos",
+                "value": 493
+            },
+            "start_location": {
+                "lat": -26.3571139,
+                "lng": -48.78481920000001
+            },
+            "end_location": {
+                "lat": -26.4128924,
+                "lng": -48.7567721
+            },
+            "polyline": {
+                "points": "|zz_DbhwhHDmADe@L{@Lm@TaARk@Rc@R_@\\e@V]b@_@RQTQPKPKVKTK`@Kb@I|@Oz@GpFIv@C|@E|@K`@KPGBCPIt@e@^]`@_@NMVQPKRKd@Sb@MNCZE`@AX?H@P@\\FTD\\NB@VLDBVNDDfAx@fAz@z@p@BBVRLHz@p@XRTPVVRJRNTJh@h@XTf@\\f@^VNd@PTD~@LX?nAI\\IHAVIDCXM\\Wd@e@j@_AjAsBR_@@Af@_A@A@A~@eBN[P]@Cd@_A@A@AZo@t@yAj@y@b@a@`@YJG@A@?NI^Kz@OxBKrAIfBQbBa@ZMTMHIXWVK`@a@T[RYXc@Te@Re@Vu@Tw@Ja@LYNg@Ra@R_@Xc@HMDGZUfDyAfA_@^G|@Qp@Gx@?L@J@P?n@FbAJVDNBP?x@F`A?t@MHAFAh@Qp@]ROZURW\\c@b@m@LQLQJONQ^i@T]T[@CRUBCR[hBqCx@mAPWT_@Zc@FIv@_Ar@q@XQXUXM`B{@t@YNGZQb@QNEXI`@Kf@EvAEPAP@rBJf@@`@@l@?h@@Z@V?f@@vAFl@?RCVE^I^Q^STQRSPWLQHWHSDWFYHm@@o@?MBw@?I@c@@UDa@Jc@FOBIBEHQHMHMLMVWlAo@|BaARI`@OVKFCB?\\O@?ZMbBs@|CoApBw@h@Yl@k@RYLUFSDQDO@OBQ?q@Eg@Eq@UcBCk@?a@BUBSDUDUFOHS\\k@h@i@p@m@VS\\YXW@?TQDE@?\\WdA}@nBcBrAoARUZc@DK@AP_@?Ch@iAT]TSTOXQf@Id@Eh@?p@Bb@D`BZdFbAHB`FbArA`@`@LHDLBHBJDzC~@PDdBb@~Cj@`BZn@VpB~@j@Pd@Lb@D`@?VC^K\\OZWd@e@JMxAeBbEkEz@_AtA{ADEd@_@"
+            },
+            "html_instructions": "Continue para Rodovia Rio do Morro"
+        },
+        {
+            "distance": {
+                "text": "3,2 km",
+                "value": 3205
+            },
+            "duration": {
+                "text": "5 minutos",
+                "value": 291
+            },
+            "start_location": {
+                "lat": -26.4128924,
+                "lng": -48.7567721
+            },
+            "end_location": {
+                "lat": -26.3913958,
+                "lng": -48.7360194
+            },
+            "polyline": {
+                "points": "pwe`DxxqhHKc@GQSo@i@wAcAwBcAqBWi@KSe@_A_@u@}@{Aa@i@e@o@GIcAsAOSsAiBSW}@mAmDyEW]CG_@e@EEm@w@_AmA[e@QUKQsAeBQWe@k@s@_Ak@w@u@aAEEs@aAe@i@g@i@c@_@MMWS_@WQM_Am@eAo@yE}C}F{Dc@WgGaEo@]IEmAw@YQgAo@eAm@k@Yi@[}AaAQKm@_@m@][UEC}@i@wBqAiAq@{A{@MIy@e@iDqB{@k@qDqCs@m@qBeB_BaB"
+            },
+            "html_instructions": "Vire à esquerda na BR-280"
+        }
+    ],
+    "optimized_route_url": "https://www.google.com/maps/dir/?api=1&origin=Avenida+Rolf+Wiest%2C+333+-+Bom+Retiro%2C+Joinville+-+SC%2C+89223-005&destination=BR-280+-+Col%C3%A9gio+Agr%C3%ADcola%2C+5200%2C+Araquari+-+SC%2C+89245-000&travelmode=driving&waypoints=Servid%C3%A3o+Aroldo+da+Silva%2C+191+-+Iriri%C3%BA%2C+Joinville+-+SC%7CRua%3A+Pol%C3%B4nia%2C+725+-+Iriri%C3%BA%2C+Joinville+-+SC%7CRua%3A+Rio+Fortuna%2C+367+-+Iriri%C3%BA%2C+Joinville+-+SC%7CRua%3A+Comandante+Hassel%2C+354+-+Iriri%C3%BA%2C+Joinville+-+SC%7CRua%3A+Victor+Konder%2C+330+-+Iriri%C3%BA%2C+Joinville+-+SC%7CRua%3A+Deputado+Lauro+Carneiro+Loyola%2C+1242+-+Iriri%C3%BA%2C+Joinville+-+SC%7CRua%3A+Libano%2C+146+-+Boa+Vista%2C+Joinville+-+SC%7CRua%3A+Desemb.+Tavares+Sobrinho%2C+789+-+Boa+Vista%2C+Joinville+-+SC%7CRua%3A+Ant%C3%B4nio+de+Oliveira+Silva%2C+567+-+Boa+Vista%2C+Joinville+-+SC%7CRua%3A+Cardeal+Pacelli%2C+333+-+Boa+Vista%2C+Joinville+-+SC%7CRua%3A+Graciosa%2C+1120+-+Guanabara%2C+Joinville+-+SC%7CRua%3A+Jatob%C3%A1%2C+51+-+Guanabara%2C+Joinville+-+SC%7CRua%3A+Porto+Alegre%2C+52+-+Guanabara%2C+Joinville+-+SC%7CRua%3A+Vidal+Ramos%2C+268+-+Guanabara%2C+Joinville+-+SC",
+    "vehicle": {
+        "id": 1,
+        "plate": "AJX9098",
+        "model": "Scania 580s",
+        "seats": 14,
+        "status": "manutenção",
+        "picture": "https://res.cloudinary.com/dntccyy7i/image/upload/v1753839406/vehicles/vo2kswagu3cc4vfq5pne"
+    },
+    "auto_recalculate": true,
+    "addresses": [],
+    "addresses_order": "[\"Avenida Rolf Wiest, 333 - Bom Retiro, Joinville - SC, 89223-005\", \"Servidão Aroldo da Silva, 191 - Iririú, Joinville - SC\", \"Rua: Polônia, 725 - Iririú, Joinville - SC\", \"Rua: Rio Fortuna, 367 - Iririú, Joinville - SC\", \"Rua: Comandante Hassel, 354 - Iririú, Joinville - SC\", \"Rua: Victor Konder, 330 - Iririú, Joinville - SC\", \"Rua: Deputado Lauro Carneiro Loyola, 1242 - Iririú, Joinville - SC\", \"Rua: Libano, 146 - Boa Vista, Joinville - SC\", \"Rua: Desemb. Tavares Sobrinho, 789 - Boa Vista, Joinville - SC\", \"Rua: Antônio de Oliveira Silva, 567 - Boa Vista, Joinville - SC\", \"Rua: Cardeal Pacelli, 333 - Boa Vista, Joinville - SC\", \"Rua: Graciosa, 1120 - Guanabara, Joinville - SC\", \"Rua: Jatobá, 51 - Guanabara, Joinville - SC\", \"Rua: Porto Alegre, 52 - Guanabara, Joinville - SC\", \"Rua: Vidal Ramos, 268 - Guanabara, Joinville - SC\", \"BR-280 - Colégio Agrícola, 5200, Araquari - SC, 89245-000\"]",
+    "overview_polyline": {
+        "points": "|sf_DrndiHfGWJQPa@n@KtEOnG_@bPw@bc@gBlG]LBNEJe@WUE?UQmEeZe@_DEs@p@F~BRn@D?c@BsB@aDBiDB{Bd@mFkBMcAIJsAVuD^oG^aEj@uBnAwBhN_MtO_NxEsDrBgB{AyCmB{D[oADcEUaAoBkCvAmApAiAfBeBwBuC{AyBa@a@e@]iDmBFMf@w@fBaBhDeDZFdA|Aj@|@KSeBgCQSdAiApAhBqAiBrAoA~A}AnAqA^WcA{AW_@m@}@v@k@v@m@i@y@i@{@{AoBxAmA~DgDpB_BiKcPhKbPqB~A`G`JvFpIvDzFjBaB~DkDxOuN`@m@?g@o@mAkCiDgBmCO}ADqBXoARy@dA}@lAcAnB{AhB]rBHf@GjBGfBXrOzCzAl@vD|D`CjC~@fAhF|FbK|KpA~A`AkB{@kC|C{F|JyEnF_CuBcGtBbGdKyE~Bu@xFoC|BeAp@~BtBvFMT|@zClAlDm@zF[`CO|@oB`BnBaBN?p@tCj@lB{E|DgLtJkHnGyAtAf@j@`CjCbFnFxM~NvJ`KjAnAnAdC`@lL|ApPVpAf@J|Ek@nCwArAeBdHmLLeAQ{@sA{Fs@eAcAyAz@w@`CiBjA_@~WmBtADjBrAf@hAZt@z@LtBExE~DbBxAiBdBhBeBzA~AdEvDiE`EhEaEdJ}ImAgB~A_BaCeD`CdDzDnFzAoArDcDbCwCGgBL{@n@cAx@y@`A{@l@e@Xv@v@rBjAzCv@|AfA}@fD_DtE{ElBiB~@iBb@y@\\m@^i@LLLLTcAJg@jA}GxBaQjGme@nB}Lp@yArBaCzFyFlBW|CQnFU~AG@}AEgEk@wAkCcFo@eBc@cEVeBn@sAvAkHf@{Dl@gElB{DjBwB~EeEz@aC|@}G~BaC`HiGzI_IjTsRhKgJlChAxBfB|@`BfAfBTMtAa@nCe@pBF`BWv@c@hBcCz@_Cv@qPjA_ElBcClA{@rBm@xBWhHMnDe@fE}ClBq@vAGnCt@~N`L`CbBtCd@nC_@bBoAxF_K~CkG|B}Br@WpJw@~CgAhBaBvAiCfAiDpAmCrEeCvEaA`G`@jAFvBMlBs@`BaBjAaBhCoDjEwGnC_DtHwDrBa@nFDtIPxBShBkAr@uAXoCDsBZkBjAcBbIkD~GqCzCqA`AeA`@kA?{B_@cFRuAxAyBfB{AlGiFhCuC|@oBzAsAhDKtJhB`JxB~DlAxJpBrFvBdADv@OjB{AnLmMj@e@Su@eEqJiBsDmC_EcMwPoQuUqBkBwDcCe\\aTuZsQwKoHeGuF"
+    },
+    "points": [
+        "|sf_DrndiHRAJARAB?dBErAIRA@?BA?ABCBIHSFMDI",
+        "h}f_D|kdiHh@Ab@G\\GbC?N?@?t@EtEY@?JG",
+        "dng_DbjdiHH@n@?hBGnDWv@Cj@A~AK`@?dAGTC`EITArAGdAGLAfCMdCMTAhEWj@CbA?B?b@CbAGD?hAGrBS",
+        "hki_DfddiH?@@@@?@@@?@@@?@?@@@?@?@?@A@?@?@?@A@?@A@??A@A@ABI@G?K?AAA?A?AAAAA?AAAA??AAAA?AAA?AAA?A?A?A?A?A?A?IBGUEOw@eFAAMy@Kq@[}BS{AcAgHG[YwBAIAAC[AW",
+        "jci_Db`ciHj@DD@|@F`AJn@D",
+        "lji_DdaciH?c@?q@BaA?a@@_C?O?K@aA@kA@U@WAg@@e@?AJmA?ADe@Fe@?AJmA",
+        "`li_DvfbiHwAKSAcAI",
+        "pfi_D~ebiHJsAHuAL_BLeBPiDP}B@EDe@DWDUHWH_@Pg@Rc@DIT_@^i@XYzDkDhEwDhAaAXUNMlJmI|BmB`BuA",
+        "rpj_D~g`iH~AgABCRQrBgB",
+        "~wj_Dxa`iH{AyCyA{CS_@IWCIGUEWASAS?Q?MBi@@[@i@@KAQ",
+        "|pj_D|m_iHEQCIISw@eAw@eA",
+        "xlj_D`h_iHb@_@r@m@PO`@]DCVWfBeB",
+        "juj_Db`_iHwBuCuAmBEKCEEEMMIGKI",
+        "hmj_Dfv~hHYSiDmB",
+        "dgj_Ddr~hHFMDI`@m@r@q@r@o@l@g@j@g@PS|@aAHK",
+        "pqj_Djg~hHPRb@l@`@n@X^DHBBFNDJ",
+        "zuj_Dfm~hHEKGOCCEIY_@a@o@c@m@QS",
+        "pqj_Djg~hHdAiA",
+        "vsj_D`e~hHpAhB",
+        "hvj_Djh~hHqAiB",
+        "vsj_D`e~hHh@g@h@g@n@m@n@o@\\_@TWPOHI",
+        "z{j_D`}}hHJIRM",
+        "z|j_Dh|}hHo@aASYW_@m@}@",
+        "pxj_Dnv}hHv@k@v@m@",
+        "`|j_Dts}hHi@y@MS",
+        "hzj_Dfq}hH[g@m@w@m@w@",
+        "pvj_Dnl}hH`Ay@VSBCtAiAr@m@p@k@x@o@v@o@",
+        "|bk_Dxa}hHwEmHqDuF",
+        "rvj_Dtp|hHpDtFvElH",
+        "|bk_Dxa}hHw@n@y@n@",
+        "j_k_Dxd}hH^h@xA|BbAzAbA|AvAtBBDxAzB`AxA",
+        "dok_Dlz}hHn@`AfCxD",
+        "|tk_Dhb~hHt@o@t@q@bA{@n@i@RSv@q@t@q@l@k@l@k@zAuAb@a@~@{@pAkAtBkBRSDGBIBG@K?G",
+        "fpl_Dbh}hH?IAICIEQKQY_@s@_Ac@k@ECm@y@SUUYMOW[EKGMEKCKAAEO",
+        "xfl_Dvz|hHCO?E?CAE?CAg@AS?]B]Ba@@EDUH[FW@GPq@",
+        "dhl_Dnp|hHp@k@RQZYVSTQBCDEVSXSv@m@VKZIXEZAR?R?RB",
+        "nul_Dvh|hHF@F@L@J?L?L?JAFCDA",
+        "nxl_Dth|hH~AIJ@bBXB?zAXrFbAb@J~Cp@bA\\VN|@z@xB`CLRz@|@l@n@HHHJHHf@l@BBZ\\BDPR^`@TTz@`Av@z@LNdBlBt@z@v@x@\\b@^`@v@x@FHp@n@f@l@h@p@",
+        "ltn_D~s}hH^w@`@s@",
+        "nvn_Drp}hHEICIY{@W{@",
+        "rtn_Dfl}hHz@}A@Cx@yAN_@BGDIBEFGHG~@c@HEhAi@|@]|@]~A}@BCz@]z@]z@a@z@a@",
+        "~lo_Dpy|hHgA_Dm@cB",
+        "hio_Dlq|hHl@bBfA~C",
+        "~lo_Dpy|hHx@_@x@a@fCgAhCoAx@]dAW~BgAxBgANG",
+        "nep_Dhl|hHlB}@",
+        "|hp_Djj|hHX`AV|@\\~@\\~@\\z@Zz@",
+        "dnp_Dbv|hHEJGH",
+        "vmp_Dxv|hH^lA\\lATn@b@tA",
+        "nqp_Dz_}hHHPHT@JAFCTCb@QvAOdAADAHALMl@A@IbAAn@",
+        "vop_Dpn}hHMLoB`B",
+        "xkp_D`r}hHnBaBLM",
+        "vop_Dpn}hH@LHf@f@lB@Bh@hB",
+        "vrp_Dbw}hHe@^uD|CuD`DMJOLsExDeA|@WT",
+        "t{o_Djk~hHuBdBwAtAyAtA",
+        "lro_D|s~hHf@j@h@l@vA|AvA~ATT@@rBvBj@n@h@n@v@~@v@~@t@v@NPdAhAfCjC|BbCFHFF^\\l@b@h@p@n@l@`AhAJJPR^^LNNTl@bAL\\BL@JHl@B|@Cb@@VJhCFnBBt@Jd@LtBFt@V`CVrBBb@",
+        "dbq_DlbaiHBNBL@LBRDR@D@@@B@@B@D@J@PDl@IhBOn@KTE`A]ZQd@[JKHGNQX_@^k@DGl@_Ap@iAj@}@`@u@fBsCBIDIFUBU@O?ICK",
+        "z{q_Dpn`iHCMAIGWOo@G_@Kk@I]ESKe@IUIQKOQWIOKM]c@e@u@",
+        "`uq_Dd``iHPOh@g@x@q@^[XQLINIXIPGNCXEvDYhCSlCQnBObBMnAIP?VAT?`@DD@\\NZRXTVXh@v@",
+        "v}r_Df{_iH?@?@AB?@?@?@?B?@@F@H@FBFDFDDDBFDD@LBD@D?D?F?D?DADADAd@C\\?J?J@F@JH`@`@r@d@LLPRb@^^Z",
+        "hjs_Dfc`iHRNt@n@l@h@",
+        "`ns_Dpf`iH{AtAMN",
+        "vjs_Dvi`iHLOzAuA",
+        "`ns_Dpf`iHl@n@l@n@r@l@r@l@l@l@n@l@",
+        "bws_Dho`iHyBtBoAjA",
+        "xps_Dju`iHnAkAxBuBnAoAnAmAbB_B`B_B",
+        "hbt_Djd`iHg@s@e@s@",
+        "z_t_Dba`iHn@o@n@o@",
+        "zbt_Db~_iH{B_DEE",
+        "x~s_D|x_iHDDzB~C|AvB|AvB",
+        "vht_Dre`iHl@g@l@g@`@]`@_@v@s@v@q@fBqBLOHMBG?OAOAUCq@BWHc@NS^o@TW@?LKRURSl@g@l@e@",
+        "j|t_Dbm_iHXv@L\\h@tAd@lAd@lAZn@Zl@",
+        "`cu_Dhz_iHz@s@JIn@m@p@m@p@o@RSTUl@q@l@q@bBaBt@s@v@u@R_@j@iANYHMHQZk@@A^i@",
+        "vyu_Dha_iHLLLL",
+        "rzu_Ddb_iHTcADWDOVkAZiBJw@Jo@NwABUBU`B}L?ELy@b@iDx@iGViBXcCfAoId@{Cr@iF\\iCTq@FWFUJYNYLOFIb@i@LSLQLMNKDEFGTSVQRSTQf@g@h@i@t@{@Z_@f@S",
+        "`|v_Db`|hHdACfAEtAKvAKlAEl@AZAZAbAE",
+        "tmw_Dn~{hH@sA?I?{AEkBKa@_@u@{@wAO[e@cAYk@O[KQK[G[CIGSG[Is@ASAWAW?Q@SDe@BMJ]FOHOP_@JSLc@b@oBDS^cCLqALo@Ha@@W@ETmBRiA@I`@oAXi@Zg@TYRWTYVWh@m@RWdBmAdAy@^e@LUHMTi@Ls@H}@^gDNq@BEP[j@k@NOp@i@`Aw@dB_BdB_BRQRQxAuAHGdB}Aj@i@@Av@q@VSTSj@i@j@i@FEDGt@m@FIr@k@`@_@TShAcAjAcAjAeAPO|AuAr@q@l@o@hAaAxCoCn@k@^]RQLGDAHAD?D?B@FBPJPLfAj@`@X`@XXTZ\\LR@BHNb@x@l@~@Xf@",
+        "pdz_Dr`xhHJGHELGLEf@MPEl@Q`@Md@CXAT?X@h@BV@RARCVC`@MXOVO@?BCTUBAb@m@j@}@Ra@Vo@HUDWDYB[FiBJaF",
+        "|zz_DbhwhHDmADe@L{@Lm@TaARk@Rc@R_@\\e@V]b@_@RQTQPKPKVKTK`@Kb@I|@Oz@GpFIv@C|@E|@K`@KPGBCPIt@e@^]`@_@NMVQPKRKd@Sb@MNCZE`@AX?H@P@\\FTD\\NB@VLDBVNDDfAx@fAz@z@p@BBVRLHz@p@XRTPVVRJRNTJh@h@XTf@\\f@^VNd@PTD~@LX?nAI\\IHAVIDCXM\\Wd@e@j@_AjAsBR_@@Af@_A@A@A~@eBN[P]@Cd@_A@A@AZo@t@yAj@y@b@a@`@YJG@A@?NI^Kz@OxBKrAIfBQbBa@ZMTMHIXWVK`@a@T[RYXc@Te@Re@Vu@Tw@Ja@LYNg@Ra@R_@Xc@HMDGZUfDyAfA_@^G|@Qp@Gx@?L@J@P?n@FbAJVDNBP?x@F`A?t@MHAFAh@Qp@]ROZURW\\c@b@m@LQLQJONQ^i@T]T[@CRUBCR[hBqCx@mAPWT_@Zc@FIv@_Ar@q@XQXUXM`B{@t@YNGZQb@QNEXI`@Kf@EvAEPAP@rBJf@@`@@l@?h@@Z@V?f@@vAFl@?RCVE^I^Q^STQRSPWLQHWHSDWFYHm@@o@?MBw@?I@c@@UDa@Jc@FOBIBEHQHMHMLMVWlAo@|BaARI`@OVKFCB?\\O@?ZMbBs@|CoApBw@h@Yl@k@RYLUFSDQDO@OBQ?q@Eg@Eq@UcBCk@?a@BUBSDUDUFOHS\\k@h@i@p@m@VS\\YXW@?TQDE@?\\WdA}@nBcBrAoARUZc@DK@AP_@?Ch@iAT]TSTOXQf@Id@Eh@?p@Bb@D`BZdFbAHB`FbArA`@`@LHDLBHBJDzC~@PDdBb@~Cj@`BZn@VpB~@j@Pd@Lb@D`@?VC^K\\OZWd@e@JMxAeBbEkEz@_AtA{ADEd@_@",
+        "pwe`DxxqhHKc@GQSo@i@wAcAwBcAqBWi@KSe@_A_@u@}@{Aa@i@e@o@GIcAsAOSsAiBSW}@mAmDyEW]CG_@e@EEm@w@_AmA[e@QUKQsAeBQWe@k@s@_Ak@w@u@aAEEs@aAe@i@g@i@c@_@MMWS_@WQM_Am@eAo@yE}C}F{Dc@WgGaEo@]IEmAw@YQgAo@eAm@k@Yi@[}AaAQKm@_@m@][UEC}@i@wBqAiAq@{A{@MIy@e@iDqB{@k@qDqCs@m@qBeB_BaB"
+    ],
+    "coords_passageiros": [
+        {
+            "lat": -26.2743225,
+            "lng": -48.8215154,
+            "address": "Servidão Nelson Mathias, 191 - Iririú, Joinville - SC, 89227-352, Brasil"
+        },
+        {
+            "lat": -26.2745862,
+            "lng": -48.8205662,
+            "address": "R. Polônia, 725 - Iririú, Joinville - SC, 89227-340, Brasil"
+        },
+        {
+            "lat": -26.2752928,
+            "lng": -48.8188197,
+            "address": "R. Rio Fortuna, 367 - Iririú, Joinville - SC, 89227-370, Brasil"
+        },
+        {
+            "lat": -26.2749506,
+            "lng": -48.8171257,
+            "address": "R. Cmte. Hassel, 354 - Iririú, Joinville - SC, 89227-530, Brasil"
+        },
+        {
+            "lat": -26.2743446,
+            "lng": -48.811934,
+            "address": "R. Victor Konder, 330 - Iririú, Joinville - SC, 89227-240, Brasil"
+        },
+        {
+            "lat": -26.2783041,
+            "lng": -48.8185767,
+            "address": "R. Dep. Lauro Carneiro de Loyola, 1242 - Iririú, Joinville - SC, 89227-250, Brasil"
+        },
+        {
+            "lat": -26.298096,
+            "lng": -48.8118372,
+            "address": "R. Sem Saida, 149 - Boa Vista, Joinville - SC, 89206-510, Brasil"
+        },
+        {
+            "lat": -26.3024044,
+            "lng": -48.8109314,
+            "address": "R. Des. Tavares Sobrinho, 789 - Boa Vista, Joinville - SC, 89206-500, Brasil"
+        },
+        {
+            "lat": -26.3034241,
+            "lng": -48.8170304,
+            "address": "R. Antônio de Oliveira Silva, 545 - Boa Vista, Joinville - SC, 89206-030, Brasil"
+        },
+        {
+            "lat": -26.3010555,
+            "lng": -48.8213905,
+            "address": "R. Cardeal Pacelli, 333 - Boa Vista, Joinville - SC, 89206-010, Brasil"
+        },
+        {
+            "lat": -26.3185899,
+            "lng": -48.831045,
+            "address": "R. Jatobá, 51 - Guanabara, Joinville - SC, 89207-720, Brasil"
+        },
+        {
+            "lat": -26.3187648,
+            "lng": -48.8298967,
+            "address": "R. Graciosa, 1120 - Guanabara, Joinville - SC, 89207-101, Brasil"
+        },
+        {
+            "lat": -26.3220112,
+            "lng": -48.8283438,
+            "address": "R. Vidal Ramos, 268 - Guanabara, Joinville - SC, 89207-670, Brasil"
+        },
+        {
+            "lat": -26.3197757,
+            "lng": -48.833183,
+            "address": "R. Porto Alegre, 52 - Guanabara, Joinville - SC, 89207-680, Brasil"
+        }
+    ],
+    "is_active": true,
+    "driver": {
+        "id": 1,
+        "cnh": "72211857125",
+        "cpf": "721.945.038-97",
+        "is_active": true,
+        "user": {
+            "id": 19,
+            "username": "carlos-eduardosampaio",
+            "name": "Davi Montenegro",
+            "email": "brunopires@example.com",
+            "telephone": "+55 (021) 2291-2006",
+            "data_of_birth": "1981-12-15",
+            "my_location": {
+                "latitude": -26.3880833,
+                "longitude": -48.8179167
+            },
+            "picture": {
+                "id": 16,
+                "file": "http://res.cloudinary.com/dntccyy7i/image/upload/v1754958579/e95x2zyh5zppplg5rcad.png",
+                "description": "Bruno pires",
+                "uploaded_on": "2025-08-11T21:29:39.617341-03:00",
+                "folder": "media/images",
+                "file_rounded": null
+            }
+        },
+        "adresses": [
+            {
+                "id": 16,
+                "cep": "27034116",
+                "street": "Conjunto de Câmara",
+                "number": "11",
+                "complement": null,
+                "neighborhood": "da Praia",
+                "city": "Cavalcanti",
+                "state": "PA",
+                "is_main": true,
+                "latitude": null,
+                "longitude": null
+            },
+            {
+                "id": 17,
+                "cep": "75979-913",
+                "street": "Vila Nunes",
+                "number": "95",
+                "complement": null,
+                "neighborhood": "das Pedras",
+                "city": "Câmara",
+                "state": "GO",
+                "is_main": false,
+                "latitude": null,
+                "longitude": null
+            }
+        ]
+    }
+}
