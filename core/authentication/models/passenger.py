@@ -4,7 +4,7 @@ from core.authentication.models import User, Address, Responsible
 
 class Passenger(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='passenger')
-    cpf = models.CharField(max_length=11, unique=True)
+    cpf = models.CharField(max_length=20, unique=True)
     is_student = models.BooleanField(default=False)
     address = models.ManyToManyField(Address, related_name='passenger', blank=True)
 
