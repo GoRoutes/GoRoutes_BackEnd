@@ -34,7 +34,7 @@ dependencies = [
   "websockets>=15.0.1",
   "wsproto>=1.2.0",
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
 
