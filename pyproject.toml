@@ -26,13 +26,13 @@ dependencies = [
   "django-filter>=25.1",
   "typing>=3.7.4.3",
   "numpy>=2.3.1",
-  "scikit-learn>=1.7.0",
   "cloudinary>=1.44.1",
   "channels>=4.3.1",
   "channels-redis>=4.3.0",
   "daphne>=4.2.1",
   "websockets>=15.0.1",
   "wsproto>=1.2.0",
+  "scikit-learn>=1.7.1",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
