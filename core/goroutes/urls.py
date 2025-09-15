@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.reverse import reverse
 
 from core.goroutes.views import VehicleViewSet, NotifyViewSet, RouteViewSet
-from core.goroutes.utils import ActivateRouteView, FilterDriverActiveRoutes, FilterDriverByIsActiveRoutes, FilterMyDriverRoutes, UpdateDocumentVehicle
+from core.goroutes.utils import ActivateRouteView, FilterDriverActiveRoutes, FilterDriverByIsActiveRoutes, FilterMyDriverRoutes, UpdateDocumentVehicle, UpdatePictureVehicle
 
 router = DefaultRouter()
 router.register(r'vehicles', VehicleViewSet, basename='vehicles')
@@ -32,4 +32,5 @@ urlpatterns = [
     path('filter-my-active-route/<int:driver_id>/', FilterDriverByIsActiveRoutes.as_view(), name='filter-my-active-route'),
     path('filter-my-driver-routes/<int:driver_id>/', FilterMyDriverRoutes.as_view(), name='filter-my-driver-routes'),
     path('update-document-vehicle/', UpdateDocumentVehicle.as_view(), name='update-document-vehicle'),
+    path('update-picture-vehicle/', UpdatePictureVehicle.as_view(), name='update-picture-vehicle'),
 ]
