@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from core.uploader.models import Image
+from core.uploader.models import Image, Document
+
 
 class VehicleStatus(models.TextChoices):
-    MAINTENANCE = 'manutenção'
-    AVAILABLE = 'disponível'
-    ON_ROUTE = 'em rota'
+    MAINTENANCE = "manutenção"
+    AVAILABLE = "disponível"
+    ON_ROUTE = "em rota"
 
 
 class Vehicle(models.Model):
@@ -18,8 +19,30 @@ class Vehicle(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='vehicle_picture'
+        related_name="vehicle_picture",
     )
+    CRLV = models.OneToOneField(
+        Document,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="vehicle_crlv",
+    )
+    CV = models.OneToOneField(
+        Document,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="vehicle_cv",
+    )
+    AD = models.OneToOneField(
+        Document,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="vehicle_ad",
+    )
+    
 
     class Meta:
         verbose_name = _("Vehicle")

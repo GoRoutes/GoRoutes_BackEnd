@@ -36,3 +36,16 @@ class DocumentUploadSerializer(serializers.ModelSerializer):
                 "Only PDF, DOC, DOCX, XLS, XLSX, TXT and ZIP files are allowed."
             )
         return value
+
+class DocumentReadSerializer(serializers.ModelSerializer):
+    file_download = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Document
+        fields = ["id", "description", "uploaded_on", "folder", "attachment_key", "public_id", "file_download"]
+
+    def get_file_download(self, obj):
+        """
+        Gera a URL de download do arquivo com base no public_id.
+        """
+        return f"https://res.cloudinary.com/{settings.CLOUD_NAME}/raw/upload/{obj.public_id}"
