@@ -1,21 +1,21 @@
 import requests
 import time
-from typing import List, Dict, Any
-from urllib.parse import quote_plus
 import logging
-from sklearn.cluster import KMeans
 import numpy as np
+from sklearn.cluster import KMeans
+from urllib.parse import quote_plus
 import os
 import json
+from typing import List, Dict, Any
 
-# Tentativa de importar o Django settings
+# Import da função externa
+from .optimize_route import verificar_enderecos  
+
 try:
     from django.conf import settings
 except ImportError:
     settings = None
 
-# Configuração básica de logging
-logging.basicConfig(level=logging.INFO)
 
 class OtimizadorRotas:
     """
@@ -23,61 +23,11 @@ class OtimizadorRotas:
     """
 
     def __init__(self, api_key: str):
-        """
-        Inicializa o otimizador de rotas com a chave da API do Google Maps.
-
-        Args:
-            api_key: Chave da API do Google Maps.
-        """
         self.api_key = api_key
 
-    def verificar_enderecos(self, enderecos: List[str]) -> Dict[str, bool]:
-        """
-        Verifica se os endereços existem utilizando a API de Geocodificação do Google Maps.
-
-        Args:
-            enderecos: Lista de endereços a serem verificados.
-
-        Returns:
-            Dicionário com endereços válidos e inválidos.
-        """
-        enderecos_invalidos = []
-        enderecos_validos = {}
-
-        for endereco in enderecos:
-            try:
-                url = "https://maps.googleapis.com/maps/api/geocode/json"
-                params = {
-                    'address': endereco,
-                    'key': self.api_key
-                }
-                response = requests.get(url, params=params)
-                data = response.json()
-
-                if data['status'] != 'OK' or not data.get('results'):
-                    enderecos_invalidos.append(endereco)
-                    enderecos_validos[endereco] = False
-                else:
-                    enderecos_validos[endereco] = True
-
-                time.sleep(0.1)  # Respeitar limites da API
-            except Exception as e:
-                raise Exception(f"Erro ao verificar endereço {endereco}: {str(e)}")
-
-        if enderecos_invalidos:
-            raise ValueError(f"Os seguintes endereços são inválidos: {', '.join(enderecos_invalidos)}")
-
-        return enderecos_validos
-
-    def obter_coordenadas(self, endereco: str) -> List[float]:
+    def obter_coordenadas(self, endereco: str):
         """
         Obtém as coordenadas (latitude, longitude) de um endereço.
-
-        Args:
-            endereco: Endereço para obter as coordenadas.
-
-        Returns:
-            Lista com latitude e longitude.
         """
         try:
             url = "https://maps.googleapis.com/maps/api/geocode/json"
@@ -93,24 +43,15 @@ class OtimizadorRotas:
             logging.error(f"Erro ao obter coordenadas: {str(e)}")
             raise
 
-    def otimizar_rotas(self, enderecos: List[Dict[str, Any]], endereco_final: str, vans: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def otimizar_rotas(self, enderecos, endereco_final, vans):
         """
         Otimiza as rotas das vans, considerando os endereços iniciais de cada van.
-
-        Args:
-            enderecos: Lista de dicionários com 'local' (string) e 'passageiros' (int).
-            endereco_final: Endereço final das vans.
-            vans: Lista de dicionários de vans disponíveis, com 'van', 'lugares' e 'endereco_inicial'.
-
-        Returns:
-            Lista de rotas otimizadas para cada van, com link para o Google Maps.
         """
-        # Primeiro, complete os endereços com a cidade/estado
         cidade_padrao = "Joinville, SC, Brasil"
-        
+
+        # Normalizar endereços de passageiros
         enderecos_completos = []
         for endereco in enderecos:
-            # Verifica se o endereço já tem cidade/estado
             if "JOINVILLE" not in endereco['local'].upper() and "SC" not in endereco['local'].upper():
                 endereco_completo = f"{endereco['local']}, {cidade_padrao}"
             else:
@@ -120,8 +61,8 @@ class OtimizadorRotas:
                 'local': endereco_completo,
                 'passageiros': endereco['passageiros']
             })
-        
-        # Complete também os endereços das vans e destino final
+
+        # Normalizar endereços das vans
         vans_completos = []
         for van in vans:
             endereco_inicial = van['endereco_inicial']
@@ -133,22 +74,23 @@ class OtimizadorRotas:
                 'lugares': van['lugares'],
                 'endereco_inicial': endereco_inicial
             })
-        
+
+        # Normalizar endereço final
         if "ARAQUARI" not in endereco_final.upper() and "SC" not in endereco_final.upper():
             endereco_final = f"{endereco_final}, Araquari, SC, Brasil"
-        
-        # Verificar todos os endereços
+
+        # 🔹 Verificar todos os endereços (chama a função externa)
         todos_enderecos = [van['endereco_inicial'] for van in vans_completos] + [endereco_final] + [e['local'] for e in enderecos_completos]
-        self.verificar_enderecos(todos_enderecos)
+        verificar_enderecos(todos_enderecos, self.api_key)
 
         # Obter coordenadas das vans
         van_coords = []
         for van in vans_completos:
             coord = self.obter_coordenadas(van['endereco_inicial'])
             van_coords.append(coord)
-            time.sleep(0.1)  # Respeitar limites da API
+            time.sleep(0.1)
 
-        # Obter coordenadas dos endereços dos passageiros
+        # Obter coordenadas dos passageiros
         enderecos_com_coords = []
         for endereco in enderecos_completos:
             coord = self.obter_coordenadas(endereco['local'])
@@ -157,14 +99,13 @@ class OtimizadorRotas:
                 'endereco': endereco,
                 'coords': coord
             })
-            time.sleep(0.1)  # Respeitar limites da API
+            time.sleep(0.1)
 
         coords_passageiros = np.array([e['coords'] for e in enderecos_com_coords])
-        print(coords_passageiros)
         if len(coords_passageiros) == 0:
             return []
 
-        # Configurar K-means com centros nas vans
+        # Clustering (K-Means)
         n_clusters = min(len(vans_completos), len(coords_passageiros))
         if len(van_coords) < n_clusters:
             logging.warning(f"Número de coordenadas de vans ({len(van_coords)}) menor que clusters ({n_clusters})")
@@ -173,14 +114,12 @@ class OtimizadorRotas:
         kmeans = KMeans(n_clusters=n_clusters, init=np.array(van_coords[:n_clusters]), n_init=1)
         clusters = kmeans.fit_predict(coords_passageiros)
 
-        # Agrupar endereços por van e verificar capacidade
+        # Agrupar endereços por van
         grupos_por_van = []
         for i in range(n_clusters):
-            # Índices dos passageiros neste cluster
             indices = [j for j, cluster_id in enumerate(clusters) if cluster_id == i]
             grupo_enderecos = [enderecos_com_coords[j] for j in indices]
 
-            # Verificar capacidade da van
             van = vans_completos[i]
             total_passageiros = sum(e['endereco']['passageiros'] for e in grupo_enderecos)
             if total_passageiros > van['lugares']:
@@ -192,13 +131,12 @@ class OtimizadorRotas:
                 'enderecos': [e['endereco']['local'] for e in grupo_enderecos]
             })
 
-        # Otimizar rotas para cada van
+        # Consultar Google Directions API
         rotas_finais = []
         for grupo in grupos_por_van:
             waypoints = grupo['enderecos']
             if not waypoints:
-                print("Grupo vazio, ignorando.")
-                continue  # Ignorar vans sem endereços
+                continue
 
             url = "https://maps.googleapis.com/maps/api/directions/json"
             params = {
@@ -214,34 +152,26 @@ class OtimizadorRotas:
                 response = requests.get(url, params=params)
                 data = response.json()
 
-                # Salvar resposta da API corretamente em formato JSON
+                # Salvar resposta em JSON
                 try:
-                    # Obter o diretório do projeto
-                    if settings:
-                        base_dir = getattr(settings, 'BASE_DIR', None)
-                    else:
-                        base_dir = None
-                    
+                    base_dir = getattr(settings, 'BASE_DIR', None) if settings else None
                     if not base_dir:
-                        # Fallback para o diretório atual
                         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                    
-                    # Usar um nome de arquivo que inclui o ID da van
+
                     file_name = f"data_van_{grupo['van_id']}.json"
                     file_path = os.path.join(base_dir, file_name)
-                    
+
                     with open(file_path, 'w', encoding='utf-8') as f:
                         json.dump(data, f, ensure_ascii=False, indent=4)
-                        
+
                     logging.info(f"Dados da API salvos em {file_path}")
                 except Exception as e:
                     logging.error(f"Erro ao salvar dados da API: {e}")
-                
+
                 if data['status'] == 'OK':
                     rota = data['routes'][0]
                     legs = rota['legs']
 
-                    # Construir caminho completo
                     caminho = [grupo['endereco_inicial']]
                     if 'waypoint_order' in rota:
                         ordem_otimizada = rota['waypoint_order']
@@ -250,11 +180,9 @@ class OtimizadorRotas:
                         caminho.extend(waypoints)
                     caminho.append(endereco_final)
 
-                    # Calcular distância e tempo
                     distancia_total = sum(leg['distance']['value'] for leg in legs)
                     tempo_total = sum(leg['duration']['value'] for leg in legs)
 
-                    # Gerar link do Maps
                     link_maps = self.gerar_link_maps(caminho)
 
                     rotas_finais.append({
@@ -265,43 +193,17 @@ class OtimizadorRotas:
                         'link_maps': link_maps,
                         'coords_passageiros': coords_passageiros.tolist()
                     })
-                elif data['status'] == 'ZERO_RESULTS':
-                    logging.error(f"Não foi possível encontrar rota entre {grupo['endereco_inicial']} e {endereco_final} com os waypoints fornecidos")
-                    
-                    # Tente uma abordagem alternativa com menos waypoints
-                    if len(waypoints) > 5:
-                        logging.info("Tentando com menos waypoints...")
-                        # Divida em grupos menores
-                        chunks = [waypoints[i:i+5] for i in range(0, len(waypoints), 5)]
-                        rotas_parciais = []
-                        
-                        for chunk in chunks:
-                            params_chunk = {
-                                'origin': grupo['endereco_inicial'] if not rotas_parciais else rotas_parciais[-1][-1],
-                                'destination': endereco_final if chunk == chunks[-1] else chunk[-1],
-                                'waypoints': 'optimize:true|' + '|'.join(chunk[:-1]) if chunk != chunks[-1] else 'optimize:true|' + '|'.join(chunk),
-                                'region': 'br',
-                                'language': 'pt-BR',
-                                'key': self.api_key
-                            }
-                            
-                            # Faz a requisição com o chunk
-                            # ... implementar lógica para processar cada chunk
-                time.sleep(0.2)  # Respeitar limites da API
+
             except Exception as e:
                 logging.error(f"Erro ao processar rota da van {grupo['van_id']}: {str(e)}")
 
+            time.sleep(0.2)
+
         return rotas_finais
 
-    def gerar_link_maps(self, caminho: List[str]) -> str:
+    def gerar_link_maps(self, caminho):
         """
         Gera um link do Google Maps com a rota otimizada.
-
-        Args:
-            caminho: Lista de endereços no caminho, onde o primeiro é a origem e o último o destino.
-
-        Returns:
-            Link do Google Maps com a rota.
         """
         if not caminho or len(caminho) < 2:
             raise ValueError("Caminho insuficiente para gerar a rota.")
@@ -328,8 +230,10 @@ class OtimizadorRotas:
         query = "&".join([f"{k}={quote_plus(str(v))}" for k, v in params.items()])
         return f"{base_url}?{query}"
 
-    def verificar_endereco_individual(self, endereco: str) -> Dict:
-        """Verifica um único endereço e retorna informações detalhadas."""
+    def verificar_endereco_individual(self, endereco: str):
+        """
+        Verifica um único endereço e retorna informações detalhadas.
+        """
         url = "https://maps.googleapis.com/maps/api/geocode/json"
         params = {
             'address': endereco,
@@ -337,10 +241,10 @@ class OtimizadorRotas:
             'language': 'pt-BR',
             'key': self.api_key
         }
-        
+
         response = requests.get(url, params=params)
         data = response.json()
-        
+
         if data['status'] == 'OK':
             result = data['results'][0]
             return {
