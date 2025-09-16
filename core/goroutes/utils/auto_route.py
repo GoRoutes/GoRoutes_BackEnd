@@ -8,8 +8,7 @@ import os
 import json
 
 # Imports externos
-from .optimize_route import verificar_enderecos, obter_coordenadas
-from typing import List, Dict, Any
+from .optimize_route import verificar_enderecos, obter_coordenadas, verificar_endereco_individual 
 
 try:
     from django.conf import settings
@@ -214,33 +213,9 @@ class OtimizadorRotas:
 
     def verificar_endereco_individual(self, endereco: str):
         """
-        Verifica um único endereço e retorna informações detalhadas.
+        Wrapper para usar a função externa verificar_endereco_individual
         """
-        url = "https://maps.googleapis.com/maps/api/geocode/json"
-        params = {
-            'address': endereco,
-            'region': 'br',
-            'language': 'pt-BR',
-            'key': self.api_key
-        }
-
-        response = requests.get(url, params=params)
-        data = response.json()
-
-        if data['status'] == 'OK':
-            result = data['results'][0]
-            return {
-                'valido': True,
-                'endereco_formatado': result['formatted_address'],
-                'lat': result['geometry']['location']['lat'],
-                'lng': result['geometry']['location']['lng']
-            }
-        else:
-            return {
-                'valido': False,
-                'status': data['status'],
-                'mensagem': data.get('error_message', 'Endereço não encontrado')
-            }
+        return verificar_endereco_individual(endereco, self.api_key)
 
 
 def get_latitude_longitude(address):
@@ -262,6 +237,8 @@ def get_latitude_longitude(address):
         print(f"Error getting latitude and longitude: {e}")
         return None, None
 
+
+from typing import List, Dict, Any
 
 def otimizar_rotas_vans(enderecos: List[Dict[str, Any]], 
                         endereco_final: str, 
