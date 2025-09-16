@@ -6,10 +6,10 @@ from sklearn.cluster import KMeans
 from urllib.parse import quote_plus
 import os
 import json
-from typing import List, Dict, Any
 
-# Import da função externa
-from .optimize_route import verificar_enderecos  
+# Imports externos
+from .optimize_route import verificar_enderecos, obter_coordenadas
+from typing import List, Dict, Any
 
 try:
     from django.conf import settings
@@ -24,24 +24,6 @@ class OtimizadorRotas:
 
     def __init__(self, api_key: str):
         self.api_key = api_key
-
-    def obter_coordenadas(self, endereco: str):
-        """
-        Obtém as coordenadas (latitude, longitude) de um endereço.
-        """
-        try:
-            url = "https://maps.googleapis.com/maps/api/geocode/json"
-            params = {'address': endereco, 'key': self.api_key}
-            response = requests.get(url, params=params)
-            data = response.json()
-            if data['status'] == 'OK':
-                location = data['results'][0]['geometry']['location']
-                return [location['lat'], location['lng']]
-            else:
-                raise ValueError(f"Endereço inválido: {endereco}")
-        except Exception as e:
-            logging.error(f"Erro ao obter coordenadas: {str(e)}")
-            raise
 
     def otimizar_rotas(self, enderecos, endereco_final, vans):
         """
@@ -79,21 +61,21 @@ class OtimizadorRotas:
         if "ARAQUARI" not in endereco_final.upper() and "SC" not in endereco_final.upper():
             endereco_final = f"{endereco_final}, Araquari, SC, Brasil"
 
-        # 🔹 Verificar todos os endereços (chama a função externa)
+        # 🔹 Verificar todos os endereços
         todos_enderecos = [van['endereco_inicial'] for van in vans_completos] + [endereco_final] + [e['local'] for e in enderecos_completos]
         verificar_enderecos(todos_enderecos, self.api_key)
 
         # Obter coordenadas das vans
         van_coords = []
         for van in vans_completos:
-            coord = self.obter_coordenadas(van['endereco_inicial'])
+            coord = obter_coordenadas(van['endereco_inicial'], self.api_key)
             van_coords.append(coord)
             time.sleep(0.1)
 
         # Obter coordenadas dos passageiros
         enderecos_com_coords = []
         for endereco in enderecos_completos:
-            coord = self.obter_coordenadas(endereco['local'])
+            coord = obter_coordenadas(endereco['local'], self.api_key)
             enderecos_com_coords.append({
                 'indice': len(enderecos_com_coords),
                 'endereco': endereco,
