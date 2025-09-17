@@ -1,5 +1,5 @@
 from core.authentication.models import Driver, User, Address
-from core.authentication.serializers.infra import DriverReadSerializer, DriverCreateSerializer
+from core.authentication.serializers.infra import DriverReadSerializer, DriverCreateSerializer, AddressWriterSerializer
 from django.db import transaction
 from rest_framework import status
 from rest_framework.response import Response
@@ -17,6 +17,10 @@ def retrieve_driver(request, pk):
 
     serializer = DriverReadSerializer(driver)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+from django.db import transaction
+from rest_framework.response import Response
+from rest_framework import status
 
 @transaction.atomic
 def create_driver(request):
@@ -46,13 +50,16 @@ def create_driver(request):
 
     address_objs = []
     for addr in addresses_data:
-        address = Address.objects.create(**addr)
+        addr_serializer = AddressWriterSerializer(data=addr)
+        addr_serializer.is_valid(raise_exception=True)
+        address = addr_serializer.save()
         address_objs.append(address)
 
     driver.adresses.set(address_objs)
 
     output_serializer = DriverReadSerializer(driver)
     return Response(output_serializer.data, status=status.HTTP_201_CREATED)
+
 
 def delete_driver(request, pk):
     try:

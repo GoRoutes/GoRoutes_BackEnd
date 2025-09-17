@@ -1,8 +1,10 @@
 from core.authentication.models import Passenger, User, Address, StudentData
 from core.authentication.serializers.infra import (
+    AddressWriterSerializer,
     PassengerCreateSerializer,
     PassengerReadSerializer,
-    StudentDataSerializer
+    StudentDataSerializer,
+    AddressWriterSerializer
 )
 from django.db import transaction
 from rest_framework import status
@@ -47,10 +49,14 @@ def create_passenger(request):
         cpf=validated_data['cpf'],
         is_student=validated_data.get('is_student', False)
     )
+
     address_objs = []
     for addr in addresses_data:
-        address = Address.objects.create(**addr)
+        addr_serializer = AddressWriterSerializer(data=addr)
+        addr_serializer.is_valid(raise_exception=True)
+        address = addr_serializer.save()
         address_objs.append(address)
+
     passenger.address.set(address_objs)
     print("Endereços atribuídos:", passenger.address.all())
 
@@ -61,7 +67,7 @@ def create_passenger(request):
             registration=student_data['registration'],
             responsible=student_data.get('responsible')
         )
-
+        
     output_serializer = PassengerReadSerializer(passenger)
     return Response(output_serializer.data, status=status.HTTP_201_CREATED)
 

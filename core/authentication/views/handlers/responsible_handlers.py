@@ -2,6 +2,7 @@ from core.authentication.models import Address, Responsible, User
 from core.authentication.serializers.infra import (
     ResponsibleCreateSerializer,
     ResponsibleReadSerializer,
+    AddressWriterSerializer
 )
 from django.db import transaction
 from rest_framework import status
@@ -25,6 +26,10 @@ def retrieve_responsible(request, pk):
     serializer = ResponsibleReadSerializer(responsible)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+from django.db import transaction
+from rest_framework.response import Response
+from rest_framework import status
 
 @transaction.atomic
 def create_responsible(request):
@@ -51,6 +56,7 @@ def create_responsible(request):
 
     output_serializer = ResponsibleReadSerializer(responsible)
     return Response(output_serializer.data, status=status.HTTP_201_CREATED)
+
 
 
 def delete_responsible(request, pk):

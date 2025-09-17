@@ -7,7 +7,7 @@
     "name": "Maria da Silva",
     "email": "maria@email.com",
     "telephone": "11888888888",
-    "password": "123456"
+    "password": "123456",
     "data_of_birth": "1999-05-05"
   },
   "addresses": [
@@ -17,7 +17,8 @@
       "state": "SP",
       "neighborhood": "Sla mn",
       "number": 123,
-      "cep": 123456789
+      "cep": 123456789,
+      "is_main": true
     }
   ]
 }
@@ -30,7 +31,7 @@
     "username": "jo21aosilva",
     "name": "João12 da Silva",
     "email": "joao1212@example.com",
-        "password": "123456",
+    "password": "123456",
     "telephone": "119999988288",
     "data_of_birth": "1990-05-20"
   },
@@ -42,7 +43,8 @@
       "complement": "Apto 101",
       "neighborhood": "Centro",
       "city": "São Paulo",
-      "state": "SP"
+      "state": "SP",
+      "is_main": true
     }
   ]
 }

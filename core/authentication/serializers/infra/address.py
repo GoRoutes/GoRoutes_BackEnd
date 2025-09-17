@@ -12,13 +12,21 @@ class AddressWriterSerializer(serializers.ModelSerializer):
         number = validated_data.get('number', '')
         city = validated_data.get('city', '')
         state = validated_data.get('state', '')
+        neighborhood = validated_data.get('neighborhood', '')
         
-        # Construir o endereço completo
+        def format_neighborhood(name):
+            if not name:
+                return ''
+            words = name.split()
+            formatted_words = [word.capitalize() for word in words]
+            return ' '.join(formatted_words)
+
+        validated_data['neighborhood'] = format_neighborhood(neighborhood)
+
+        # Construir endereço completo
         full_address = f"{street}, {number} - {city}, {state}"
         
-        # Obter latitude e longitude
         data_latitude_longitude = get_latitude_longitude(full_address)
-        
         if data_latitude_longitude:
             validated_data['latitude'], validated_data['longitude'] = data_latitude_longitude
         
