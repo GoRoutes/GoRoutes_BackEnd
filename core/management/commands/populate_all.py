@@ -7,7 +7,6 @@ import random
 import os
 import json
 
-# Caminho para o JSON com os alunos
 data_file_path = os.path.join(os.path.dirname(__file__), 'data/students.json')
 
 fake = Faker('pt_BR')

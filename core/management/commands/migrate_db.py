@@ -15,12 +15,6 @@ class Command(BaseCommand):
             self.stdout.write('Apagando o banco de dados...')
             os.remove(db_path)
 
-        # for app in apps:
-        #     migrations_path = os.path.join(app, 'migrations')
-        #     if os.path.exists(migrations_path):
-        #         self.stdout.write(f'Removendo a pasta de migrações para {app}...')
-        #         shutil.rmtree(migrations_path)
-
         for app in apps:
             self.stdout.write(f'Executando makemigrations para {app}...')
             
