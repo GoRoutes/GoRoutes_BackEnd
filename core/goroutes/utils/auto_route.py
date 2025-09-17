@@ -1,14 +1,17 @@
+from sklearn.cluster import KMeans
+from typing import List, Dict, Any
+from rich import print
+from rich.pretty import Pretty
+from rich.panel import Panel
+from rich.text import Text
+from .optimize_route import verificar_enderecos, obter_coordenadas, verificar_endereco_individual, gerar_link_maps
 import requests
 import time
 import logging
 import numpy as np
-from sklearn.cluster import KMeans
-from urllib.parse import quote_plus
 import os
 import json
 
-# Imports externos
-from .optimize_route import verificar_enderecos, obter_coordenadas, verificar_endereco_individual 
 
 try:
     from django.conf import settings
@@ -164,7 +167,8 @@ class OtimizadorRotas:
                     distancia_total = sum(leg['distance']['value'] for leg in legs)
                     tempo_total = sum(leg['duration']['value'] for leg in legs)
 
-                    link_maps = self.gerar_link_maps(caminho)
+                    # 🔹 Agora usa a função externa
+                    link_maps = gerar_link_maps(caminho)
 
                     rotas_finais.append({
                         'van_id': grupo['van_id'],
@@ -181,35 +185,6 @@ class OtimizadorRotas:
             time.sleep(0.2)
 
         return rotas_finais
-
-    def gerar_link_maps(self, caminho):
-        """
-        Gera um link do Google Maps com a rota otimizada.
-        """
-        if not caminho or len(caminho) < 2:
-            raise ValueError("Caminho insuficiente para gerar a rota.")
-
-        def limpar_endereco(endereco: str) -> str:
-            return endereco.replace('#', '').replace('&', '')
-
-        origin = limpar_endereco(caminho[0])
-        destination = limpar_endereco(caminho[-1])
-        waypoints = [limpar_endereco(p) for p in caminho[1:-1]]
-
-        base_url = "https://www.google.com/maps/dir/"
-
-        params = {
-            "api": "1",
-            "origin": origin,
-            "destination": destination,
-            "travelmode": "driving"
-        }
-
-        if waypoints:
-            params["waypoints"] = "|".join(waypoints)
-
-        query = "&".join([f"{k}={quote_plus(str(v))}" for k, v in params.items()])
-        return f"{base_url}?{query}"
 
     def verificar_endereco_individual(self, endereco: str):
         """
@@ -237,28 +212,16 @@ def get_latitude_longitude(address):
         print(f"Error getting latitude and longitude: {e}")
         return None, None
 
-
-from typing import List, Dict, Any
-
 def otimizar_rotas_vans(enderecos: List[Dict[str, Any]], 
                         endereco_final: str, 
                         vans: List[Dict[str, Any]], 
                         api_key: str) -> List[Dict[str, Any]]:
-    """
-    Função principal para otimizar rotas de vans.
 
-    Args:
-        enderecos: Lista de dicionários com 'local' (string) e 'passageiros' (int).
-        endereco_final: Endereço final das vans.
-        vans: Lista de dicionários de vans disponíveis, com 'van', 'lugares' e 'endereco_inicial'.
-        api_key: Chave da API do Google Maps.
+    print(Panel(Pretty(enderecos), title="🧍 Passageiros", style="green"))
+    print(Panel(endereco_final, title="🏁 Endereço Final", style="blue"))
+    print(Panel(Pretty(vans), title="🚐 Vans", style="magenta"))
+    # print(Panel(api_key[:10] + "...", title="🔑 API Key", style="yellow"))
 
-    Returns:
-        Lista de rotas otimizadas para cada van, com link para o Google Maps.
-    """
-    print(enderecos)
-    print(endereco_final)
-    print(vans)
-    print(api_key)
     otimizador = OtimizadorRotas(api_key)
     return otimizador.otimizar_rotas(enderecos, endereco_final, vans)
+
