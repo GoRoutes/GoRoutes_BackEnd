@@ -12,7 +12,50 @@ from core.authentication.serializers.handlers import (
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from core.uploader.models import Image
 from core.uploader.serializers import ImageUploadSerializer
-class UserSerializer(serializers.ModelSerializer):
+class UserListSerializer(serializers.ModelSerializer):
+    driver_data = serializers.SerializerMethodField()
+    passenger_data = serializers.SerializerMethodField()
+    responsible_data = serializers.SerializerMethodField()
+    picture = serializers.PrimaryKeyRelatedField(
+        queryset=Image.objects.all(), required=False, allow_null=True
+    )
+    picture_file = serializers.SerializerMethodField()
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "picture_file",
+            "is_superuser",
+            "is_staff",
+            "is_active",
+            "username",
+            "name",
+            "email",
+            "telephone",
+            "data_of_birth",
+            "my_location",
+            "picture",
+            "responsible_data",
+            "passenger_data",
+            "driver_data"
+        ] 
+        extra_fields = ['driver_data', 'passenger_data', 'responsible_data']
+
+    def get_driver_data(self, obj):
+        return get_driver_data(self=self, obj=obj)
+    
+    def get_passenger_data(self, obj):
+        return get_passenger_data(self=self, obj=obj)
+    
+    def get_responsible_data(self, obj):
+        return get_responsible_data(self=self, obj=obj)
+    
+    def get_picture_file(self, obj):
+        if obj.picture and hasattr(obj.picture, 'file') and obj.picture.file:
+            return str(obj.picture.file)
+        return None
+    
+class UserRetrieveSerializer(serializers.ModelSerializer):
     driver_data = serializers.SerializerMethodField()
     passenger_data = serializers.SerializerMethodField()
     responsible_data = serializers.SerializerMethodField()
@@ -38,6 +81,7 @@ class UserSerializer(serializers.ModelSerializer):
         if obj.picture and hasattr(obj.picture, 'file') and obj.picture.file:
             return str(obj.picture.file)
         return None
+
 
 class UserWriterSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=255)
@@ -69,7 +113,7 @@ class UserReadSerializer(serializers.Serializer):
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
-        user_data = UserSerializer(self.user).data
+        user_data = UserListSerializer(self.user).data
         data.update({
             'user': user_data
         })
