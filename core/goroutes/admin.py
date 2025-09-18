@@ -1,10 +1,7 @@
 from django.contrib import admin
-from core.goroutes.models import Route, PassengerRoute, Vehicle
+from core.goroutes.models import Route, PassengerRoute, Vehicle, DailyRoute
 from core.authentication.models import Passenger
 
-# Admin para o Passenger (necessário por causa do autocomplete_fields)
-
-# Inline para vincular passageiros a uma rota
 class PassengerRouteInline(admin.TabularInline):
     model = PassengerRoute
     extra = 1
@@ -18,3 +15,4 @@ class RouteAdmin(admin.ModelAdmin):
 
 admin.site.register(PassengerRoute)
 admin.site.register(Vehicle)
+admin.site.register(DailyRoute)

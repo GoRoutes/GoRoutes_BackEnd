@@ -207,6 +207,7 @@ JAZZMIN_SETTINGS = {
         "goroutes.vehicle": "fa fa-shuttle-van",
         "uploader.image": "fa fa-image",
         "uploader.document": "fa fa-file",
+        "goroutes.dailyroute": "fa fa-calendar-day",
     },
 
     "order_with_respect_to": ["core.authentication", "core.goroutes", "core.uploader"],
