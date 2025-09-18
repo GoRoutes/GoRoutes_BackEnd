@@ -34,6 +34,7 @@ dependencies = [
   "wsproto>=1.2.0",
   "scikit-learn>=1.7.1",
   "rich>=14.1.0",
+  "django-jazzmin>=3.0.1",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
