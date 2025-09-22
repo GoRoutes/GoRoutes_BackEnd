@@ -34,14 +34,6 @@
         },
         {
             "geocoder_status": "OK",
-            "place_id": "ChIJ9cSe2OCx3pQRWg6V9PdO7GQ",
-            "types": [
-                "premise",
-                "street_address"
-            ]
-        },
-        {
-            "geocoder_status": "OK",
             "place_id": "ChIJYXQfh-Sx3pQR1fdJ2PZ0bOE",
             "types": [
                 "premise",
@@ -115,14 +107,6 @@
         {
             "geocoder_status": "OK",
             "place_id": "ChIJn9o3vg-x3pQREyvhdkdyY3Q",
-            "types": [
-                "premise",
-                "street_address"
-            ]
-        },
-        {
-            "geocoder_status": "OK",
-            "place_id": "ChIJK5QhRgWx3pQREE5FG6giEK0",
             "types": [
                 "premise",
                 "street_address"
@@ -723,17 +707,17 @@
                 },
                 {
                     "distance": {
-                        "text": "0,3 km",
-                        "value": 268
+                        "text": "1,0 km",
+                        "value": 1001
                     },
                     "duration": {
-                        "text": "1 min",
-                        "value": 57
+                        "text": "2 minutos",
+                        "value": 134
                     },
-                    "end_address": "R. Cmte. Hassel, 354 - Iririú, Joinville - SC, 89227-530, Brasil",
+                    "end_address": "R. Victor Konder, 330 - Iririú, Joinville - SC, 89227-240, Brasil",
                     "end_location": {
-                        "lat": -26.2750931,
-                        "lng": -48.817002
+                        "lat": -26.2745011,
+                        "lng": -48.8117938
                     },
                     "start_address": "R. Rio Fortuna, 367 - Iririú, Joinville - SC, 89227-370, Brasil",
                     "start_location": {
@@ -766,21 +750,21 @@
                         },
                         {
                             "distance": {
-                                "text": "0,1 km",
-                                "value": 121
+                                "text": "0,3 km",
+                                "value": 268
                             },
                             "duration": {
                                 "text": "1 min",
-                                "value": 15
+                                "value": 33
                             },
                             "end_location": {
-                                "lat": -26.2748091,
-                                "lng": -48.8178388
+                                "lat": -26.2738976,
+                                "lng": -48.8167598
                             },
                             "html_instructions": "Vire à <b>esquerda</b> na <b>R. Dep. Jota Gonçalves</b>",
                             "maneuver": "turn-left",
                             "polyline": {
-                                "points": "z|j_Dh|}hHo@aASYW_@m@}@"
+                                "points": "z|j_Dh|}hHo@aASYW_@m@}@{AkBEGsAcB"
                             },
                             "start_location": {
                                 "lat": -26.2754982,
@@ -790,107 +774,12 @@
                         },
                         {
                             "distance": {
-                                "text": "76 m",
-                                "value": 76
+                                "text": "0,4 km",
+                                "value": 362
                             },
                             "duration": {
                                 "text": "1 min",
-                                "value": 19
-                            },
-                            "end_location": {
-                                "lat": -26.2753664,
-                                "lng": -48.81739409999999
-                            },
-                            "html_instructions": "Vire à <b>direita</b> na <b>R. Alfonso Luiz Schwartz</b>",
-                            "maneuver": "turn-right",
-                            "polyline": {
-                                "points": "pxj_Dnv}hHv@k@v@m@"
-                            },
-                            "start_location": {
-                                "lat": -26.2748091,
-                                "lng": -48.8178388
-                            },
-                            "travel_mode": "DRIVING"
-                        },
-                        {
-                            "distance": {
-                                "text": "50 m",
-                                "value": 50
-                            },
-                            "duration": {
-                                "text": "1 min",
-                                "value": 20
-                            },
-                            "end_location": {
-                                "lat": -26.2750931,
-                                "lng": -48.817002
-                            },
-                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Cmte. Hassel</b><div style=\"font-size:0.9em\">O destino estará à esquerda</div>",
-                            "maneuver": "turn-left",
-                            "polyline": {
-                                "points": "`|j_Dts}hHi@y@MS"
-                            },
-                            "start_location": {
-                                "lat": -26.2753664,
-                                "lng": -48.81739409999999
-                            },
-                            "travel_mode": "DRIVING"
-                        }
-                    ],
-                    "traffic_speed_entry": [],
-                    "via_waypoint": []
-                },
-                {
-                    "distance": {
-                        "text": "0,7 km",
-                        "value": 730
-                    },
-                    "duration": {
-                        "text": "2 minutos",
-                        "value": 131
-                    },
-                    "end_address": "R. Victor Konder, 330 - Iririú, Joinville - SC, 89227-240, Brasil",
-                    "end_location": {
-                        "lat": -26.2745011,
-                        "lng": -48.8117938
-                    },
-                    "start_address": "R. Cmte. Hassel, 354 - Iririú, Joinville - SC, 89227-530, Brasil",
-                    "start_location": {
-                        "lat": -26.2750931,
-                        "lng": -48.817002
-                    },
-                    "steps": [
-                        {
-                            "distance": {
-                                "text": "0,1 km",
-                                "value": 101
-                            },
-                            "duration": {
-                                "text": "1 min",
-                                "value": 39
-                            },
-                            "end_location": {
-                                "lat": -26.2744888,
-                                "lng": -48.8162436
-                            },
-                            "html_instructions": "Siga na direção <b>nordeste</b> na <b>R. Cmte. Hassel</b> em direção à <b>R. Mirassol</b>",
-                            "polyline": {
-                                "points": "hzj_Dfq}hH[g@m@w@m@w@"
-                            },
-                            "start_location": {
-                                "lat": -26.2750931,
-                                "lng": -48.817002
-                            },
-                            "travel_mode": "DRIVING"
-                        },
-                        {
-                            "distance": {
-                                "text": "0,3 km",
-                                "value": 279
-                            },
-                            "duration": {
-                                "text": "1 min",
-                                "value": 43
+                                "value": 49
                             },
                             "end_location": {
                                 "lat": -26.2764731,
@@ -899,11 +788,11 @@
                             "html_instructions": "Vire à <b>direita</b> na <b>Rua João Reinhold</b>",
                             "maneuver": "turn-right",
                             "polyline": {
-                                "points": "pvj_Dnl}hH`Ay@VSBCtAiAr@m@p@k@x@o@v@o@"
+                                "points": "zrj_Dvo}hHx@s@z@s@`Ay@VSBCtAiAr@m@p@k@x@o@v@o@"
                             },
                             "start_location": {
-                                "lat": -26.2744888,
-                                "lng": -48.8162436
+                                "lat": -26.2738976,
+                                "lng": -48.8167598
                             },
                             "travel_mode": "DRIVING"
                         },
@@ -2073,17 +1962,17 @@
                 },
                 {
                     "distance": {
-                        "text": "0,3 km",
-                        "value": 272
+                        "text": "19,0 km",
+                        "value": 19022
                     },
                     "duration": {
-                        "text": "1 min",
-                        "value": 47
+                        "text": "30 minutos",
+                        "value": 1819
                     },
-                    "end_address": "R. Nacar, 322 - Guanabara, Joinville - SC, 89207-200, Brasil",
+                    "end_address": "BR-280 - Colégio Agrícola, Araquari - SC, Brasil",
                     "end_location": {
-                        "lat": -26.3235031,
-                        "lng": -48.8304802
+                        "lat": -26.3913958,
+                        "lng": -48.7360194
                     },
                     "start_address": "R. Vidal Ramos, 268 - Guanabara, Joinville - SC, 89207-670, Brasil",
                     "start_location": {
@@ -2116,72 +2005,25 @@
                         },
                         {
                             "distance": {
-                                "text": "3 m",
-                                "value": 3
-                            },
-                            "duration": {
-                                "text": "1 min",
-                                "value": 4
-                            },
-                            "end_location": {
-                                "lat": -26.3235031,
-                                "lng": -48.8304802
-                            },
-                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Nacar</b><div style=\"font-size:0.9em\">O destino estará à direita</div>",
-                            "maneuver": "turn-left",
-                            "polyline": {
-                                "points": "vht_Dre`iHBC"
-                            },
-                            "start_location": {
-                                "lat": -26.323481,
-                                "lng": -48.8304992
-                            },
-                            "travel_mode": "DRIVING"
-                        }
-                    ],
-                    "traffic_speed_entry": [],
-                    "via_waypoint": []
-                },
-                {
-                    "distance": {
-                        "text": "18,8 km",
-                        "value": 18750
-                    },
-                    "duration": {
-                        "text": "30 minutos",
-                        "value": 1772
-                    },
-                    "end_address": "BR-280 - Colégio Agrícola, Araquari - SC, Brasil",
-                    "end_location": {
-                        "lat": -26.3913958,
-                        "lng": -48.7360194
-                    },
-                    "start_address": "R. Nacar, 322 - Guanabara, Joinville - SC, 89207-200, Brasil",
-                    "start_location": {
-                        "lat": -26.3235031,
-                        "lng": -48.8304802
-                    },
-                    "steps": [
-                        {
-                            "distance": {
                                 "text": "0,2 km",
-                                "value": 191
+                                "value": 194
                             },
                             "duration": {
                                 "text": "1 min",
-                                "value": 20
+                                "value": 24
                             },
                             "end_location": {
                                 "lat": -26.3248379,
                                 "lng": -48.8292774
                             },
-                            "html_instructions": "Siga na direção <b>sudeste</b> na <b>R. Nacar</b> em direção à <b>R. Carlos Ropelatto</b>",
+                            "html_instructions": "Vire à <b>esquerda</b> na <b>R. Nacar</b>",
+                            "maneuver": "turn-left",
                             "polyline": {
-                                "points": "zht_Dne`iHh@c@l@g@`@]`@_@v@s@v@q@"
+                                "points": "vht_Dre`iHl@g@l@g@`@]`@_@v@s@v@q@"
                             },
                             "start_location": {
-                                "lat": -26.3235031,
-                                "lng": -48.8304802
+                                "lat": -26.323481,
+                                "lng": -48.8304992
                             },
                             "travel_mode": "DRIVING"
                         },
@@ -2381,7 +2223,7 @@
                 }
             ],
             "overview_polyline": {
-                "points": "~uf_DjndiHdEOJQPa@n@KtEO~Lm@rT_Aja@uBZFLI@g@YMUQmAqHeDsUEs@p@F~BRn@D?c@BsB@aDBiDNmEX{CkBMcAIJsAVuD^oG^aEj@uBnAwB~^_\\xEsDrBgB{AyCmB{D[oACgAH{BUaAoBkCvAmApAiAfBeBwBuC{AyBa@a@gEyCnCyChDeDZFdA|Aj@|@KSeBgCQSdAiApAhBqAiBrAoA~A}AnAqA^WcA{AW_@m@}@v@k@v@m@i@y@i@{@{AoBxAmA~DgDpB_BiKcPhKbPqB~A`G`JvFpIvDzFjBaB~DkDlF_FlIcI?g@o@mA{EeGc@yA@gDXoARy@dA}@lAcAnB{AhB]bADvACjBGfBXrOzCzAl@vD|D`CjCpC`DhKjLpCtCpA~A`AkB{@kCfC{ErD{BnM}FuBcGtBbGdKyExJeE|BeAp@~BvBtFOHbAdDfApDGlAaAnHO|@oB`BnBaBN?p@tCj@lB{E|DgLtJkHnGyAtAf@j@`CjCbFnFdE~E`MrMtG|GnAdCJzCj@vOtAzJ~DSrCi@`Am@|@cAdC}DxDqGReAu@aEwAwDi@q@e@u@PObByAx@m@hAe@jJw@pLy@`BBxAz@`AtA@`@r@l@p@CzAAhBrAbB|AhA~@l@h@{AtAMNLOzAuAl@n@`B|A`BzAn@l@yBtBoAjAnAkAhEeErDmD`B_Bg@s@e@s@n@o@n@o@{B_DzHjKzCiCnBeBl@p@fB~Cd@nB^Bl@@rGfFhFfExCgF~GmIbAmGAyE}@kDRcCfBgJjBsLbGud@~D_Zp@yBbC}CvDkDpA{AlBWbIc@hDKCeHsEiJu@qEDcB`@kAnAgE`AyGb@mDTsAz@yBzAsBzDkD|BcCb@}Ah@eFRw@|@gAhFqEdKkJhRqPfOeNb@Kb@P|ClBdAjAtBpDp@[hCs@nBChB?jBq@^[zB}DXcBXyKv@qExAuCdBaBpAo@~Dm@dL_@hAa@fCqBbB}@pBYjCb@|M|J`ChBzBfAxALlBS`A]bA}@vBsD~@cBnCiFpAiCnA{Ap@c@n@UtD[zD[~Bo@pA{@dB{BtC_I|@yAjHwCvDWpCTrBPhCQjCuAbB{BjCqDfGeJ~CyC`EkBhBs@rDYzIT`EDvBu@hAoA`@}AXiGfA_CbFiCtAi@|MsFvAoBPcAa@oFBwB\\oApCwCtBaB|GgGt@qAtA_C|Bq@`Fd@dPlDbJjC`GfA`DvAvCd@pBw@nIeJ|DaEqA}DkDgHeD{FuMkQqOoSeDuDwAgAc]uTu[mRqFaDsKqI_BaB"
+                "points": "~uf_DjndiHdEOJQPa@n@KtEO~Lm@rT_Aja@uBZFLI@g@YMUQmAqHeDsUEs@p@F~BRn@D?c@BsB@aDBiDNmEX{CkBMcAIJsAVuD^oG^aEj@uBnAwB~^_\\xEsDrBgB{AyCmB{D[oACgAH{BUaAoBkCvAmApAiAfBeBwBuC{AyBa@a@gEyCnCyChDeDZFdA|Aj@|@KSeBgCQSdAiApAhBqAiBrAoA~A}AnAqA^WcA{AaDiEyAkBtBgBrD{CvEyDiKcPhKbPqB~AxBfDbFtHrIpM~EgE|KcK`FsEHe@Ko@}B}CqCsDWiAJyDd@mBxBkBv@o@dCwAnC@lDOvLvBbE|@zAl@`GnGjAnAnEbFnKnLjCxC`AkBISq@wB|@aBrAkCdHeDzE}BvBcAuBcGtBbGrBaApKmEvJuElB~Fz@tBOHvBnHRz@i@vEo@nEoB`BnBaBN?|AbGaVfSmEzDyAtAf@j@`CjClBtBjExEtDhErM~MzF`H\\dBLbGJlEbAbLXlB\\X~HeAtA_A|FcJxB}D@{@aA}Ek@}AeAyAe@u@PObByAvAaAtA[~PoA|EYzAVvBzBAHHj@x@^hBIj@LtBhBlCzBl@h@{AtAMNLOzAuAl@n@`B|A`BzAn@l@yBtBoAjAnAkAhEeErDmD`B_Bg@s@e@s@n@o@n@o@{B_DxEvG|AvBl@g@nAeAxAsAv@q@TXdAvA^r@t@tBPl@j@E`B`ArC|BbF|D|@t@tAcCR]|GqI`A_B`@sBTmF_@_D_@_BA_B|CsOlNkeAbAiFp@mA`CkChB_B~AeBbAs@zHa@rDKbAE@sA?eBQmC{AmC_BgDc@sA]mE\\aBt@gBrBiMlAqG~AcCjBwBxEcEv@iDn@yETa@nD}CrFcF|IaIbUoSrH{Gp@]dDdBdB`B|AlCd@^VMtBk@vBSnBDfBe@r@i@fBoCl@wB\\uL`@oCpAqDlBuBpAu@xCq@bL[tBc@vEeDtBk@dA?bB^x@b@vH`GhEdDlC~AtARhBIdAYv@e@pAeBhCuErAeCzDiHrAeAlBe@lEUjEs@tA}@bBcBzAeD~@{CjAsBpGwChEa@xE`@zDGvBaAhDeEbFoH|BiDlCmCjHkDzDa@~DLzINjBe@zAqAf@uAReCF{B\\_B`@s@rBuAvF{BnKiEvAeA`@o@TeAG}CUgEVoAbCwCnAeAfIaHhCsElB_AdDB`U`FbEnAvKbC|CpAhARvB_@bO_Pd@_@Kc@[aAiEkJoCeFsCwD_LiOwQyU{McJsWsPmXcPkM}IqEgE"
             },
             "summary": "R. Piratuba",
             "warnings": [],
@@ -2395,12 +2237,10 @@
                 6,
                 7,
                 8,
-                9,
-                11,
                 10,
-                13,
+                9,
                 12,
-                14
+                11
             ]
         }
     ],

@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.reverse import reverse
 
 from core.goroutes.views import VehicleViewSet, NotifyViewSet, RouteViewSet
-from core.goroutes.utils import ActivateRouteView, FilterDriverActiveRoutes, FilterDriverByIsActiveRoutes, FilterMyDriverRoutes, UpdateDocumentVehicle, UpdatePictureVehicle
+from core.goroutes.utils import ActivateRouteView, FilterDriverActiveRoutes, FilterDriverByIsActiveRoutes, FilterMyDriverRoutes, UpdateDocumentVehicle, UpdatePictureVehicle, RecalculateRoute
 
 router = DefaultRouter()
 router.register(r'vehicles', VehicleViewSet, basename='vehicles')
@@ -21,6 +21,7 @@ def goroutes_root(request, format=None):
         'routes': reverse('routes-list', request=request, format=format),
         'activate-route': reverse('activate-route', request=request, format=format),
         'filter-active-routes': reverse('filter-active-routes', request=request, format=format),
+        'recalculate-route': reverse('recalculate-route', request=request, format=format),
     })
 
 
@@ -29,6 +30,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('activate-route/', ActivateRouteView.as_view(), name='activate-route'),
     path('filter-active-routes/', FilterDriverActiveRoutes.as_view(), name='filter-active-routes'),
+    path('recalculate-route/', RecalculateRoute.as_view(), name='recalculate-route'),
     path('filter-my-active-route/<int:driver_id>/', FilterDriverByIsActiveRoutes.as_view(), name='filter-my-active-route'),
     path('filter-my-driver-routes/<int:driver_id>/', FilterMyDriverRoutes.as_view(), name='filter-my-driver-routes'),
     path('update-document-vehicle/', UpdateDocumentVehicle.as_view(), name='update-document-vehicle'),
