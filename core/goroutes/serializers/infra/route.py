@@ -87,7 +87,7 @@ class RouteRetrieveSerializer(serializers.Serializer):
     latitude_destination = serializers.FloatField()
     longitude_destination = serializers.FloatField()
     passengers = serializers.SerializerMethodField()
-    markers = serializers.JSONField()
+    # markers = serializers.JSONField()
     optimized_route_url = serializers.SerializerMethodField()
     vehicle = VehicleSerializer(read_only=True)
     auto_recalculate = serializers.BooleanField()

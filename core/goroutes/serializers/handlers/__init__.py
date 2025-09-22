@@ -1,1 +1,2 @@
 from .route_handlers import prepare_route_data
+from .dailyroute_handlers import get_data_of_route

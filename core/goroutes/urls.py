@@ -4,13 +4,14 @@ from rest_framework.response import Response
 from rest_framework.routers import DefaultRouter
 from rest_framework.reverse import reverse
 
-from core.goroutes.views import VehicleViewSet, NotifyViewSet, RouteViewSet
 from core.goroutes.utils import ActivateRouteView, FilterDriverActiveRoutes, FilterDriverByIsActiveRoutes, FilterMyDriverRoutes, UpdateDocumentVehicle, UpdatePictureVehicle, RecalculateRoute
+from core.goroutes.views import VehicleViewSet, NotifyViewSet, RouteViewSet, DailyRouteViewSet
 
 router = DefaultRouter()
 router.register(r'vehicles', VehicleViewSet, basename='vehicles')
 router.register(r'notifies', NotifyViewSet, basename='notify')
 router.register(r'routes', RouteViewSet, basename='routes')
+router.register(r'dailyroute', DailyRouteViewSet, basename='dailyroute')
 
 
 @api_view(['GET'])
@@ -22,6 +23,7 @@ def goroutes_root(request, format=None):
         'activate-route': reverse('activate-route', request=request, format=format),
         'filter-active-routes': reverse('filter-active-routes', request=request, format=format),
         'recalculate-route': reverse('recalculate-route', request=request, format=format),
+        'daily-routes': reverse('dailyroute-list', request=request, format=format),
     })
 
 
