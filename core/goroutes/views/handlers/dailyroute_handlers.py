@@ -5,6 +5,9 @@ from core.goroutes.serializers.handlers import get_data_of_route
 from rest_framework.response import Response
 from rest_framework import status
 from django.db import transaction
+from django.conf import settings
+from core.goroutes.utils.optimize_route import obter_coordenadas
+from core.goroutes.utils.optimize_route.directions import fetch_directions
 
 def list_dailyroutes(request):
     """
@@ -40,6 +43,14 @@ def create_dailyroute(request):
         data = serializer.prepare_route_of_father_route(route_obj)
         passengers_list_bruto = serializer.validated_data.get("passengers_list", [])
         passengers_list = [p.id for p in passengers_list_bruto]
+
+        if not passengers_list:
+            raw_alias = request.data.get("passenger_list")
+            if isinstance(raw_alias, list):
+                try:
+                    passengers_list = [int(pid) for pid in raw_alias]
+                except Exception:
+                    passengers_list = []
         original = serializer.validated_data.get("original", True)
 
         try:
@@ -70,6 +81,38 @@ def create_dailyroute(request):
                         original=True
                     )
                 else:
+
+                    api_key = getattr(settings, 'GOOGLE_MAPS_API_KEY', None)
+                    if not api_key:
+                        raise ValueError("API key do Google Maps não encontrada")
+
+                    if not passengers_list:
+                        raise ValueError("Nenhum passageiro informado (use passengers_list ou passenger_list)")
+
+
+                    formatted_addresses = []
+                    for passenger_id in passengers_list:
+                        passenger_instance = Passenger.objects.get(id=passenger_id)
+                        main_address = passenger_instance.address.filter(is_main=True).first()
+                        if main_address:
+                            full_address = f"{main_address.street}, {main_address.number} - {main_address.neighborhood}, {main_address.city} - {main_address.state}"
+                            formatted_addresses.append(full_address)
+
+                    if not formatted_addresses:
+                        raise ValueError("Passageiros informados não possuem endereço principal")
+
+                    coords_passageiros = []
+                    for addr in formatted_addresses:
+                        lat, lng = obter_coordenadas(addr, api_key)
+                        coords_passageiros.append([lat, lng])
+
+                    directions = fetch_directions(
+                        origin=data["origin"],
+                        destination=data["destination"],
+                        waypoints=formatted_addresses,
+                        api_key=api_key,
+                    )
+
                     daily_route_obj = DailyRoute.objects.create(
                         name=data["name"],
                         origin=data["origin"],
@@ -86,7 +129,12 @@ def create_dailyroute(request):
                         auto_recalculate=data.get("auto_recalculate", True),
                         is_active=True,
                         date=request.data.get("date"),
-                        original=False
+                        original=False,
+                        coords_passageiros=coords_passageiros,
+                        points=directions.get("points", []),
+                        overview_polyline=directions.get("overview_polyline", {}),
+                        addresses=directions.get("ordered_addresses", formatted_addresses),
+                        optimized_route_url=directions.get("link_maps"),
                     )
 
                 if original:
@@ -98,7 +146,6 @@ def create_dailyroute(request):
                             present=False
                         )
                 else:
-                    # 🔹 Se NÃO for original → usar passengers da requisição
                     for passenger_id in passengers_list:
                         passenger_instance = Passenger.objects.get(id=passenger_id)
                         Presence.objects.create(
