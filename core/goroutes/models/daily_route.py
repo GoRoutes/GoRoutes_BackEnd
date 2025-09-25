@@ -26,6 +26,7 @@ class DailyRoute(models.Model):
     points = models.JSONField(default=list)
     is_active = models.BooleanField(default=True)
     original = models.BooleanField()
+    finalized = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.name} - {self.date}"

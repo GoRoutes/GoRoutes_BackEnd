@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.routers import DefaultRouter
 from rest_framework.reverse import reverse
 
-from core.goroutes.utils import ActivateRouteView, FilterDriverActiveRoutes, FilterDriverByIsActiveRoutes, FilterMyDriverRoutes, UpdateDocumentVehicle, UpdatePictureVehicle, RecalculateRoute, ChangePresenceStatusView, LocalJsonView
+from core.goroutes.utils import ActivateRouteView, FilterDriverActiveRoutes, FilterDriverByIsActiveRoutes, FilterMyDriverRoutes, UpdateDocumentVehicle, UpdatePictureVehicle, RecalculateRoute, ChangePresenceStatusView, LocalJsonView,  CheckActiveDailyRouteDriverView
 from core.goroutes.views import VehicleViewSet, NotifyViewSet, RouteViewSet, DailyRouteViewSet
 
 router = DefaultRouter()
@@ -25,7 +25,7 @@ def goroutes_root(request, format=None):
         'recalculate-route': reverse('recalculate-route', request=request, format=format),
         'daily-routes': reverse('dailyroute-list', request=request, format=format),
         "change-presence-status": reverse('change-presence-status', request=request, format=format),
-        "show-jsons-create": reverse('show-jsons-create', request=format, format=format)
+        "show-jsons-create": reverse('show-jsons-create', request=format, format=format),
     })
 
 
@@ -41,5 +41,5 @@ urlpatterns = [
     path('update-picture-vehicle/', UpdatePictureVehicle.as_view(), name='update-picture-vehicle'),
     path('change-presence-status/', ChangePresenceStatusView.as_view(), name='change-presence-status'),
     path('show-jsons-create/', LocalJsonView.as_view(), name='show-jsons-create'),
-
+    path('check-active-route-driver/<int:driver_id>/', CheckActiveDailyRouteDriverView.as_view(), name='check-active-route-driver'),
 ]
