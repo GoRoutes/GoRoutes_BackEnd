@@ -7,6 +7,7 @@ from core.goroutes.models import PassengerRoute, Presence
 from core.goroutes.serializers import VehicleSerializer
 from core.authentication.serializers.infra import DriverReadSerializer
 import requests
+from core.goroutes.utils import get_latitude_longitude
 
 from rest_framework import serializers
 from core.goroutes.models import DailyRoute, Route
@@ -49,8 +50,18 @@ class PresenceSerializer(serializers.Serializer):
         return obj.passenger_route.user.name
     
     def get_address_passenger(self, obj):
-        return [str(addr) for addr in obj.passenger_route.address.all()]
-
+        addresses = obj.passenger_route.address.all()
+        main_address = addresses.filter(is_main=True)
+        results = []
+        for addr in main_address:
+            addr_str = str(addr)
+            lat, lng = get_latitude_longitude(addr_str)
+            results.append({
+                "address": addr_str,
+                "latitude": lat,
+                "longitude": lng
+            })
+        return results
 
 class DailyRouteListSerializer(serializers.Serializer):
     id = serializers.IntegerField()
@@ -69,6 +80,7 @@ class DailyRouteListSerializer(serializers.Serializer):
     longitude_destination = serializers.FloatField()
     optimized_route_url = serializers.SerializerMethodField()
     overview_polyline = serializers.JSONField()
+    finalized = serializers.BooleanField()
 
     def get_optimized_route_url(self, obj):
         if not obj.optimized_route_url:
@@ -92,6 +104,8 @@ class DailyRouteRetrieveSerializer(serializers.Serializer):
     longitude_destination = serializers.FloatField()
     optimized_route_url = serializers.SerializerMethodField()
     overview_polyline = serializers.JSONField()
+    finalized = serializers.BooleanField()
+
 
     def get_optimized_route_url(self, obj):
         if not obj.optimized_route_url:
