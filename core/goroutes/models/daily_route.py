@@ -36,9 +36,14 @@ class DailyRoute(models.Model):
         ordering = ['-date', 'init_hour']
 
 class Presence(models.Model):
+    class Status(models.TextChoices):
+        PRESENTE = 'PRESENTE', 'Present'
+        FALTOU = 'FALTOU', 'FALTOU'
+        NAO_PEGO = 'NAO_PEGO', 'NAO_PEGO'
+
     daily_route = models.ForeignKey(DailyRoute, on_delete=models.CASCADE, related_name='presences')
     passenger_route = models.ForeignKey(Passenger, on_delete=models.CASCADE, related_name='presences')
-    present = models.BooleanField(default=False)
+    status = models.CharField(max_length=10, choices=Status.choices, default=Status.NAO_PEGO)
 
     def __str__(self):
         return f"Presence of {self.passenger_route.user.name} on {self.daily_route.name} - {self.daily_route.date}"

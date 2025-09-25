@@ -3,7 +3,7 @@ from django.conf import settings
 from rest_framework import serializers
 from core.authentication.models import Passenger
 from core.goroutes.models import Route
-from core.goroutes.models import PassengerRoute
+from core.goroutes.models import PassengerRoute, Presence
 from core.goroutes.serializers import VehicleSerializer
 from core.authentication.serializers.infra import DriverReadSerializer
 import requests
@@ -39,7 +39,7 @@ class DailyRouteWriteSerializer(serializers.Serializer):
 
 class PresenceSerializer(serializers.Serializer):
     id = serializers.IntegerField()
-    present = serializers.BooleanField()
+    status = serializers.ChoiceField(choices=Presence.Status.choices)
     passenger_route = serializers.PrimaryKeyRelatedField(queryset=Passenger.objects.all())
     daily_route = serializers.PrimaryKeyRelatedField(queryset=DailyRoute.objects.all())
     passenger_name = serializers.SerializerMethodField()

@@ -1,0 +1,111 @@
+{
+  "passageiro_nao_estudante": {
+    "cpf": "98765432100",
+    "is_student": false,
+    "user": {
+      "username": "mariadasilva",
+      "name": "Maria da Silva",
+      "email": "maria@email.com",
+      "telephone": "11888888888",
+      "password": "123456",
+      "data_of_birth": "1999-05-05"
+    },
+    "addresses": [
+      {
+        "street": "Rua A",
+        "city": "Cidade B",
+        "state": "SP",
+        "neighborhood": "Sla mn",
+        "number": 123,
+        "cep": 123456789,
+        "is_main": true
+      }
+    ]
+  },
+
+  "passageiro_estudante": {
+    "cpf": "12345678901",
+    "is_student": true,
+    "user": {
+      "username": "joaodasilva",
+      "name": "João da Silva",
+      "email": "joao@email.com",
+      "password": "123456",
+      "telephone": "11999999999",
+      "data_of_birth": "2000-01-01"
+    },
+    "addresses": [
+      {
+        "street": "Rua AB",
+        "city": "Cidade Ba",
+        "state": "PR",
+        "neighborhood": "asdSla mn",
+        "number": 123,
+        "cep": 123456789,
+        "is_main": true
+      }
+    ],
+    "student_data": {
+      "grade": "Engenharia de Software",
+      "registration": "RA2024001",
+      "responsible": 1
+    }
+  },
+
+  "motorista": {
+    "cnh": "123456789",
+    "cpf": "000.000.000-00",
+    "user": {
+      "username": "jo21aosilva",
+      "name": "João12 da Silva",
+      "email": "joao1212@example.com",
+      "password": "123456",
+      "telephone": "119999988288",
+      "data_of_birth": "1990-05-20"
+    },
+    "addresses": [
+      {
+        "cep": "12345-678",
+        "street": "Rua A",
+        "number": "123",
+        "complement": "Apto 101",
+        "neighborhood": "Centro",
+        "city": "São Paulo",
+        "state": "SP",
+        "is_main": true
+      }
+    ]
+  },
+
+  "responsavel": {
+    "cpf": "12345678901",
+    "user": {
+      "username": "joaodasilva",
+      "name": "João da Silva",
+      "email": "joao@email.com",
+      "password": "123456",
+      "telephone": "11999999999",
+      "data_of_birth": "2000-01-01"
+    }
+  },
+
+  "rota": {
+    "name": "Rota Sul",
+    "origin": "Avenida Rolf Wiest, 333 - Bom Retiro, Joinville - SC, 89223-005",
+    "destination": "BR-280 - Colégio Agrícola, 5200, Araquari - SC, 89245-000",
+    "distance": 0,
+    "init_hour": "07:00:00",
+    "end_hour": "07:45:00",
+    "passengers_list": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "auto_recalculate": true,
+    "vehicle": 1,
+    "driver": 1
+  },
+
+  "daily_route": {
+    "route": 1,
+    "passenger_list": [1, 2, 3],
+    "date": "2020-01-01",
+    "original": "true ou false"
+  }
+}

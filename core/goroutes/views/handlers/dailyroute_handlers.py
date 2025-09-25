@@ -142,8 +142,8 @@ def create_dailyroute(request):
                     for pr in passenger_routes:
                         Presence.objects.create(
                             daily_route=daily_route_obj,
-                            passenger_route=pr.passenger,  # continua salvando Passenger na Presence
-                            present=False
+                            passenger_route=pr.passenger,  #
+                            status=Presence.Status.NAO_PEGO
                         )
                 else:
                     for passenger_id in passengers_list:
@@ -151,7 +151,7 @@ def create_dailyroute(request):
                         Presence.objects.create(
                             daily_route=daily_route_obj,
                             passenger_route=passenger_instance,
-                            present=False
+                            status=Presence.Status.NAO_PEGO
                         )
 
             # Retorna os dados da DailyRoute já com presenças
