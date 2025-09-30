@@ -69,23 +69,29 @@ def create_route(request):
             optimized_route_url=data.get("optimized_route_url", "")
         )
 
-        # Criar PassengerRoute para cada passageiro
+        # Criar PassengerRoute para cada passageiro mantendo a ordem
         passenger_list = data.get("passengers_list", [])
+        
+        # **MUDANÇA PRINCIPAL AQUI**: Usar a ordem do signal
+        # Inicialmente criamos sem ordem, o signal vai otimizar e depois atualizamos
         for passenger in passenger_list:
-            # Garante que estamos lidando com instância e não com ID
             if isinstance(passenger, int):
                 try:
                     passenger = Passenger.objects.get(pk=passenger)
                 except Passenger.DoesNotExist:
-                    continue  # ou trate o erro conforme sua necessidade
+                    continue
 
-            # Evita duplicata
-            PassengerRoute.objects.create(passenger=passenger, route=route)
+            # Cria inicialmente sem ordem (será definida depois do signal)
+            PassengerRoute.objects.create(
+                passenger=passenger, 
+                route=route,
+                order=0  # Valor temporário
+            )
 
-        # Agora que os PassengerRoute foram criados, ativar auto_recalculate e tentar salvar
+        # Agora que os PassengerRoute foram criados, ativar auto_recalculate
         route.auto_recalculate = True
         
-        # Chamar o signal manualmente para verificar se a otimização foi bem sucedida
+        # Chamar o signal manualmente para otimização
         signal_response = signals.pre_save.send(
             sender=Route,
             instance=route,
@@ -97,16 +103,94 @@ def create_route(request):
         # Verificar se algum receiver retornou False
         for receiver, response in signal_response:
             if response is False:
-                # Se houver erro na otimização, desfaz a transação
                 transaction.set_rollback(True)
                 return Response(
                     {"error": "Não foi possível otimizar a rota. Verifique se todos os passageiros têm endereço principal cadastrado e se o veículo foi definido."},
                     status=status.HTTP_400_BAD_REQUEST
                 )
         
-        # Se chegou aqui, a otimização foi bem sucedida
+        # **ATUALIZAR A ORDEM DOS PASSAGEIROS APÓS A OTIMIZAÇÃO**
+        if hasattr(route, 'coords_passageiros') and route.coords_passageiros:
+            _atualizar_ordem_passageiros(route, passenger_list)
+        
         route.save()
         return Response(RouteReadSerializer(route).data, status=status.HTTP_201_CREATED)
 
-    # Erro de validação
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def _atualizar_ordem_passageiros(route, passenger_list):
+    """
+    Atualiza a ordem dos passageiros baseado na ordem do coords_passageiros
+    """
+    try:
+        # Obter a ordem otimizada do addresses_order
+        if route.addresses_order:
+            caminho_otimizado = json.loads(route.addresses_order)
+            
+            # Remover origem e destino, ficando apenas com os endereços dos passageiros
+            enderecos_passageiros = caminho_otimizado[1:-1] if len(caminho_otimizado) > 2 else []
+            
+            # Para cada endereço na ordem otimizada, encontrar o passageiro correspondente
+            for order_index, endereco in enumerate(enderecos_passageiros):
+                # Buscar o passageiro que tem este endereço
+                for passenger_data in passenger_list:
+                    if isinstance(passenger_data, int):
+                        passenger_obj = Passenger.objects.get(pk=passenger_data)
+                    else:
+                        passenger_obj = passenger_data
+                    
+                    # Obter endereço principal do passageiro
+                    main_address = passenger_obj.address.filter(is_main=True).first()
+                    if main_address:
+                        full_address = f"{main_address.street}, {main_address.number} - {main_address.neighborhood}, {main_address.city} - {main_address.state}"
+                        
+                        # Verificar se é o mesmo endereço (pode precisar de normalização)
+                        if _enderecos_sao_iguais(full_address, endereco):
+                            # Atualizar a ordem do PassengerRoute
+                            passenger_route = PassengerRoute.objects.get(
+                                passenger=passenger_obj, 
+                                route=route
+                            )
+                            passenger_route.order = order_index
+                            passenger_route.save()
+                            break
+        
+        print(f"✅ Ordem dos passageiros atualizada com sucesso")
+        
+    except Exception as e:
+        print(f"⚠️ Erro ao atualizar ordem dos passageiros: {e}")
+
+def _enderecos_sao_iguais(endereco1, endereco2):
+    """
+    Compara se dois endereços são iguais (com tolerância)
+    """
+    import unicodedata
+    
+    # Normalizar endereços para comparação
+    def normalizar(endereco):
+        return ''.join(c for c in unicodedata.normalize('NFD', endereco.upper()) 
+                      if unicodedata.category(c) != 'Mn').replace(' ', '')
+    
+    return normalizar(endereco1) in normalizar(endereco2) or normalizar(endereco2) in normalizar(endereco1)
+
+def get_latitude_longitude(address):
+    """
+    Get latitude and longitude from address using Google Maps API
+    """
+    from django.conf import settings
+    import requests
+    
+    api_key = settings.GOOGLE_MAPS_API_KEY
+    url = f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}"
+    
+    try:
+        response = requests.get(url)
+        data = response.json()
+        
+        if data["status"] == "OK":
+            location = data["results"][0]["geometry"]["location"]
+            return location["lat"], location["lng"]
+        return None, None
+    except Exception as e:
+        print(f"Error getting latitude and longitude: {e}")
+        return None, None

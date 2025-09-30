@@ -213,8 +213,6 @@ JAZZMIN_SETTINGS = {
     "order_with_respect_to": ["core.authentication", "core.goroutes", "core.uploader"],
 
     "custom_links": { },
-
-    "user_avatar": "picture_file",
 }
 
 JAZZMIN_UI_TWEAKS = {
@@ -270,5 +268,18 @@ JAZZMIN_UI_TWEAKS = {
     "brand_logo": None,                   # Caminho do logo customizado
     "brand_logo_classes": "img img-fluid",  # Classes CSS aplicadas ao logo
     "brand_logo_width": 50,               # Largura do logo
-    "user_avatar": None,                  # URL da foto do usuário logado (pode ser campo de perfil)
 }
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'America/Sao_Paulo'
+CELERY_BROKER_URL = 'amqp://anthony:anthony321@localhost:5672//'
+CELERY_RESULT_BACKEND = 'rpc://'  # Ou use 'redis://...' se preferir
+
+SHELL_PLUS = "ipython"
+
+# Arquivo de pre-imports para o shell
+SHELL_PLUS_PRE_IMPORTS = [
+    ('core.goroutes.tasks', ('clear_cache_table', 'make_cache_distance_passengers', 'geocode_all_addresses')),
+]

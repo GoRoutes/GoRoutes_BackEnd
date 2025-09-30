@@ -4,42 +4,401 @@ from rich import print
 from rich.pretty import Pretty
 from rich.panel import Panel
 from rich.text import Text
-from .optimize_route import verificar_enderecos, obter_coordenadas, verificar_endereco_individual, gerar_link_maps
 import requests
 import time
 import logging
 import numpy as np
 import os
 import json
-
+import googlemaps
+from django.db import models
+import unicodedata
 
 try:
     from django.conf import settings
+    from core.goroutes.models import DataCacheRoute
+    from core.authentication.models import Address
 except ImportError:
     settings = None
 
-
 class OtimizadorRotas:
     """
-    Classe para otimizar rotas de vans, considerando os endereços iniciais das vans.
+    Classe para otimizar rotas de vans, usando CACHE com fallback para API
     """
 
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str = None):
         self.api_key = api_key
+
+    def normalizar_texto(self, texto: str) -> str:
+        """
+        Remove acentos e normaliza texto para busca
+        """
+        # Remove acentos
+        texto_sem_acentos = ''.join(
+            c for c in unicodedata.normalize('NFD', texto)
+            if unicodedata.category(c) != 'Mn'
+        )
+        # Coloca em maiúsculas e remove espaços extras
+        texto_sem_acentos = texto_sem_acentos.upper().strip()
+        # Normaliza padrões comuns
+        texto_sem_acentos = texto_sem_acentos.replace('RUA:', 'RUA')
+        texto_sem_acentos = texto_sem_acentos.replace('SERVIDÃO', 'SERV')
+        texto_sem_acentos = texto_sem_acentos.replace('AV.', 'AVENIDA')
+        texto_sem_acentos = texto_sem_acentos.replace('AV ', 'AVENIDA ')
+        return texto_sem_acentos
+
+    def obter_coordenadas_do_cache(self, endereco: str, usar_api_fallback=True):
+        """
+        Busca coordenadas - com tratamento de acentos
+        """
+        try:
+            print(f"🔍 Buscando coordenadas para: {endereco}")
+            
+            endereco_normalizado = self.normalizar_texto(endereco)
+            
+            # 1. Tenta no DataCacheRoute (cache de rotas) - com e sem acentos
+            cache_entries = DataCacheRoute.objects.filter(
+                models.Q(origin__icontains=endereco) |
+                models.Q(destination__icontains=endereco) |
+                models.Q(origin__icontains=endereco_normalizado) |
+                models.Q(destination__icontains=endereco_normalizado)
+            )
+            
+            for cache_entry in cache_entries[:5]:
+                origem_normalizada = self.normalizar_texto(cache_entry.origin)
+                destino_normalizada = self.normalizar_texto(cache_entry.destination)
+                
+                if (endereco_normalizado in origem_normalizada or 
+                    endereco in cache_entry.origin):
+                    print(f"✅ Encontrado no DataCacheRoute como ORIGEM")
+                    return (float(cache_entry.latitude_origin), 
+                           float(cache_entry.longitude_origin))
+                elif (endereco_normalizado in destino_normalizada or 
+                      endereco in cache_entry.destination):
+                    print(f"✅ Encontrado no DataCacheRoute como DESTINO") 
+                    return (float(cache_entry.latitude_destination), 
+                           float(cache_entry.longitude_destination))
+            
+            # 2. Tenta na tabela Address - busca mais robusta
+            endereco_upper = endereco.upper()
+            
+            # Extrai partes do endereço
+            partes = endereco_upper.split(',')
+            rua_numero = partes[0].strip() if partes else endereco_upper
+            bairro = partes[1].strip() if len(partes) > 1 else ""
+            
+            # Normaliza as partes
+            rua_numero_normalizado = self.normalizar_texto(rua_numero)
+            bairro_normalizado = self.normalizar_texto(bairro)
+            
+            # Separa rua e número
+            rua_partes = rua_numero.split(' ')
+            numero = None
+            rua_sem_numero = rua_numero
+            
+            for i in range(len(rua_partes)-1, -1, -1):
+                if rua_partes[i].replace('.', '').isdigit():
+                    numero = rua_partes[i]
+                    rua_sem_numero = ' '.join(rua_partes[:i])
+                    break
+            
+            rua_sem_numero_normalizado = self.normalizar_texto(rua_sem_numero)
+            
+            # Busca por diferentes critérios (com e sem acentos)
+            queries = [
+                # Busca exata com número
+                models.Q(
+                    street__iexact=rua_sem_numero,
+                    number__iexact=numero
+                ) if numero else None,
+                
+                # Busca por rua completa
+                models.Q(street__iexact=rua_numero),
+                models.Q(street__iexact=rua_numero_normalizado),
+                
+                # Busca por parte da rua + bairro
+                models.Q(
+                    street__icontains=rua_sem_numero,
+                    neighborhood__icontains=bairro
+                ) if bairro else None,
+                models.Q(
+                    street__icontains=rua_sem_numero_normalizado,
+                    neighborhood__icontains=bairro_normalizado
+                ) if bairro else None,
+                
+                # Busca apenas pela rua
+                models.Q(street__icontains=rua_sem_numero),
+                models.Q(street__icontains=rua_sem_numero_normalizado),
+                
+                # Busca apenas pelo bairro (último recurso)
+                models.Q(neighborhood__icontains=bairro) if bairro else None,
+                models.Q(neighborhood__icontains=bairro_normalizado) if bairro else None,
+            ]
+            
+            # Remove queries None e executa
+            for query in [q for q in queries if q is not None]:
+                address_obj = Address.objects.filter(query).first()
+                if address_obj and address_obj.latitude and address_obj.longitude:
+                    print(f"✅ Encontrado na tabela Address: {address_obj.street}, {address_obj.number}")
+                    return (float(address_obj.latitude), float(address_obj.longitude))
+            
+            # 3. SE NÃO ENCONTROU E É PERMITIDO USAR API, FAZ GEOCODING
+            if usar_api_fallback and self.api_key:
+                print(f"🔄 Não encontrado no cache, usando API para: {endereco}")
+                return self.fazer_geocoding_api(endereco)
+            
+            print(f"❌ Nenhuma coordenada encontrada para: {endereco}")
+            return None
+            
+        except Exception as e:
+            print(f"🚨 Erro ao buscar coordenadas: {e}")
+            return None
+
+    def fazer_geocoding_api(self, endereco: str):
+        """
+        Faz geocoding via API Google como fallback
+        """
+        try:
+            gmaps = googlemaps.Client(key=self.api_key)
+            
+            geocode_result = gmaps.geocode(endereco)
+            
+            if geocode_result:
+                location = geocode_result[0]['geometry']['location']
+                latitude = location['lat']
+                longitude = location['lng']
+                
+                print(f"📍 API retornou coordenadas: {latitude}, {longitude}")
+                
+                # Salva no cache para próximas consultas
+                self.salvar_coordenadas_no_cache(endereco, latitude, longitude)
+                
+                return (latitude, longitude)
+            else:
+                print(f"❌ API não encontrou endereço: {endereco}")
+                return None
+                
+        except Exception as e:
+            print(f"🚨 Erro na API Geocoding: {e}")
+            return None
+
+    def salvar_coordenadas_no_cache(self, endereco: str, lat: float, lng: float):
+        """
+        Salva coordenadas no Address para cache futuro
+        """
+        try:
+            # Extrai partes do endereço
+            partes = endereco.split(',')
+            rua_numero = partes[0].strip() if partes else endereco
+            bairro = partes[1].strip() if len(partes) > 1 else "Desconhecido"
+            
+            # Separa rua e número
+            rua_partes = rua_numero.split(' ')
+            numero = None
+            rua_sem_numero = rua_numero
+            
+            for i in range(len(rua_partes)-1, -1, -1):
+                if rua_partes[i].replace('.', '').isdigit():
+                    numero = rua_partes[i]
+                    rua_sem_numero = ' '.join(rua_partes[:i])
+                    break
+            
+            # Normaliza para salvar sem acentos
+            rua_sem_numero_normalizada = self.normalizar_texto(rua_sem_numero)
+            bairro_normalizado = self.normalizar_texto(bairro)
+            
+            # Tenta encontrar ou criar um Address para este endereço
+            address, created = Address.objects.get_or_create(
+                street=rua_sem_numero_normalizada,
+                number=numero or '0',
+                neighborhood=bairro_normalizado or "DESCONHECIDO",
+                city="JOINVILLE",
+                state="SC",
+                defaults={
+                    'cep': '00000-000',
+                    'complement': '',
+                    'latitude': str(lat),
+                    'longitude': str(lng),
+                    'is_main': False
+                }
+            )
+            
+            if created:
+                print(f"💾 Novo Address criado no cache: {endereco}")
+            else:
+                # Atualiza coordenadas se já existia
+                address.latitude = str(lat)
+                address.longitude = str(lng)
+                address.save()
+                print(f"💾 Coordenadas atualizadas no cache: {endereco}")
+                
+        except Exception as e:
+            print(f"⚠️ Não foi possível salvar no cache: {e}")
+
+    def calcular_distancia_do_cache(self, origem: str, destino: str):
+        """
+        Busca distância e duração do cache - COM FALLBACK PARA API
+        """
+        try:
+            print(f"🔍 Buscando distância: {origem} -> {destino}")
+            
+            # Normaliza os endereços
+            origem_normalizada = self.normalizar_texto(origem)
+            destino_normalizada = self.normalizar_texto(destino)
+            
+            # Extrai partes principais para busca flexível
+            def extrair_partes_principais(endereco):
+                partes = endereco.split(',')
+                if partes:
+                    # Pega a primeira parte (rua e número)
+                    rua_numero = partes[0].strip()
+                    # Remove "RUA:" se existir
+                    rua_numero = rua_numero.replace('RUA:', '').strip()
+                    return rua_numero
+                return endereco
+            
+            origem_chave = extrair_partes_principais(origem_normalizada)
+            destino_chave = extrair_partes_principais(destino_normalizada)
+            
+            print(f"   Chaves: '{origem_chave}' -> '{destino_chave}'")
+            
+            # Busca FLEXÍVEL no cache
+            cache_entries = DataCacheRoute.objects.all()
+            
+            for cache_entry in cache_entries:
+                cache_origem_normalizada = self.normalizar_texto(cache_entry.origin)
+                cache_destino_normalizada = self.normalizar_texto(cache_entry.destination)
+                
+                cache_origem_chave = extrair_partes_principais(cache_origem_normalizada)
+                cache_destino_chave = extrair_partes_principais(cache_destino_normalizada)
+                
+                # Verifica correspondência em AMBAS as direções
+                match_direta = (
+                    origem_chave in cache_origem_chave and 
+                    destino_chave in cache_destino_chave
+                )
+                
+                match_inversa = (
+                    origem_chave in cache_destino_chave and 
+                    destino_chave in cache_origem_chave
+                )
+                
+                if match_direta or match_inversa:
+                    print(f"✅ Distância ENCONTRADA no cache!")
+                    print(f"   📍 {cache_entry.origin}")
+                    print(f"   🎯 {cache_entry.destination}")
+                    print(f"   📏 {cache_entry.distance}m ⏱️ {cache_entry.duration}s")
+                    return {
+                        'distance': cache_entry.distance,
+                        'duration': cache_entry.duration
+                    }
+            
+            # SE NÃO ENCONTROU NO CACHE, USA API
+            print(f"🔄 Distância não encontrada no cache, usando API...")
+            return self.calcular_distancia_api(origem, destino)
+            
+        except Exception as e:
+            print(f"🚨 Erro ao buscar distância: {e}")
+            return None
+
+    def calcular_distancia_api(self, origem: str, destino: str):
+        """
+        Calcula distância usando Google Distance Matrix API como fallback
+        """
+        try:
+            if not self.api_key:
+                print(f"❌ API Key não configurada para fallback")
+                return None
+            
+            print(f"📍 Calculando via API: {origem} -> {destino}")
+            
+            gmaps = googlemaps.Client(key=self.api_key)
+            
+            # Chama Distance Matrix API
+            matrix_result = gmaps.distance_matrix(
+                origins=[origem],
+                destinations=[destino],
+                mode="driving",
+                language="pt-BR",
+                units="metric"
+            )
+            
+            if matrix_result['status'] == 'OK':
+                element = matrix_result['rows'][0]['elements'][0]
+                
+                if element['status'] == 'OK':
+                    distance = element['distance']['value']  # metros
+                    duration = element['duration']['value']   # segundos
+                    
+                    print(f"✅ API retornou: {distance}m, {duration}s")
+                    
+                    # Salva no cache para futuras consultas
+                    self.salvar_distancia_no_cache(origem, destino, distance, duration)
+                    
+                    return {
+                        'distance': distance,
+                        'duration': duration
+                    }
+                else:
+                    print(f"❌ API não conseguiu calcular rota: {element['status']}")
+                    return None
+            else:
+                print(f"❌ Erro na API: {matrix_result['status']}")
+                return None
+                
+        except Exception as e:
+            print(f"🚨 Erro na API Distance Matrix: {e}")
+            return None
+
+    def salvar_distancia_no_cache(self, origem: str, destino: str, distance: int, duration: int):
+        """
+        Salva distância calculada no DataCacheRoute para futuras consultas
+        """
+        try:
+            # Obtém coordenadas para salvar também
+            coord_origem = self.obter_coordenadas_do_cache(origem, usar_api_fallback=True)
+            coord_destino = self.obter_coordenadas_do_cache(destino, usar_api_fallback=True)
+            
+            if coord_origem and coord_destino:
+                lat_origem, lng_origem = coord_origem
+                lat_destino, lng_destino = coord_destino
+                
+                # Salva no DataCacheRoute
+                DataCacheRoute.objects.update_or_create(
+                    origin=origem,
+                    destination=destino,
+                    defaults={
+                        'distance': distance,
+                        'duration': duration,
+                        'latitude_origin': str(lat_origem),
+                        'longitude_origin': str(lng_origem),
+                        'latitude_destination': str(lat_destino),
+                        'longitude_destination': str(lng_destino),
+                        'polyline': ""
+                    }
+                )
+                
+                print(f"💾 Distância salva no cache: {origem} -> {destino}")
+            else:
+                print(f"⚠️ Não foi possível salvar no cache - coordenadas não encontradas")
+                
+        except Exception as e:
+            print(f"⚠️ Erro ao salvar distância no cache: {e}")
 
     def otimizar_rotas(self, enderecos, endereco_final, vans):
         """
-        Otimiza as rotas das vans, considerando os endereços iniciais de cada van.
+        Otimiza rotas usando CACHE com fallback para API
         """
         cidade_padrao = "Joinville, SC, Brasil"
 
         # Normalizar endereços de passageiros
         enderecos_completos = []
         for endereco in enderecos:
-            if "JOINVILLE" not in endereco['local'].upper() and "SC" not in endereco['local'].upper():
-                endereco_completo = f"{endereco['local']}, {cidade_padrao}"
+            endereco_local = endereco['local']
+            if "JOINVILLE" not in endereco_local.upper() and "SC" not in endereco_local.upper():
+                endereco_completo = f"{endereco_local}, {cidade_padrao}"
             else:
-                endereco_completo = endereco['local']
+                endereco_completo = endereco_local
             
             enderecos_completos.append({
                 'local': endereco_completo,
@@ -63,39 +422,69 @@ class OtimizadorRotas:
         if "ARAQUARI" not in endereco_final.upper() and "SC" not in endereco_final.upper():
             endereco_final = f"{endereco_final}, Araquari, SC, Brasil"
 
-        # 🔹 Verificar todos os endereços
-        todos_enderecos = [van['endereco_inicial'] for van in vans_completos] + [endereco_final] + [e['local'] for e in enderecos_completos]
-        verificar_enderecos(todos_enderecos, self.api_key)
+        print(Panel(
+            f"🔄 Usando CACHE para otimização\n"
+            f"🧍 Passageiros: {len(enderecos_completos)}\n"
+            f"🚐 Vans: {len(vans_completos)}\n"
+            f"🔑 API Key: {'✅' if self.api_key else '❌'}",
+            style="bold green"
+        ))
 
-        # Obter coordenadas das vans
+        # 🔄 OBTER COORDENADAS DO CACHE COM FALLBACK
         van_coords = []
         for van in vans_completos:
-            coord = obter_coordenadas(van['endereco_inicial'], self.api_key)
-            van_coords.append(coord)
-            time.sleep(0.1)
+            coord = self.obter_coordenadas_do_cache(
+                van['endereco_inicial'], 
+                usar_api_fallback=True
+            )
+            if coord:
+                van_coords.append(coord)
+            else:
+                logging.error(f"❌ Não foi possível obter coordenadas para van: {van['endereco_inicial']}")
 
-        # Obter coordenadas dos passageiros
+        # 🔄 COORDENADAS DOS PASSAGEIROS (SEM FALLBACK - SÓ CACHE)
         enderecos_com_coords = []
+        enderecos_sem_coords = []
+        
         for endereco in enderecos_completos:
-            coord = obter_coordenadas(endereco['local'], self.api_key)
-            enderecos_com_coords.append({
-                'indice': len(enderecos_com_coords),
-                'endereco': endereco,
-                'coords': coord
-            })
-            time.sleep(0.1)
+            coord = self.obter_coordenadas_do_cache(
+                endereco['local'], 
+                usar_api_fallback=False
+            )
+            if coord:
+                enderecos_com_coords.append({
+                    'indice': len(enderecos_com_coords),
+                    'endereco': endereco,
+                    'coords': coord
+                })
+            else:
+                enderecos_sem_coords.append(endereco['local'])
+
+        if enderecos_sem_coords:
+            print(Panel(
+                f"⚠️  {len(enderecos_sem_coords)} endereços sem coordenadas no cache:\n"
+                f"{chr(10).join(enderecos_sem_coords[:5])}",
+                style="yellow"
+            ))
+
+        if len(enderecos_com_coords) == 0:
+            print("❌ Nenhum passageiro com coordenadas disponíveis")
+            return []
 
         coords_passageiros = np.array([e['coords'] for e in enderecos_com_coords])
-        if len(coords_passageiros) == 0:
-            return []
 
         # Clustering (K-Means)
         n_clusters = min(len(vans_completos), len(coords_passageiros))
         if len(van_coords) < n_clusters:
             logging.warning(f"Número de coordenadas de vans ({len(van_coords)}) menor que clusters ({n_clusters})")
-            n_clusters = len(van_coords) if van_coords else 1
-
-        kmeans = KMeans(n_clusters=n_clusters, init=np.array(van_coords[:n_clusters]), n_init=1)
+            if len(van_coords) == 0:
+                kmeans = KMeans(n_clusters=n_clusters, n_init=10)
+            else:
+                n_clusters = len(van_coords) if van_coords else 1
+                kmeans = KMeans(n_clusters=n_clusters, init=np.array(van_coords[:n_clusters]), n_init=1)
+        else:
+            kmeans = KMeans(n_clusters=n_clusters, init=np.array(van_coords[:n_clusters]), n_init=1)
+        
         clusters = kmeans.fit_predict(coords_passageiros)
 
         # Agrupar endereços por van
@@ -115,83 +504,61 @@ class OtimizadorRotas:
                 'enderecos': [e['endereco']['local'] for e in grupo_enderecos]
             })
 
-        # Consultar Google Directions API
+        # 🔄 CALCULAR ROTAS USANDO CACHE COM FALLBACK
         rotas_finais = []
         for grupo in grupos_por_van:
             waypoints = grupo['enderecos']
             if not waypoints:
                 continue
 
-            url = "https://maps.googleapis.com/maps/api/directions/json"
-            params = {
-                'origin': grupo['endereco_inicial'],
-                'destination': endereco_final,
-                'waypoints': 'optimize:true|' + '|'.join(waypoints),
-                'region': 'br',
-                'language': 'pt-BR',
-                'key': self.api_key
-            }
+            # Calcular distância total do cache
+            distancia_total = 0
+            tempo_total = 0
+            caminho = [grupo['endereco_inicial']] + waypoints + [endereco_final]
 
-            try:
-                response = requests.get(url, params=params)
-                data = response.json()
+            # Calcular distâncias entre cada par do caminho
+            for i in range(len(caminho) - 1):
+                distancia_info = self.calcular_distancia_do_cache(caminho[i], caminho[i + 1])
+                if distancia_info:
+                    distancia_total += distancia_info['distance']
+                    tempo_total += distancia_info['duration']
+                else:
+                    print(f"❌ Não foi possível calcular distância: {caminho[i]} -> {caminho[i + 1]}")
 
-                # Salvar resposta em JSON
-                try:
-                    base_dir = getattr(settings, 'BASE_DIR', None) if settings else None
-                    if not base_dir:
-                        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            # Gerar link do Maps
+            link_maps = f"https://www.google.com/maps/dir/{'/'.join([c.replace(' ', '+') for c in caminho])}"
 
-                    file_name = f"data_van_{grupo['van_id']}.json"
-                    file_path = os.path.join(base_dir, file_name)
+            rotas_finais.append({
+                'van_id': grupo['van_id'],
+                'caminho': caminho,
+                'distancia_total': distancia_total,
+                'tempo_estimado': tempo_total,
+                'link_maps': link_maps,
+                'coords_passageiros': coords_passageiros.tolist(),
+                'usando_cache': True
+            })
 
-                    with open(file_path, 'w', encoding='utf-8') as f:
-                        json.dump(data, f, ensure_ascii=False, indent=4)
-
-                    logging.info(f"Dados da API salvos em {file_path}")
-                except Exception as e:
-                    logging.error(f"Erro ao salvar dados da API: {e}")
-
-                if data['status'] == 'OK':
-                    rota = data['routes'][0]
-                    legs = rota['legs']
-
-                    caminho = [grupo['endereco_inicial']]
-                    if 'waypoint_order' in rota:
-                        ordem_otimizada = rota['waypoint_order']
-                        caminho.extend([waypoints[i] for i in ordem_otimizada])
-                    else:
-                        caminho.extend(waypoints)
-                    caminho.append(endereco_final)
-
-                    distancia_total = sum(leg['distance']['value'] for leg in legs)
-                    tempo_total = sum(leg['duration']['value'] for leg in legs)
-
-                    # 🔹 Agora usa a função externa
-                    link_maps = gerar_link_maps(caminho)
-
-                    rotas_finais.append({
-                        'van_id': grupo['van_id'],
-                        'caminho': caminho,
-                        'distancia_total': distancia_total,
-                        'tempo_estimado': tempo_total,
-                        'link_maps': link_maps,
-                        'coords_passageiros': coords_passageiros.tolist()
-                    })
-
-            except Exception as e:
-                logging.error(f"Erro ao processar rota da van {grupo['van_id']}: {str(e)}")
-
-            time.sleep(0.2)
+        print(Panel(
+            f"✅ Otimização com CACHE concluída!\n"
+            f"🚐 Rotas geradas: {len(rotas_finais)}\n"
+            f"🧍 Passageiros atendidos: {len(enderecos_com_coords)}\n"
+            f"⚡ Velocidade: INSTANTÂNEO",
+            style="bold green"
+        ))
 
         return rotas_finais
 
-    def verificar_endereco_individual(self, endereco: str):
-        """
-        Wrapper para usar a função externa verificar_endereco_individual
-        """
-        return verificar_endereco_individual(endereco, self.api_key)
+def otimizar_rotas_vans(enderecos: List[Dict[str, Any]], 
+                                endereco_final: str, 
+                                vans: List[Dict[str, Any]], 
+                                api_key: str = None) -> List[Dict[str, Any]]:
 
+    print(Panel(Pretty(enderecos), title="🧍 Passageiros", style="green"))
+    print(Panel(endereco_final, title="🏁 Endereço Final", style="blue"))
+    print(Panel(Pretty(vans), title="🚐 Vans", style="magenta"))
+
+    otimizador = OtimizadorRotas(api_key)
+    return otimizador.otimizar_rotas(enderecos, endereco_final, vans)
 
 def get_latitude_longitude(address):
     """
@@ -211,17 +578,3 @@ def get_latitude_longitude(address):
     except Exception as e:
         print(f"Error getting latitude and longitude: {e}")
         return None, None
-
-def otimizar_rotas_vans(enderecos: List[Dict[str, Any]], 
-                        endereco_final: str, 
-                        vans: List[Dict[str, Any]], 
-                        api_key: str) -> List[Dict[str, Any]]:
-
-    print(Panel(Pretty(enderecos), title="🧍 Passageiros", style="green"))
-    print(Panel(endereco_final, title="🏁 Endereço Final", style="blue"))
-    print(Panel(Pretty(vans), title="🚐 Vans", style="magenta"))
-    # print(Panel(api_key[:10] + "...", title="🔑 API Key", style="yellow"))
-
-    otimizador = OtimizadorRotas(api_key)
-    return otimizador.otimizar_rotas(enderecos, endereco_final, vans)
-
