@@ -85,7 +85,6 @@ def create_route(request):
             PassengerRoute.objects.create(
                 passenger=passenger, 
                 route=route,
-                order=0  # Valor temporário
             )
 
         # Agora que os PassengerRoute foram criados, ativar auto_recalculate
@@ -109,69 +108,10 @@ def create_route(request):
                     status=status.HTTP_400_BAD_REQUEST
                 )
         
-        # **ATUALIZAR A ORDEM DOS PASSAGEIROS APÓS A OTIMIZAÇÃO**
-        if hasattr(route, 'coords_passageiros') and route.coords_passageiros:
-            _atualizar_ordem_passageiros(route, passenger_list)
-        
         route.save()
         return Response(RouteReadSerializer(route).data, status=status.HTTP_201_CREATED)
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-def _atualizar_ordem_passageiros(route, passenger_list):
-    """
-    Atualiza a ordem dos passageiros baseado na ordem do coords_passageiros
-    """
-    try:
-        # Obter a ordem otimizada do addresses_order
-        if route.addresses_order:
-            caminho_otimizado = json.loads(route.addresses_order)
-            
-            # Remover origem e destino, ficando apenas com os endereços dos passageiros
-            enderecos_passageiros = caminho_otimizado[1:-1] if len(caminho_otimizado) > 2 else []
-            
-            # Para cada endereço na ordem otimizada, encontrar o passageiro correspondente
-            for order_index, endereco in enumerate(enderecos_passageiros):
-                # Buscar o passageiro que tem este endereço
-                for passenger_data in passenger_list:
-                    if isinstance(passenger_data, int):
-                        passenger_obj = Passenger.objects.get(pk=passenger_data)
-                    else:
-                        passenger_obj = passenger_data
-                    
-                    # Obter endereço principal do passageiro
-                    main_address = passenger_obj.address.filter(is_main=True).first()
-                    if main_address:
-                        full_address = f"{main_address.street}, {main_address.number} - {main_address.neighborhood}, {main_address.city} - {main_address.state}"
-                        
-                        # Verificar se é o mesmo endereço (pode precisar de normalização)
-                        if _enderecos_sao_iguais(full_address, endereco):
-                            # Atualizar a ordem do PassengerRoute
-                            passenger_route = PassengerRoute.objects.get(
-                                passenger=passenger_obj, 
-                                route=route
-                            )
-                            passenger_route.order = order_index
-                            passenger_route.save()
-                            break
-        
-        print(f"✅ Ordem dos passageiros atualizada com sucesso")
-        
-    except Exception as e:
-        print(f"⚠️ Erro ao atualizar ordem dos passageiros: {e}")
-
-def _enderecos_sao_iguais(endereco1, endereco2):
-    """
-    Compara se dois endereços são iguais (com tolerância)
-    """
-    import unicodedata
-    
-    # Normalizar endereços para comparação
-    def normalizar(endereco):
-        return ''.join(c for c in unicodedata.normalize('NFD', endereco.upper()) 
-                      if unicodedata.category(c) != 'Mn').replace(' ', '')
-    
-    return normalizar(endereco1) in normalizar(endereco2) or normalizar(endereco2) in normalizar(endereco1)
 
 def get_latitude_longitude(address):
     """

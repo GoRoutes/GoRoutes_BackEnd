@@ -94,7 +94,7 @@ class RouteRetrieveSerializer(serializers.Serializer):
     addresses = serializers.ListField(child=serializers.CharField())
     addresses_order = serializers.JSONField()
     overview_polyline = serializers.JSONField()
-    points = serializers.JSONField()
+    # points = serializers.JSONField()
     coords_passageiros = serializers.SerializerMethodField()
     is_active = serializers.BooleanField()
     driver = DriverReadSerializer()
