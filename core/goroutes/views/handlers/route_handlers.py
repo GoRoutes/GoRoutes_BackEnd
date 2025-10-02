@@ -134,3 +134,31 @@ def get_latitude_longitude(address):
     except Exception as e:
         print(f"Error getting latitude and longitude: {e}")
         return None, None
+    
+def destroy_route(request, pk):
+    """
+    Delete a specific route and its associated passenger routes.
+    """
+    try:
+        route = Route.objects.get(pk=pk)
+    except Route.DoesNotExist:
+        return Response({'detail': 'Rota não encontrada'}, status=status.HTTP_404_NOT_FOUND)
+
+    try:
+        with transaction.atomic():
+            # Primeiro exclui todos os PassengerRoute associados
+            PassengerRoute.objects.filter(route=route).delete()
+            
+            # Depois exclui a rota
+            route.delete()
+            
+        return Response(
+            {'detail': 'Rota e passageiros associados excluídos com sucesso'},
+            status=status.HTTP_204_NO_CONTENT
+        )
+        
+    except Exception as e:
+        return Response(
+            {'detail': f'Erro ao excluir rota: {str(e)}'},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )

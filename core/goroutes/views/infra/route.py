@@ -2,7 +2,8 @@ from rest_framework import viewsets
 from core.goroutes.views.handlers import (
     list_routes,
     create_route, 
-    retrieve_route
+    retrieve_route,
+    destroy_route
 )
 
 class RouteViewSet(viewsets.ViewSet):
@@ -21,3 +22,9 @@ class RouteViewSet(viewsets.ViewSet):
         Retrieve a specific route by its primary key.
         """
         return retrieve_route(request, pk)
+    
+    def destroy(self, request, pk=None):
+        """
+        Destroy Route
+        """
+        return destroy_route(request, pk)
