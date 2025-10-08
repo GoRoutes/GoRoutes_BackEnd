@@ -118,5 +118,11 @@
 "route": 1,
 "passenger_list": [1,2,3],
 "date": "2020-01-01",
-"original": true ou false
+"original": false
+}
+
+{
+"route": 15,
+"date": "2020-01-01",
+"original": true
 }

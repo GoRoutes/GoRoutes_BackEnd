@@ -10,3 +10,4 @@ from .recalculate_route import RecalculateRoute
 from .change_presence_status import ChangePresenceStatusView
 from .show_create_jsons import LocalJsonView
 from .verify_has_open_daily_route import CheckActiveDailyRouteDriverView
+from .filter_my_opened_route import FilterMyOpenedPassengerRoute

@@ -4,6 +4,7 @@ from rest_framework import status
 import json
 import os
 import re
+import googlemaps
 from django.conf import settings
 from core.goroutes.models.daily_route import Presence
 from core.goroutes.utils import otimizar_rotas_vans
@@ -102,36 +103,65 @@ class ChangePresenceStatusView(APIView):
                 daily_route.optimized_route_url = rota.get('link_maps')
                 daily_route.coords_passageiros = rota.get('coords_passageiros', [])
 
-                # Carregar JSON salvo e extrair overview_polyline, markers e points
+                # Buscar dados detalhados da rota via API Google Maps
                 try:
-                    json_path = os.path.join(settings.BASE_DIR, f"data_van_{daily_route.vehicle.id}.json")
-                    with open(json_path, 'r', encoding='utf-8') as f:
-                        rota_json = json.load(f)
+                    gmaps = googlemaps.Client(key=api_key)
+                    
+                    # Usar o caminho otimizado para obter dados completos da rota
+                    waypoints = rota['caminho'][1:-1]  # Remove início e fim (já incluídos no origin/destination)
+                    
+                    directions_result = gmaps.directions(
+                        origin=rota['caminho'][0],  # Endereço inicial
+                        destination=rota['caminho'][-1],  # Endereço final
+                        waypoints=waypoints,
+                        mode="driving",
+                        optimize_waypoints=False,  # Já estão otimizados pelo nosso algoritmo
+                        language="pt-BR"
+                    )
+                    
+                    if directions_result:
+                        rota_detalhada = directions_result[0]
+                        
+                        # overview_polyline
+                        daily_route.overview_polyline = rota_detalhada.get('overview_polyline', {})
+                        
+                        # Extrair steps e gerar markers + points
+                        steps = []
+                        points = []
 
-                    daily_route.overview_polyline = rota_json['routes'][0].get('overview_polyline', {})
+                        for leg in rota_detalhada.get('legs', []):
+                            for step in leg.get('steps', []):
+                                clean_instruction = re.sub(r'<[^>]+>', '', step.get('html_instructions', ''))
+                                steps.append({
+                                    "distance": step.get("distance", {}),
+                                    "duration": step.get("duration", {}),
+                                    "start_location": step.get("start_location", {}),
+                                    "end_location": step.get("end_location", {}),
+                                    "polyline": step.get("polyline", {}),
+                                    "html_instructions": clean_instruction
+                                })
 
-                    steps = []
-                    points = []
-                    for leg in rota_json['routes'][0].get('legs', []):
-                        for step in leg.get('steps', []):
-                            clean_instruction = re.sub(r'<[^>]+>', '', step.get('html_instructions', ''))
-                            steps.append({
-                                "distance": step.get("distance", {}),
-                                "duration": step.get("duration", {}),
-                                "start_location": step.get("start_location", {}),
-                                "end_location": step.get("end_location", {}),
-                                "polyline": step.get("polyline", {}),
-                                "html_instructions": clean_instruction
-                            })
-                            polyline_points = step.get("polyline", {}).get("points")
-                            if polyline_points:
-                                points.append(polyline_points)
+                                polyline_points = step.get("polyline", {}).get("points")
+                                if polyline_points:
+                                    points.append(polyline_points)
 
-                    daily_route.markers = steps
-                    daily_route.points = points
-                except Exception:
-                    # Em caso de falha na leitura/parse, ainda salvamos os campos básicos acima
-                    pass
+                        daily_route.markers = steps
+                        daily_route.points = points
+                        
+                        print(f"Dados detalhados da rota obtidos com sucesso: {len(steps)} steps")
+                    else:
+                        print("Não foi possível obter dados detalhados da rota da API")
+                        # Fallback: usar dados básicos da otimização
+                        daily_route.overview_polyline = {}
+                        daily_route.markers = []
+                        daily_route.points = []
+
+                except Exception as e:
+                    print(f"Erro ao obter dados detalhados da rota: {e}")
+                    # Fallback em caso de erro
+                    daily_route.overview_polyline = {}
+                    daily_route.markers = []
+                    daily_route.points = []
 
                 daily_route.save(update_fields=[
                     "optimized_route_url",

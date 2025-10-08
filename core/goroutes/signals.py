@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import re
+import googlemaps
 from django.conf import settings
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -91,36 +92,65 @@ def set_start_address(sender, instance, **kwargs):
                 instance.optimized_route_url = rota['link_maps']
                 instance.coords_passageiros = rota.get('coords_passageiros', [])
 
-                # Caminho do arquivo JSON salvo anteriormente
-                json_path = os.path.join(settings.BASE_DIR, f"data_van_{instance.vehicle.id}.json")
-                with open(json_path, 'r', encoding='utf-8') as f:
-                    rota_json = json.load(f)
+                # Buscar dados detalhados da rota via API Google Maps
+                try:
+                    gmaps = googlemaps.Client(key=api_key)
+                    
+                    # Usar o caminho otimizado para obter dados completos da rota
+                    waypoints = rota['caminho'][1:-1]  # Remove início e fim (já incluídos no origin/destination)
+                    
+                    directions_result = gmaps.directions(
+                        origin=rota['caminho'][0],  # Endereço inicial
+                        destination=rota['caminho'][-1],  # Endereço final
+                        waypoints=waypoints,
+                        mode="driving",
+                        optimize_waypoints=False,  # Já estão otimizados pelo nosso algoritmo
+                        language="pt-BR"
+                    )
+                    
+                    if directions_result:
+                        rota_detalhada = directions_result[0]
+                        
+                        # overview_polyline
+                        instance.overview_polyline = rota_detalhada.get('overview_polyline', {})
+                        
+                        # Extrair steps e gerar markers + points
+                        steps = []
+                        points = []
 
-                # overview_polyline
-                instance.overview_polyline = rota_json['routes'][0].get('overview_polyline', {})
+                        for leg in rota_detalhada.get('legs', []):
+                            for step in leg.get('steps', []):
+                                clean_instruction = re.sub(r'<[^>]+>', '', step.get('html_instructions', ''))
+                                steps.append({
+                                    "distance": step.get("distance", {}),
+                                    "duration": step.get("duration", {}),
+                                    "start_location": step.get("start_location", {}),
+                                    "end_location": step.get("end_location", {}),
+                                    "polyline": step.get("polyline", {}),
+                                    "html_instructions": clean_instruction
+                                })
 
-                # Extrair steps e gerar markers + points
-                steps = []
-                points = []
+                                polyline_points = step.get("polyline", {}).get("points")
+                                if polyline_points:
+                                    points.append(polyline_points)
 
-                for leg in rota_json['routes'][0].get('legs', []):
-                    for step in leg.get('steps', []):
-                        clean_instruction = re.sub(r'<[^>]+>', '', step.get('html_instructions', ''))
-                        steps.append({
-                            "distance": step.get("distance", {}),
-                            "duration": step.get("duration", {}),
-                            "start_location": step.get("start_location", {}),
-                            "end_location": step.get("end_location", {}),
-                            "polyline": step.get("polyline", {}),
-                            "html_instructions": clean_instruction
-                        })
+                        instance.markers = steps
+                        instance.points = points
+                        
+                        logger.info(f"Dados detalhados da rota obtidos com sucesso: {len(steps)} steps")
+                    else:
+                        logger.warning("Não foi possível obter dados detalhados da rota da API")
+                        # Fallback: usar dados básicos da otimização
+                        instance.overview_polyline = {}
+                        instance.markers = []
+                        instance.points = []
 
-                        polyline_points = step.get("polyline", {}).get("points")
-                        if polyline_points:
-                            points.append(polyline_points)
-
-                instance.markers = steps
-                instance.points = points
+                except Exception as e:
+                    logger.error(f"Erro ao obter dados detalhados da rota: {e}")
+                    # Fallback em caso de erro
+                    instance.overview_polyline = {}
+                    instance.markers = []
+                    instance.points = []
 
                 logger.info(f"Rota otimizada com sucesso: {len(rota['caminho'])} paradas")
                 return True
