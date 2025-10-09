@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from core.goroutes.models import Route, PassengerRoute
 from core.goroutes.utils.auto_route import otimizar_rotas_vans
 from core.authentication.models import Passenger
+from core.goroutes.utils.optimize_route import enderecos_coincidem
 
 logger = logging.getLogger(__name__)
 
@@ -106,8 +107,8 @@ def set_start_address(sender, instance, **kwargs):
                             # Usar método do OtimizadorRotas para comparar endereços
                             from core.goroutes.utils.auto_route import OtimizadorRotas
                             otimizador = OtimizadorRotas(api_key)
-                            
-                            if otimizador.enderecos_coincidem(full_address, endereco_caminho):
+
+                            if enderecos_coincidem(full_address, endereco_caminho):
                                 passenger_route.order = ordem
                                 passenger_route.save()
                                 logger.info(f"✅ Passageiro {passenger_route.passenger.user.name} definido para ordem {ordem}")

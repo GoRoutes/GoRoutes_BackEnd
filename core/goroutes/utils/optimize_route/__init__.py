@@ -2,3 +2,12 @@ from .verify_address import verificar_enderecos
 from .get_coords import obter_coordenadas
 from .individual_address import verificar_endereco_individual
 from .get_links_maps import gerar_link_maps
+from .normalize_text import normalizar_texto, normalizar_endereco_completo
+from .save_coords_cache import salvar_coordenadas_no_cache
+from .make_geocoding import fazer_geocoding_api
+from .save_coords_cache import salvar_coordenadas_no_cache
+from .get_coords_cache import obter_coordenadas_do_cache
+from .matched_address import enderecos_coincidem
+from .save_distance_cache import salvar_distancia_no_cache
+from .calc_distance_api import calcular_distancia_api
+from .calc_distance_of_cache import calcular_distancia_do_cache

@@ -111,28 +111,6 @@ def create_route(request):
         return Response(RouteReadSerializer(route).data, status=status.HTTP_201_CREATED)
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-def get_latitude_longitude(address):
-    """
-    Get latitude and longitude from address using Google Maps API
-    """
-    from django.conf import settings
-    import requests
-    
-    api_key = settings.GOOGLE_MAPS_API_KEY
-    url = f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}"
-    
-    try:
-        response = requests.get(url)
-        data = response.json()
-        
-        if data["status"] == "OK":
-            location = data["results"][0]["geometry"]["location"]
-            return location["lat"], location["lng"]
-        return None, None
-    except Exception as e:
-        print(f"Error getting latitude and longitude: {e}")
-        return None, None
     
 def destroy_route(request, pk):
     """

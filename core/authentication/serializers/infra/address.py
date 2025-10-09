@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from core.authentication.models import Address
-from core.goroutes.utils import get_latitude_longitude
 
 class AddressWriterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -8,6 +7,7 @@ class AddressWriterSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
+        from core.goroutes.utils import get_latitude_longitude
         street = validated_data.get('street', '')
         number = validated_data.get('number', '')
         city = validated_data.get('city', '')

@@ -1,4 +1,4 @@
-from .auto_route import get_latitude_longitude, otimizar_rotas_vans 
+from .auto_route import otimizar_rotas_vans 
 from .update_mylocation import update_mylocation
 from .active_route import ActivateRouteView
 from .filter_activated_routes_and_yours_drivers import FilterDriverActiveRoutes
@@ -11,3 +11,4 @@ from .change_presence_status import ChangePresenceStatusView
 from .show_create_jsons import LocalJsonView
 from .verify_has_open_daily_route import CheckActiveDailyRouteDriverView
 from .filter_my_opened_route import FilterMyOpenedPassengerRoute
+from .get_lat_lng import get_latitude_longitude
