@@ -69,11 +69,9 @@ def create_route(request):
             optimized_route_url=data.get("optimized_route_url", "")
         )
 
-        # Criar PassengerRoute para cada passageiro mantendo a ordem
+        # Criar PassengerRoute para cada passageiro com ordem inicial 0
         passenger_list = data.get("passengers_list", [])
         
-        # **MUDANÇA PRINCIPAL AQUI**: Usar a ordem do signal
-        # Inicialmente criamos sem ordem, o signal vai otimizar e depois atualizamos
         for passenger in passenger_list:
             if isinstance(passenger, int):
                 try:
@@ -81,10 +79,11 @@ def create_route(request):
                 except Passenger.DoesNotExist:
                     continue
 
-            # Cria inicialmente sem ordem (será definida depois do signal)
+            # Cria inicialmente sem ordem definida (será definida depois do signal)
             PassengerRoute.objects.create(
                 passenger=passenger, 
                 route=route,
+                order=0  # Ordem temporária
             )
 
         # Agora que os PassengerRoute foram criados, ativar auto_recalculate

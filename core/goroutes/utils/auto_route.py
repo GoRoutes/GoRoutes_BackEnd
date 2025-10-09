@@ -242,17 +242,15 @@ class OtimizadorRotas:
         try:
             print(f"🔍 Buscando distância: {origem} -> {destino}")
             
-            # Normaliza os endereços
             origem_normalizada = self.normalizar_texto(origem)
             destino_normalizada = self.normalizar_texto(destino)
             
-            # Extrai partes principais para busca flexível
             def extrair_partes_principais(endereco):
                 partes = endereco.split(',')
                 if partes:
-                    # Pega a primeira parte (rua e número)
+
                     rua_numero = partes[0].strip()
-                    # Remove "RUA:" se existir
+           
                     rua_numero = rua_numero.replace('RUA:', '').strip()
                     return rua_numero
                 return endereco
@@ -262,7 +260,7 @@ class OtimizadorRotas:
             
             print(f"   Chaves: '{origem_chave}' -> '{destino_chave}'")
             
-            # Busca FLEXÍVEL no cache
+    
             cache_entries = DataCacheRoute.objects.all()
             
             for cache_entry in cache_entries:
@@ -272,7 +270,7 @@ class OtimizadorRotas:
                 cache_origem_chave = extrair_partes_principais(cache_origem_normalizada)
                 cache_destino_chave = extrair_partes_principais(cache_destino_normalizada)
                 
-                # Verifica correspondência em AMBAS as direções
+        
                 match_direta = (
                     origem_chave in cache_origem_chave and 
                     destino_chave in cache_destino_chave
@@ -385,6 +383,38 @@ class OtimizadorRotas:
         except Exception as e:
             print(f"⚠️ Erro ao salvar distância no cache: {e}")
 
+    def enderecos_coincidem(self, endereco1: str, endereco2: str) -> bool:
+        """
+        Compara dois endereços de forma flexível para encontrar correspondência
+        """
+        def normalizar_endereco_completo(endereco: str) -> str:
+            """Normaliza endereço para comparação"""
+            # Remove acentos
+            texto_sem_acentos = ''.join(
+                c for c in unicodedata.normalize('NFD', endereco)
+                if unicodedata.category(c) != 'Mn'
+            )
+            
+            # Coloca em maiúsculas e remove caracteres especiais
+            texto = texto_sem_acentos.upper()
+            import re
+            texto = re.sub(r'[^\w\s]', '', texto)
+            texto = re.sub(r'\s+', ' ', texto).strip()
+            
+            # Normaliza padrões comuns
+            texto = texto.replace('RUA ', '').replace('AVENIDA ', '').replace('AV ', '')
+            texto = texto.replace(' - ', ' ').replace(',', '')
+            
+            return texto
+        
+        endereco1_normalizado = normalizar_endereco_completo(endereco1)
+        endereco2_normalizado = normalizar_endereco_completo(endereco2)
+        
+        # Verifica se um endereço contém o outro (para maior flexibilidade)
+        return (endereco1_normalizado in endereco2_normalizado or 
+                endereco2_normalizado in endereco1_normalizado or
+                endereco1_normalizado == endereco2_normalizado)
+
     def otimizar_rotas(self, enderecos, endereco_final, vans):
         """
         Otimiza rotas usando CACHE com fallback para API
@@ -402,7 +432,8 @@ class OtimizadorRotas:
             
             enderecos_completos.append({
                 'local': endereco_completo,
-                'passageiros': endereco['passageiros']
+                'passageiros': endereco['passageiros'],
+                'original_data': endereco  # Mantém dados originais para referência
             })
 
         # Normalizar endereços das vans
@@ -501,17 +532,16 @@ class OtimizadorRotas:
             grupos_por_van.append({
                 'van_id': van['van'],
                 'endereco_inicial': van['endereco_inicial'],
-                'enderecos': [e['endereco']['local'] for e in grupo_enderecos]
+                'enderecos': [e['endereco']['local'] for e in grupo_enderecos],
+                'enderecos_com_dados': grupo_enderecos  # Mantém dados completos
             })
 
-        # 🔄 CALCULAR ROTAS USANDO CACHE COM FALLBACK
         rotas_finais = []
         for grupo in grupos_por_van:
             waypoints = grupo['enderecos']
             if not waypoints:
                 continue
 
-            # Calcular distância total do cache
             distancia_total = 0
             tempo_total = 0
             caminho = [grupo['endereco_inicial']] + waypoints + [endereco_final]
@@ -525,8 +555,17 @@ class OtimizadorRotas:
                 else:
                     print(f"❌ Não foi possível calcular distância: {caminho[i]} -> {caminho[i + 1]}")
 
-            # Gerar link do Maps
             link_maps = f"https://www.google.com/maps/dir/{'/'.join([c.replace(' ', '+') for c in caminho])}"
+
+            coords_passageiros_grupo = []
+            for endereco_com_dados in grupo['enderecos_com_dados']:
+                coord = endereco_com_dados['coords']
+                endereco_local = endereco_com_dados['endereco']['local']
+                coords_passageiros_grupo.append({
+                    'lat': coord[0],
+                    'lng': coord[1],
+                    'address': endereco_local
+                })
 
             rotas_finais.append({
                 'van_id': grupo['van_id'],
@@ -534,7 +573,8 @@ class OtimizadorRotas:
                 'distancia_total': distancia_total,
                 'tempo_estimado': tempo_total,
                 'link_maps': link_maps,
-                'coords_passageiros': coords_passageiros.tolist(),
+                'coords_passageiros': coords_passageiros_grupo,
+                'enderecos_com_dados': grupo['enderecos_com_dados'], 
                 'usando_cache': True
             })
 

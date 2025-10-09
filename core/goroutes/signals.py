@@ -92,6 +92,27 @@ def set_start_address(sender, instance, **kwargs):
                 instance.optimized_route_url = rota['link_maps']
                 instance.coords_passageiros = rota.get('coords_passageiros', [])
 
+                # ATUALIZAR ORDEM DOS PASSAGEIROS
+                caminho_otimizado = rota['caminho']
+                
+                # Para cada endereço no caminho otimizado (excluindo origem e destino)
+                for ordem, endereco_caminho in enumerate(caminho_otimizado[1:-1]):
+                    # Encontrar o passageiro correspondente a este endereço
+                    for passenger_route in instance.passenger_routes.all():
+                        main_address = passenger_route.passenger.address.filter(is_main=True).first()
+                        if main_address:
+                            full_address = f"{main_address.street}, {main_address.number} - {main_address.neighborhood}, {main_address.city} - {main_address.state}"
+                            
+                            # Usar método do OtimizadorRotas para comparar endereços
+                            from core.goroutes.utils.auto_route import OtimizadorRotas
+                            otimizador = OtimizadorRotas(api_key)
+                            
+                            if otimizador.enderecos_coincidem(full_address, endereco_caminho):
+                                passenger_route.order = ordem
+                                passenger_route.save()
+                                logger.info(f"✅ Passageiro {passenger_route.passenger.user.name} definido para ordem {ordem}")
+                                break
+
                 # Buscar dados detalhados da rota via API Google Maps
                 try:
                     gmaps = googlemaps.Client(key=api_key)
@@ -165,4 +186,4 @@ def set_start_address(sender, instance, **kwargs):
             logger.error(f"Erro ao otimizar rotas: {e}")
             return False
 
-    return True
+    return True 
