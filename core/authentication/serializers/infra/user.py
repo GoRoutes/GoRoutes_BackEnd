@@ -119,3 +119,26 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         })
 
         return data
+
+class UserUpdateSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=255, required=False)
+    name = serializers.CharField(max_length=255, required=False)
+    email = serializers.EmailField(required=False)
+    telephone = serializers.CharField(max_length=20, required=False)
+
+    def validate(self, attrs):
+        user = self.context.get('user')
+
+        if 'email' in attrs and attrs['email'] != user.email:
+            validate_unique_user_email(attrs["email"])
+        
+        if 'name' in attrs and attrs['name'] != user.name:
+            validate_unique_user_name(attrs["name"])
+        
+        if 'username' in attrs and attrs['username'] != user.username:
+            validate_unique_username(attrs["username"])
+        
+        if 'data_of_birth' in attrs:
+            validate_max_age(attrs["data_of_birth"])
+
+        return attrs
