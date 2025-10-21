@@ -15,7 +15,8 @@ from core.goroutes.utils import (
     ChangePresenceStatusView, 
     LocalJsonView,  
     CheckActiveDailyRouteDriverView, 
-    FilterMyOpenedPassengerRoute
+    FilterMyOpenedPassengerRoute,
+    UpdateDocumentDriver
 )
 from core.goroutes.views import VehicleViewSet, NotifyViewSet, RouteViewSet, DailyRouteViewSet
 
@@ -51,6 +52,7 @@ urlpatterns = [
     path('filter-my-driver-routes/<int:driver_id>/', FilterMyDriverRoutes.as_view(), name='filter-my-driver-routes'),
     path('filter-my-opened-route/<int:passenger_id>/', FilterMyOpenedPassengerRoute.as_view(), name='filter-my-driver-routes'),
     path('update-document-vehicle/', UpdateDocumentVehicle.as_view(), name='update-document-vehicle'),
+    path('update-document-driver/', UpdateDocumentDriver.as_view(), name='update-document-driver'),
     path('update-picture-vehicle/', UpdatePictureVehicle.as_view(), name='update-picture-vehicle'),
     path('change-presence-status/', ChangePresenceStatusView.as_view(), name='change-presence-status'),
     path('show-jsons-create/', LocalJsonView.as_view(), name='show-jsons-create'),

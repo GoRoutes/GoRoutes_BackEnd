@@ -5,6 +5,7 @@ from core.authentication.serializers.infra import (
     UserWriterSerializer, 
     UserReadSerializer
 )
+from core.uploader.serializers import DocumentReadSerializer
 
 class DriverCreateSerializer(serializers.Serializer):
     cnh = serializers.CharField(max_length=20)
@@ -22,3 +23,6 @@ class DriverReadSerializer(serializers.Serializer):
     is_active = serializers.BooleanField()
     user = UserReadSerializer()
     adresses = AddressReadSerializer(many=True)
+    cnh_document = DocumentReadSerializer(read_only=True)
+    course_document = DocumentReadSerializer(read_only=True)
+    toxic_exam_document = DocumentReadSerializer(read_only=True)
