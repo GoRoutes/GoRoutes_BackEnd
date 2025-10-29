@@ -2,12 +2,14 @@ import json
 import logging
 import os
 import re
+import googlemaps
 from django.conf import settings
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from core.goroutes.models import Route, PassengerRoute
 from core.goroutes.utils.auto_route import otimizar_rotas_vans
 from core.authentication.models import Passenger
+from core.goroutes.utils.optimize_route import enderecos_coincidem
 
 logger = logging.getLogger(__name__)
 
@@ -91,36 +93,86 @@ def set_start_address(sender, instance, **kwargs):
                 instance.optimized_route_url = rota['link_maps']
                 instance.coords_passageiros = rota.get('coords_passageiros', [])
 
-                # Caminho do arquivo JSON salvo anteriormente
-                json_path = os.path.join(settings.BASE_DIR, f"data_van_{instance.vehicle.id}.json")
-                with open(json_path, 'r', encoding='utf-8') as f:
-                    rota_json = json.load(f)
+                # ATUALIZAR ORDEM DOS PASSAGEIROS
+                caminho_otimizado = rota['caminho']
+                
+                # Para cada endereço no caminho otimizado (excluindo origem e destino)
+                for ordem, endereco_caminho in enumerate(caminho_otimizado[1:-1]):
+                    # Encontrar o passageiro correspondente a este endereço
+                    for passenger_route in instance.passenger_routes.all():
+                        main_address = passenger_route.passenger.address.filter(is_main=True).first()
+                        if main_address:
+                            full_address = f"{main_address.street}, {main_address.number} - {main_address.neighborhood}, {main_address.city} - {main_address.state}"
+                            
+                            # Usar método do OtimizadorRotas para comparar endereços
+                            from core.goroutes.utils.auto_route import OtimizadorRotas
+                            otimizador = OtimizadorRotas(api_key)
 
-                # overview_polyline
-                instance.overview_polyline = rota_json['routes'][0].get('overview_polyline', {})
+                            if enderecos_coincidem(full_address, endereco_caminho):
+                                passenger_route.order = ordem
+                                passenger_route.save()
+                                logger.info(f"✅ Passageiro {passenger_route.passenger.user.name} definido para ordem {ordem}")
+                                break
 
-                # Extrair steps e gerar markers + points
-                steps = []
-                points = []
+                # Buscar dados detalhados da rota via API Google Maps
+                try:
+                    gmaps = googlemaps.Client(key=api_key)
+                    
+                    # Usar o caminho otimizado para obter dados completos da rota
+                    waypoints = rota['caminho'][1:-1]  # Remove início e fim (já incluídos no origin/destination)
+                    
+                    directions_result = gmaps.directions(
+                        origin=rota['caminho'][0],  # Endereço inicial
+                        destination=rota['caminho'][-1],  # Endereço final
+                        waypoints=waypoints,
+                        mode="driving",
+                        optimize_waypoints=False,  # Já estão otimizados pelo nosso algoritmo
+                        language="pt-BR"
+                    )
+                    
+                    if directions_result:
+                        rota_detalhada = directions_result[0]
+                        
+                        # overview_polyline
+                        instance.overview_polyline = rota_detalhada.get('overview_polyline', {})
+                        
+                        # Extrair steps e gerar markers + points
+                        steps = []
+                        points = []
 
-                for leg in rota_json['routes'][0].get('legs', []):
-                    for step in leg.get('steps', []):
-                        clean_instruction = re.sub(r'<[^>]+>', '', step.get('html_instructions', ''))
-                        steps.append({
-                            "distance": step.get("distance", {}),
-                            "duration": step.get("duration", {}),
-                            "start_location": step.get("start_location", {}),
-                            "end_location": step.get("end_location", {}),
-                            "polyline": step.get("polyline", {}),
-                            "html_instructions": clean_instruction
-                        })
+                        for leg in rota_detalhada.get('legs', []):
+                            for step in leg.get('steps', []):
+                                clean_instruction = re.sub(r'<[^>]+>', '', step.get('html_instructions', ''))
+                                steps.append({
+                                    "distance": step.get("distance", {}),
+                                    "duration": step.get("duration", {}),
+                                    "start_location": step.get("start_location", {}),
+                                    "end_location": step.get("end_location", {}),
+                                    "polyline": step.get("polyline", {}),
+                                    "html_instructions": clean_instruction
+                                })
 
-                        polyline_points = step.get("polyline", {}).get("points")
-                        if polyline_points:
-                            points.append(polyline_points)
+                                polyline_points = step.get("polyline", {}).get("points")
+                                if polyline_points:
+                                    points.append(polyline_points)
 
-                instance.markers = steps
-                instance.points = points
+                        instance.markers = steps
+                        instance.points = points
+                        
+                        logger.info(f"Dados detalhados da rota obtidos com sucesso: {len(steps)} steps")
+                    else:
+                        logger.warning("Não foi possível obter dados detalhados da rota da API")
+                        # Fallback: usar dados básicos da otimização
+                        instance.overview_polyline = {}
+                        instance.markers = []
+                        instance.points = []
+
+                except Exception as e:
+                    logger.error(f"Erro ao obter dados detalhados da rota: {e}")
+                    # Fallback em caso de erro
+                    instance.overview_polyline = {}
+                    instance.markers = []
+                    instance.points = []
 
                 logger.info(f"Rota otimizada com sucesso: {len(rota['caminho'])} paradas")
                 return True
@@ -135,4 +187,4 @@ def set_start_address(sender, instance, **kwargs):
             logger.error(f"Erro ao otimizar rotas: {e}")
             return False
 
-    return True
+    return True 

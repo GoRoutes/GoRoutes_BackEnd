@@ -6,6 +6,7 @@ from core.goroutes.models import PassengerRoute, Vehicle
 from core.goroutes.serializers import VehicleSerializer
 from core.authentication.serializers.infra import DriverReadSerializer
 import requests
+
 class RouteWriteSerializer(serializers.Serializer):
     id = serializers.IntegerField(required=False, allow_null=True)
     name = serializers.CharField(max_length=255)
@@ -40,6 +41,20 @@ class RouteWriteSerializer(serializers.Serializer):
         allow_null=True
     )
 
+# 🔄 NOVO SERIALIZER para PassengerRoute com order dentro do user
+class PassengerRouteWithOrderSerializer(serializers.Serializer):
+    user = serializers.SerializerMethodField()
+
+    def get_user(self, obj):
+        main_address = obj.passenger.address.filter(is_main=True).first()
+        
+        return {
+            "id": obj.passenger.user.id,
+            "name": obj.passenger.user.name,
+            "address": main_address.full_address if main_address else None,
+            "order": obj.order  # 🔄 ORDEM DENTRO DO USER
+        }
+
 class RouteReadSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name = serializers.CharField(max_length=255)
@@ -61,11 +76,9 @@ class RouteReadSerializer(serializers.Serializer):
     driver = DriverReadSerializer()
   
     def get_passengers(self, obj):
-        from core.authentication.serializers.infra import PassengerRouteReadSerializer
-
-        passenger_routes = PassengerRoute.objects.filter(route=obj)
-        passengers = [pr.passenger for pr in passenger_routes]
-        return PassengerRouteReadSerializer(passengers, many=True).data
+        # 🔄 MUDANÇA AQUI: Usar o novo serializer que inclui order dentro do user
+        passenger_routes = PassengerRoute.objects.filter(route=obj).order_by('order')
+        return PassengerRouteWithOrderSerializer(passenger_routes, many=True).data
 
     def get_optimized_route_url(self, obj):
         if not obj.optimized_route_url:
@@ -94,16 +107,15 @@ class RouteRetrieveSerializer(serializers.Serializer):
     addresses = serializers.ListField(child=serializers.CharField())
     addresses_order = serializers.JSONField()
     overview_polyline = serializers.JSONField()
-    points = serializers.JSONField()
+    # points = serializers.JSONField()
     coords_passageiros = serializers.SerializerMethodField()
     is_active = serializers.BooleanField()
     driver = DriverReadSerializer()
 
     def get_passengers(self, obj):
-        from core.authentication.serializers.infra import PassengerRouteReadSerializer
-        passenger_routes = PassengerRoute.objects.filter(route=obj)
-        passengers = [pr.passenger for pr in passenger_routes]
-        return PassengerRouteReadSerializer(passengers, many=True).data
+        # 🔄 MUDANÇA AQUI: Usar o novo serializer que inclui order dentro do user
+        passenger_routes = PassengerRoute.objects.filter(route=obj).order_by('order')
+        return PassengerRouteWithOrderSerializer(passenger_routes, many=True).data
 
     def get_optimized_route_url(self, obj):
         if not obj.optimized_route_url:
@@ -123,7 +135,16 @@ class RouteRetrieveSerializer(serializers.Serializer):
         api_key = settings.GOOGLE_MAPS_API_KEY
         base_url = "https://maps.googleapis.com/maps/api/geocode/json"
 
-        for lat, lng in coords:
+        for coord in coords:
+            # Verifica se é uma lista [lat, lng] ou dict {'lat': x, 'lng': y}
+            if isinstance(coord, list) and len(coord) == 2:
+                lat, lng = coord
+            elif isinstance(coord, dict):
+                lat = coord.get('lat')
+                lng = coord.get('lng')
+            else:
+                continue
+                
             try:
                 response = requests.get(base_url, params={
                     "latlng": f"{lat},{lng}",
@@ -160,4 +181,3 @@ class RouteActiveSerializer(serializers.Serializer):
     is_active = serializers.BooleanField() 
     driver = DriverReadSerializer()
     vehicle = VehicleSerializer(read_only=True)
-

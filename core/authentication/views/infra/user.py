@@ -4,7 +4,7 @@ from core.authentication.models import User
 from rest_framework.response import Response
 from rest_framework import status
 from core.authentication.serializers.infra import UserListSerializer, CustomTokenObtainPairSerializer, UserRetrieveSerializer
-from core.authentication.views.handlers.user_handlers import destroy_user
+from core.authentication.views.handlers.user_handlers import destroy_user, update_user
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django_filters.rest_framework import DjangoFilterBackend
 from core.authentication.filters import  CombinedUserFilter
@@ -23,6 +23,10 @@ class UserViewSet(ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         return destroy_user(request, pk)
+    
+    def update(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        return update_user(request, pk)
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer

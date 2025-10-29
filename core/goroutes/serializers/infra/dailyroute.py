@@ -7,7 +7,6 @@ from core.goroutes.models import PassengerRoute, Presence
 from core.goroutes.serializers import VehicleSerializer
 from core.authentication.serializers.infra import DriverReadSerializer
 import requests
-from core.goroutes.utils import get_latitude_longitude
 
 from rest_framework import serializers
 from core.goroutes.models import DailyRoute, Route
@@ -45,11 +44,19 @@ class PresenceSerializer(serializers.Serializer):
     daily_route = serializers.PrimaryKeyRelatedField(queryset=DailyRoute.objects.all())
     passenger_name = serializers.SerializerMethodField()
     address_passenger = serializers.SerializerMethodField()
+    responsible_passenger = serializers.SerializerMethodField()
 
     def get_passenger_name(self, obj):
         return obj.passenger_route.user.name
-    
+
+    def get_responsible_passenger(self, obj):
+        student_data = getattr(obj.passenger_route, "student_data", None)
+        if student_data and student_data.responsible:
+            return student_data.responsible.id
+        return None
+
     def get_address_passenger(self, obj):
+        from core.goroutes.utils import get_latitude_longitude
         addresses = obj.passenger_route.address.all()
         main_address = addresses.filter(is_main=True)
         results = []

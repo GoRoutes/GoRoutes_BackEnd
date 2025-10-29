@@ -4,9 +4,9 @@ from core.uploader.models import Image, Document
 
 
 class VehicleStatus(models.TextChoices):
-    MAINTENANCE = "manutenção"
-    AVAILABLE = "disponível"
-    ON_ROUTE = "em rota"
+    MAINTENANCE = "Manutencao"
+    AVAILABLE = "Disponivel"
+    ON_ROUTE = "Em rota"
 
 
 class Vehicle(models.Model):

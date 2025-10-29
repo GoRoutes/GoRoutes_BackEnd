@@ -43,6 +43,10 @@ class Route(models.Model):
 class PassengerRoute(models.Model):
     passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE, related_name='passenger_routes')
     route = models.ForeignKey(Route, on_delete=models.CASCADE, related_name='passenger_routes')
-
+    order = models.PositiveIntegerField(default=0)  # NOVO CAMPO PARA ORDEM
+    
     def __str__(self):
-        return f"{self.passenger.user.name} on route {self.route.name}"
+        return f"{self.passenger.user.name} on route {self.route.name} (order: {self.order})"
+    
+    class Meta:
+        ordering = ['order']  # Ordenação padrão pela ordem

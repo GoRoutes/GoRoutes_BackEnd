@@ -4,7 +4,20 @@ from rest_framework.response import Response
 from rest_framework.routers import DefaultRouter
 from rest_framework.reverse import reverse
 
-from core.goroutes.utils import ActivateRouteView, FilterDriverActiveRoutes, FilterDriverByIsActiveRoutes, FilterMyDriverRoutes, UpdateDocumentVehicle, UpdatePictureVehicle, RecalculateRoute, ChangePresenceStatusView, LocalJsonView,  CheckActiveDailyRouteDriverView
+from core.goroutes.utils import (
+    ActivateRouteView, 
+    FilterDriverActiveRoutes, 
+    FilterDriverByIsActiveRoutes, 
+    FilterMyDriverRoutes, 
+    UpdateDocumentVehicle, 
+    UpdatePictureVehicle, 
+    RecalculateRoute, 
+    ChangePresenceStatusView, 
+    LocalJsonView,  
+    CheckActiveDailyRouteDriverView, 
+    FilterMyOpenedPassengerRoute,
+    UpdateDocumentDriver
+)
 from core.goroutes.views import VehicleViewSet, NotifyViewSet, RouteViewSet, DailyRouteViewSet
 
 router = DefaultRouter()
@@ -37,9 +50,11 @@ urlpatterns = [
     path('recalculate-route/', RecalculateRoute.as_view(), name='recalculate-route'),
     path('filter-my-active-route/<int:driver_id>/', FilterDriverByIsActiveRoutes.as_view(), name='filter-my-active-route'),
     path('filter-my-driver-routes/<int:driver_id>/', FilterMyDriverRoutes.as_view(), name='filter-my-driver-routes'),
+    path('filter-my-opened-route/<int:passenger_id>/', FilterMyOpenedPassengerRoute.as_view(), name='filter-my-driver-routes'),
     path('update-document-vehicle/', UpdateDocumentVehicle.as_view(), name='update-document-vehicle'),
+    path('update-document-driver/', UpdateDocumentDriver.as_view(), name='update-document-driver'),
     path('update-picture-vehicle/', UpdatePictureVehicle.as_view(), name='update-picture-vehicle'),
     path('change-presence-status/', ChangePresenceStatusView.as_view(), name='change-presence-status'),
     path('show-jsons-create/', LocalJsonView.as_view(), name='show-jsons-create'),
-    path('check-active-route-driver/<int:driver_id>/', CheckActiveDailyRouteDriverView.as_view(), name='check-active-route-driver'),
+    path('check-active-route-driver/<int:driver_id>/', CheckActiveDailyRouteDriverView.as_view(), name='check-active-route-driver')
 ]

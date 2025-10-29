@@ -35,6 +35,7 @@ dependencies = [
   "scikit-learn>=1.7.1",
   "rich>=14.1.0",
   "django-jazzmin>=3.0.1",
+  "celery>=5.5.3",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
@@ -73,6 +74,7 @@ createsuperuser = "python manage.py createsuperuser"
 pre_migrate = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
 shell = "python manage.py shell"
+shellp = "python manage.py shell_plus"
 test = "python manage.py test"
 startapp = "python manage.py startapp {args}"
 loaddata = "python manage.py loaddata {args}"
@@ -84,6 +86,7 @@ check = "ruff check"
 pre_format = "ruff check --fix"
 format = "ruff format"
 migrate_db = "python manage.py migrate_db"
+celery = "celery -A config worker --loglevel=info"
 
 [dependency-groups]
 dev = [

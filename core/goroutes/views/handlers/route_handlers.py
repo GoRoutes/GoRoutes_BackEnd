@@ -69,23 +69,27 @@ def create_route(request):
             optimized_route_url=data.get("optimized_route_url", "")
         )
 
-        # Criar PassengerRoute para cada passageiro
+        # Criar PassengerRoute para cada passageiro com ordem inicial 0
         passenger_list = data.get("passengers_list", [])
+        
         for passenger in passenger_list:
-            # Garante que estamos lidando com instância e não com ID
             if isinstance(passenger, int):
                 try:
                     passenger = Passenger.objects.get(pk=passenger)
                 except Passenger.DoesNotExist:
-                    continue  # ou trate o erro conforme sua necessidade
+                    continue
 
-            # Evita duplicata
-            PassengerRoute.objects.create(passenger=passenger, route=route)
+            # Cria inicialmente sem ordem definida (será definida depois do signal)
+            PassengerRoute.objects.create(
+                passenger=passenger, 
+                route=route,
+                order=0  # Ordem temporária
+            )
 
-        # Agora que os PassengerRoute foram criados, ativar auto_recalculate e tentar salvar
+        # Agora que os PassengerRoute foram criados, ativar auto_recalculate
         route.auto_recalculate = True
         
-        # Chamar o signal manualmente para verificar se a otimização foi bem sucedida
+        # Chamar o signal manualmente para otimização
         signal_response = signals.pre_save.send(
             sender=Route,
             instance=route,
@@ -97,16 +101,41 @@ def create_route(request):
         # Verificar se algum receiver retornou False
         for receiver, response in signal_response:
             if response is False:
-                # Se houver erro na otimização, desfaz a transação
                 transaction.set_rollback(True)
                 return Response(
                     {"error": "Não foi possível otimizar a rota. Verifique se todos os passageiros têm endereço principal cadastrado e se o veículo foi definido."},
                     status=status.HTTP_400_BAD_REQUEST
                 )
         
-        # Se chegou aqui, a otimização foi bem sucedida
         route.save()
         return Response(RouteReadSerializer(route).data, status=status.HTTP_201_CREATED)
 
-    # Erro de validação
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+def destroy_route(request, pk):
+    """
+    Delete a specific route and its associated passenger routes.
+    """
+    try:
+        route = Route.objects.get(pk=pk)
+    except Route.DoesNotExist:
+        return Response({'detail': 'Rota não encontrada'}, status=status.HTTP_404_NOT_FOUND)
+
+    try:
+        with transaction.atomic():
+            # Primeiro exclui todos os PassengerRoute associados
+            PassengerRoute.objects.filter(route=route).delete()
+            
+            # Depois exclui a rota
+            route.delete()
+            
+        return Response(
+            {'detail': 'Rota e passageiros associados excluídos com sucesso'},
+            status=status.HTTP_204_NO_CONTENT
+        )
+        
+    except Exception as e:
+        return Response(
+            {'detail': f'Erro ao excluir rota: {str(e)}'},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
