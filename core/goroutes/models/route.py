@@ -23,7 +23,7 @@ class Route(models.Model):
     coords_passageiros = models.JSONField(default=list)
     points = models.JSONField(default=list)
     is_active = models.BooleanField(default=True)
-    driver = models.OneToOneField(Driver, on_delete=models.CASCADE, null=True, blank=True, related_name='route')
+    driver = models.ForeignKey(Driver, on_delete=models.CASCADE, null=True, blank=True, related_name='route')
     
     # Campos necessários para o signal
     start_address = models.CharField(max_length=255, null=True, blank=True)

@@ -7,4 +7,3 @@ class GoroutesConfig(AppConfig):
 
     def ready(self):
         import core.goroutes.signals
-        print("Sinais do goroutes carregados")

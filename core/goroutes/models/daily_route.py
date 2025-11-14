@@ -19,7 +19,7 @@ class DailyRoute(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     auto_recalculate = models.BooleanField(default=False)
     addresses = models.JSONField(default=list)
-    optimized_route_url = models.URLField(null=True, blank=True)
+    optimized_route_url = models.TextField(null=True, blank=True)
     overview_polyline = models.JSONField(null=True, blank=True)
     markers = models.JSONField(null=True, blank=True)
     coords_passageiros = models.JSONField(default=list)
