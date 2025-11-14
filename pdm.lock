@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:a95ce019555de0e1aef3f7fe1fc41bf781288a509485157614e5bf9e3b7c42d3"
+content_hash = "sha256:a275cdfcc835d555ad6c4aaf5562cc88dddceafa41360543b2507f160ce1a8c0"
 
 [[metadata.targets]]
 requires_python = ">=3.12"
@@ -643,6 +643,19 @@ dependencies = [
 files = [
     {file = "faker-37.5.3-py3-none-any.whl", hash = "sha256:386fe9d5e6132a915984bf887fcebcc72d6366a25dd5952905b31b141a17016d"},
     {file = "faker-37.5.3.tar.gz", hash = "sha256:8315d8ff4d6f4f588bd42ffe63abd599886c785073e26a44707e10eeba5713dc"},
+]
+
+[[package]]
+name = "googlemaps"
+version = "4.10.0"
+requires_python = ">=3.5"
+summary = "Python client library for Google Maps Platform"
+groups = ["default"]
+dependencies = [
+    "requests<3.0,>=2.20.0",
+]
+files = [
+    {file = "googlemaps-4.10.0.tar.gz", hash = "sha256:3055fcbb1aa262a9159b589b5e6af762b10e80634ae11c59495bd44867e47d88"},
 ]
 
 [[package]]

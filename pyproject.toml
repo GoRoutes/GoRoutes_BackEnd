@@ -36,6 +36,7 @@ dependencies = [
   "rich>=14.1.0",
   "django-jazzmin>=3.0.1",
   "celery>=5.5.3",
+  "googlemaps>=4.10.0",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
