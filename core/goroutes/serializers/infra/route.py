@@ -52,7 +52,8 @@ class PassengerRouteWithOrderSerializer(serializers.Serializer):
             "id": obj.passenger.user.id,
             "name": obj.passenger.user.name,
             "address": main_address.full_address if main_address else None,
-            "order": obj.order  # 🔄 ORDEM DENTRO DO USER
+            "order": obj.order,
+            "passenger_id": obj.passenger.id
         }
 
 class RouteReadSerializer(serializers.Serializer):
