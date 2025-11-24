@@ -66,9 +66,8 @@ class ChangePresenceStatusView(APIView):
             origin_from_passenger = f"{main_address.street}, {main_address.number} - {main_address.neighborhood}, {main_address.city} - {main_address.state}"
 
             # Waypoints = outros passageiros ainda pendentes (exclui o atual)
-            pending_presences = daily_route.presences.exclude(passenger_route=passenger).filter(status__in=[
-                Presence.Status.NAO_PEGO, Presence.Status.PRESENTE
-            ])
+            # FIX: Only include NAO_PEGO to avoid looping back to PRESENTE passengers
+            pending_presences = daily_route.presences.exclude(passenger_route=passenger).filter(status=Presence.Status.NAO_PEGO)
 
             addresses = []
             for p in pending_presences:
@@ -79,10 +78,6 @@ class ChangePresenceStatusView(APIView):
                         "local": f"{other_main.street}, {other_main.number} - {other_main.neighborhood}, {other_main.city} - {other_main.state}",
                         "passageiros": 1
                     })
-
-            # Vans (formato esperado)
-            if daily_route.vehicle is None:
-                return Response({"error": "DailyRoute sem veículo."}, status=status.HTTP_400_BAD_REQUEST)
 
             vans = [{
                 "van": daily_route.vehicle.id,
